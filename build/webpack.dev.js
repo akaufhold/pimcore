@@ -6,6 +6,8 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import FixStyleOnlyEntriesPlugin from 'webpack-fix-style-only-entries';
+import WebpackShellPluginNext from 'webpack-shell-plugin-next';
+import BrowserSyncPlugin from 'webpack-shell-plugin-next';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -64,7 +66,15 @@ export default {
               },
             }
           },
-          'sass-loader'
+          {
+            loader: 'sass-loader',
+            options: {
+              api: "modern",
+              sassOptions: {
+                quietDeps: true
+              }
+            }
+          },
         ]
       },
       {
@@ -118,5 +128,36 @@ export default {
     }),
 
     new FixStyleOnlyEntriesPlugin(),
+
+    new WebpackShellPluginNext({
+      onWatchRun:{
+        scripts: [
+          'echo "Watcher Start"',
+        ],
+        blocking: false,
+        parallel: false
+      },
+      onDoneWatch:{
+        scripts: [
+          'echo "Clear Pimcore Cache"',
+          'bin/console pimcore:cache:clear',
+        ],
+        blocking: false,
+        parallel: false
+      },
+    }),
+
+    // Add live browser
+    new BrowserSyncPlugin({
+      //  host: 'bmas-sgb2.pixelpark.docker',
+      //  port: 54011,
+      // browse to http://localhost:3001/ during development,
+      https: true,
+      proxy: 'https://bmas-sgb2.pixelpark.docker',
+      online: true,
+      reloadOnRestart: false,
+      notify: false
+      // logLevel: "debug"
+    })
   ]
 }

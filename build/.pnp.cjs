@@ -36,6 +36,7 @@ const RAW_RUNTIME_STATE =
           ["autoprefixer", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:10.4.20"],\
           ["babel-eslint", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:10.1.0"],\
           ["bootstrap", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.3.3"],\
+          ["browser-sync-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:2.3.0"],\
           ["browserslist", "npm:4.24.2"],\
           ["caniuse-lite", "npm:1.0.30001683"],\
           ["copy-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:12.0.2"],\
@@ -70,13 +71,14 @@ const RAW_RUNTIME_STATE =
           ["postcss-svgo", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.1.0"],\
           ["prettier", "npm:2.8.8"],\
           ["sass", "npm:1.81.0"],\
-          ["sass-loader", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:12.6.0"],\
+          ["sass-loader", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:16.0.3"],\
           ["serviceworker-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:1.0.1"],\
           ["stylelint", "npm:14.16.1"],\
           ["stylelint-bare-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:2.1.0"],\
           ["stylelint-config-recommended", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:6.0.0"],\
           ["stylelint-config-recommended-scss", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.0.2"],\
           ["stylelint-config-standard", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:24.0.0"],\
+          ["stylelint-config-twbs-bootstrap", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:15.1.0"],\
           ["stylelint-order", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.0.0"],\
           ["stylelint-scss", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:4.7.0"],\
           ["tapable", "npm:2.2.1"],\
@@ -2142,6 +2144,63 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@csstools/css-parser-algorithms", [\
+      ["npm:3.0.4", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/@csstools-css-parser-algorithms-npm-3.0.4-ace8f522a1-10c0.zip/node_modules/@csstools/css-parser-algorithms/",\
+        "packageDependencies": [\
+          ["@csstools/css-parser-algorithms", "npm:3.0.4"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:e6134b2e7d1c767a8c212e6adcda023fd8b5489c95916ddacbebb150b9ac9947c52807732e586d420736a6006fdda718fa28a2c6b0d640fc626d8e44bac81e69#npm:3.0.4", {\
+        "packageLocation": "./.yarn/__virtual__/@csstools-css-parser-algorithms-virtual-89010b5c42/7/home/akaufhold/.yarn/berry/cache/@csstools-css-parser-algorithms-npm-3.0.4-ace8f522a1-10c0.zip/node_modules/@csstools/css-parser-algorithms/",\
+        "packageDependencies": [\
+          ["@csstools/css-parser-algorithms", "virtual:e6134b2e7d1c767a8c212e6adcda023fd8b5489c95916ddacbebb150b9ac9947c52807732e586d420736a6006fdda718fa28a2c6b0d640fc626d8e44bac81e69#npm:3.0.4"],\
+          ["@csstools/css-tokenizer", "npm:3.0.3"],\
+          ["@types/csstools__css-tokenizer", null]\
+        ],\
+        "packagePeers": [\
+          "@csstools/css-tokenizer",\
+          "@types/csstools__css-tokenizer"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@csstools/css-tokenizer", [\
+      ["npm:3.0.3", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/@csstools-css-tokenizer-npm-3.0.3-c884a41159-10c0.zip/node_modules/@csstools/css-tokenizer/",\
+        "packageDependencies": [\
+          ["@csstools/css-tokenizer", "npm:3.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@csstools/media-query-list-parser", [\
+      ["npm:3.0.1", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/@csstools-media-query-list-parser-npm-3.0.1-b24a8210e4-10c0.zip/node_modules/@csstools/media-query-list-parser/",\
+        "packageDependencies": [\
+          ["@csstools/media-query-list-parser", "npm:3.0.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:e6134b2e7d1c767a8c212e6adcda023fd8b5489c95916ddacbebb150b9ac9947c52807732e586d420736a6006fdda718fa28a2c6b0d640fc626d8e44bac81e69#npm:3.0.1", {\
+        "packageLocation": "./.yarn/__virtual__/@csstools-media-query-list-parser-virtual-74e29979cf/7/home/akaufhold/.yarn/berry/cache/@csstools-media-query-list-parser-npm-3.0.1-b24a8210e4-10c0.zip/node_modules/@csstools/media-query-list-parser/",\
+        "packageDependencies": [\
+          ["@csstools/media-query-list-parser", "virtual:e6134b2e7d1c767a8c212e6adcda023fd8b5489c95916ddacbebb150b9ac9947c52807732e586d420736a6006fdda718fa28a2c6b0d640fc626d8e44bac81e69#npm:3.0.1"],\
+          ["@csstools/css-parser-algorithms", "virtual:e6134b2e7d1c767a8c212e6adcda023fd8b5489c95916ddacbebb150b9ac9947c52807732e586d420736a6006fdda718fa28a2c6b0d640fc626d8e44bac81e69#npm:3.0.4"],\
+          ["@csstools/css-tokenizer", "npm:3.0.3"],\
+          ["@types/csstools__css-parser-algorithms", null],\
+          ["@types/csstools__css-tokenizer", null]\
+        ],\
+        "packagePeers": [\
+          "@csstools/css-parser-algorithms",\
+          "@csstools/css-tokenizer",\
+          "@types/csstools__css-parser-algorithms",\
+          "@types/csstools__css-tokenizer"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@csstools/postcss-cascade-layers", [\
       ["npm:1.1.1", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/@csstools-postcss-cascade-layers-npm-1.1.1-4382e19cf0-10c0.zip/node_modules/@csstools/postcss-cascade-layers/",\
@@ -3129,6 +3188,58 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/@sindresorhus-merge-streams-npm-2.3.0-5d49fcd96d-10c0.zip/node_modules/@sindresorhus/merge-streams/",\
         "packageDependencies": [\
           ["@sindresorhus/merge-streams", "npm:2.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@stylistic/stylelint-config", [\
+      ["npm:2.0.0", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/@stylistic-stylelint-config-npm-2.0.0-a57f0c03d3-10c0.zip/node_modules/@stylistic/stylelint-config/",\
+        "packageDependencies": [\
+          ["@stylistic/stylelint-config", "npm:2.0.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:2.0.0", {\
+        "packageLocation": "./.yarn/__virtual__/@stylistic-stylelint-config-virtual-90f7dc8705/7/home/akaufhold/.yarn/berry/cache/@stylistic-stylelint-config-npm-2.0.0-a57f0c03d3-10c0.zip/node_modules/@stylistic/stylelint-config/",\
+        "packageDependencies": [\
+          ["@stylistic/stylelint-config", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:2.0.0"],\
+          ["@stylistic/stylelint-plugin", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:3.1.1"],\
+          ["@types/stylelint", null],\
+          ["stylelint", "npm:14.16.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/stylelint",\
+          "stylelint"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@stylistic/stylelint-plugin", [\
+      ["npm:3.1.1", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/@stylistic-stylelint-plugin-npm-3.1.1-d542bf7821-10c0.zip/node_modules/@stylistic/stylelint-plugin/",\
+        "packageDependencies": [\
+          ["@stylistic/stylelint-plugin", "npm:3.1.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:3.1.1", {\
+        "packageLocation": "./.yarn/__virtual__/@stylistic-stylelint-plugin-virtual-e6134b2e7d/7/home/akaufhold/.yarn/berry/cache/@stylistic-stylelint-plugin-npm-3.1.1-d542bf7821-10c0.zip/node_modules/@stylistic/stylelint-plugin/",\
+        "packageDependencies": [\
+          ["@stylistic/stylelint-plugin", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:3.1.1"],\
+          ["@csstools/css-parser-algorithms", "virtual:e6134b2e7d1c767a8c212e6adcda023fd8b5489c95916ddacbebb150b9ac9947c52807732e586d420736a6006fdda718fa28a2c6b0d640fc626d8e44bac81e69#npm:3.0.4"],\
+          ["@csstools/css-tokenizer", "npm:3.0.3"],\
+          ["@csstools/media-query-list-parser", "virtual:e6134b2e7d1c767a8c212e6adcda023fd8b5489c95916ddacbebb150b9ac9947c52807732e586d420736a6006fdda718fa28a2c6b0d640fc626d8e44bac81e69#npm:3.0.1"],\
+          ["@types/stylelint", null],\
+          ["is-plain-object", "npm:5.0.0"],\
+          ["postcss-selector-parser", "npm:6.1.2"],\
+          ["postcss-value-parser", "npm:4.2.0"],\
+          ["style-search", "npm:0.1.0"],\
+          ["stylelint", "npm:14.16.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/stylelint",\
+          "stylelint"\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4425,6 +4536,33 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["browser-sync-webpack-plugin", [\
+      ["npm:2.3.0", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/browser-sync-webpack-plugin-npm-2.3.0-dbd45bb40d-10c0.zip/node_modules/browser-sync-webpack-plugin/",\
+        "packageDependencies": [\
+          ["browser-sync-webpack-plugin", "npm:2.3.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:2.3.0", {\
+        "packageLocation": "./.yarn/__virtual__/browser-sync-webpack-plugin-virtual-c7a184bca6/7/home/akaufhold/.yarn/berry/cache/browser-sync-webpack-plugin-npm-2.3.0-dbd45bb40d-10c0.zip/node_modules/browser-sync-webpack-plugin/",\
+        "packageDependencies": [\
+          ["browser-sync-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:2.3.0"],\
+          ["@types/browser-sync", null],\
+          ["@types/webpack", null],\
+          ["browser-sync", null],\
+          ["lodash", "npm:4.17.21"],\
+          ["webpack", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.96.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/browser-sync",\
+          "@types/webpack",\
+          "browser-sync",\
+          "webpack"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["browserslist", [\
       ["npm:4.24.2", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/browserslist-npm-4.24.2-0bc5f13e3b-10c0.zip/node_modules/browserslist/",\
@@ -5165,6 +5303,15 @@ const RAW_RUNTIME_STATE =
           ["css-tree", "npm:1.1.3"],\
           ["mdn-data", "npm:2.0.14"],\
           ["source-map", "npm:0.6.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.0.1", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/css-tree-npm-3.0.1-a96c60f864-10c0.zip/node_modules/css-tree/",\
+        "packageDependencies": [\
+          ["css-tree", "npm:3.0.1"],\
+          ["mdn-data", "npm:2.12.1"],\
+          ["source-map-js", "npm:1.2.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9081,6 +9228,13 @@ const RAW_RUNTIME_STATE =
           ["known-css-properties", "npm:0.26.0"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:0.35.0", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/known-css-properties-npm-0.35.0-ef67a27c01-10c0.zip/node_modules/known-css-properties/",\
+        "packageDependencies": [\
+          ["known-css-properties", "npm:0.35.0"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["last-call-webpack-plugin", [\
@@ -9441,6 +9595,20 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/mdn-data-npm-2.0.14-0acd669f0d-10c0.zip/node_modules/mdn-data/",\
         "packageDependencies": [\
           ["mdn-data", "npm:2.0.14"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:2.12.1", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/mdn-data-npm-2.12.1-80253740d3-10c0.zip/node_modules/mdn-data/",\
+        "packageDependencies": [\
+          ["mdn-data", "npm:2.12.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:2.12.2", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/mdn-data-npm-2.12.2-d75edd5e16-10c0.zip/node_modules/mdn-data/",\
+        "packageDependencies": [\
+          ["mdn-data", "npm:2.12.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -12197,10 +12365,30 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
+      ["npm:8.0.2", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/postcss-sorting-npm-8.0.2-d9f7d43c59-10c0.zip/node_modules/postcss-sorting/",\
+        "packageDependencies": [\
+          ["postcss-sorting", "npm:8.0.2"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
       ["virtual:96fade0e2f7ea29d2d81b2dd963b586508e8fccadc0f42cf8e5cdd084276f3a0d9a670bcfe39afaa840701652a37368e559a33d7ff8bc7083914a2dc2e0c57f9#npm:7.0.1", {\
         "packageLocation": "./.yarn/__virtual__/postcss-sorting-virtual-8403bf0710/7/home/akaufhold/.yarn/berry/cache/postcss-sorting-npm-7.0.1-41969beb30-10c0.zip/node_modules/postcss-sorting/",\
         "packageDependencies": [\
           ["postcss-sorting", "virtual:96fade0e2f7ea29d2d81b2dd963b586508e8fccadc0f42cf8e5cdd084276f3a0d9a670bcfe39afaa840701652a37368e559a33d7ff8bc7083914a2dc2e0c57f9#npm:7.0.1"],\
+          ["@types/postcss", null],\
+          ["postcss", "npm:8.4.49"]\
+        ],\
+        "packagePeers": [\
+          "@types/postcss",\
+          "postcss"\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["virtual:b1f83fd17fd38764067bb2e3391c5d90ddee3fe6bc1d967ce99d665a614dff9e8435776b6f4b2b22f45f8c291c05cdbc0fbfa1b2ffdd855142b3b4f295036649#npm:8.0.2", {\
+        "packageLocation": "./.yarn/__virtual__/postcss-sorting-virtual-b177b84a0e/7/home/akaufhold/.yarn/berry/cache/postcss-sorting-npm-8.0.2-d9f7d43c59-10c0.zip/node_modules/postcss-sorting/",\
+        "packageDependencies": [\
+          ["postcss-sorting", "virtual:b1f83fd17fd38764067bb2e3391c5d90ddee3fe6bc1d967ce99d665a614dff9e8435776b6f4b2b22f45f8c291c05cdbc0fbfa1b2ffdd855142b3b4f295036649#npm:8.0.2"],\
           ["@types/postcss", null],\
           ["postcss", "npm:8.4.49"]\
         ],\
@@ -12914,24 +13102,23 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["sass-loader", [\
-      ["npm:12.6.0", {\
-        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/sass-loader-npm-12.6.0-19096ee50d-10c0.zip/node_modules/sass-loader/",\
+      ["npm:16.0.3", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/sass-loader-npm-16.0.3-70aa568612-10c0.zip/node_modules/sass-loader/",\
         "packageDependencies": [\
-          ["sass-loader", "npm:12.6.0"]\
+          ["sass-loader", "npm:16.0.3"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:12.6.0", {\
-        "packageLocation": "./.yarn/__virtual__/sass-loader-virtual-9833793120/7/home/akaufhold/.yarn/berry/cache/sass-loader-npm-12.6.0-19096ee50d-10c0.zip/node_modules/sass-loader/",\
+      ["virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:16.0.3", {\
+        "packageLocation": "./.yarn/__virtual__/sass-loader-virtual-9a275c712b/7/home/akaufhold/.yarn/berry/cache/sass-loader-npm-16.0.3-70aa568612-10c0.zip/node_modules/sass-loader/",\
         "packageDependencies": [\
-          ["sass-loader", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:12.6.0"],\
-          ["@types/fibers", null],\
+          ["sass-loader", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:16.0.3"],\
+          ["@rspack/core", null],\
           ["@types/node-sass", null],\
+          ["@types/rspack__core", null],\
           ["@types/sass", null],\
           ["@types/sass-embedded", null],\
           ["@types/webpack", null],\
-          ["fibers", null],\
-          ["klona", "npm:2.0.6"],\
           ["neo-async", "npm:2.6.2"],\
           ["node-sass", null],\
           ["sass", "npm:1.81.0"],\
@@ -12939,12 +13126,12 @@ const RAW_RUNTIME_STATE =
           ["webpack", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.96.1"]\
         ],\
         "packagePeers": [\
-          "@types/fibers",\
+          "@rspack/core",\
           "@types/node-sass",\
+          "@types/rspack__core",\
           "@types/sass-embedded",\
           "@types/sass",\
           "@types/webpack",\
-          "fibers",\
           "node-sass",\
           "sass-embedded",\
           "sass",\
@@ -13419,6 +13606,7 @@ const RAW_RUNTIME_STATE =
           ["autoprefixer", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:10.4.20"],\
           ["babel-eslint", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:10.1.0"],\
           ["bootstrap", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.3.3"],\
+          ["browser-sync-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:2.3.0"],\
           ["browserslist", "npm:4.24.2"],\
           ["caniuse-lite", "npm:1.0.30001683"],\
           ["copy-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:12.0.2"],\
@@ -13453,13 +13641,14 @@ const RAW_RUNTIME_STATE =
           ["postcss-svgo", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.1.0"],\
           ["prettier", "npm:2.8.8"],\
           ["sass", "npm:1.81.0"],\
-          ["sass-loader", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:12.6.0"],\
+          ["sass-loader", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:16.0.3"],\
           ["serviceworker-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:1.0.1"],\
           ["stylelint", "npm:14.16.1"],\
           ["stylelint-bare-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:2.1.0"],\
           ["stylelint-config-recommended", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:6.0.0"],\
           ["stylelint-config-recommended-scss", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.0.2"],\
           ["stylelint-config-standard", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:24.0.0"],\
+          ["stylelint-config-twbs-bootstrap", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:15.1.0"],\
           ["stylelint-order", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.0.0"],\
           ["stylelint-scss", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:4.7.0"],\
           ["tapable", "npm:2.2.1"],\
@@ -13815,7 +14004,37 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["stylelint-config-recess-order", [\
+      ["npm:5.1.1", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/stylelint-config-recess-order-npm-5.1.1-4c3ab76825-10c0.zip/node_modules/stylelint-config-recess-order/",\
+        "packageDependencies": [\
+          ["stylelint-config-recess-order", "npm:5.1.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:5.1.1", {\
+        "packageLocation": "./.yarn/__virtual__/stylelint-config-recess-order-virtual-d4d4cd3765/7/home/akaufhold/.yarn/berry/cache/stylelint-config-recess-order-npm-5.1.1-4c3ab76825-10c0.zip/node_modules/stylelint-config-recess-order/",\
+        "packageDependencies": [\
+          ["stylelint-config-recess-order", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:5.1.1"],\
+          ["@types/stylelint", null],\
+          ["stylelint", "npm:14.16.1"],\
+          ["stylelint-order", "virtual:d4d4cd37655c0f8fa75cb164db669ff65584cc433a43bbeedabd74d8a4342a8da44b09564f2e22ea45ff660569171704e5b4c5ab4978d71fbf83689dcc67c05c#npm:6.0.4"]\
+        ],\
+        "packagePeers": [\
+          "@types/stylelint",\
+          "stylelint"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["stylelint-config-recommended", [\
+      ["npm:14.0.1", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/stylelint-config-recommended-npm-14.0.1-95db5683e0-10c0.zip/node_modules/stylelint-config-recommended/",\
+        "packageDependencies": [\
+          ["stylelint-config-recommended", "npm:14.0.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
       ["npm:6.0.0", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/stylelint-config-recommended-npm-6.0.0-67cddf9dd5-10c0.zip/node_modules/stylelint-config-recommended/",\
         "packageDependencies": [\
@@ -13835,15 +14054,55 @@ const RAW_RUNTIME_STATE =
           "stylelint"\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["virtual:edf80b16518b2363e8eca07e20c32e846b140efcbf3dbe86d1d4b132c6d0726113469bf235183f79345f9878e2e0293e79cce9ba733b57ad686ba28ff2cae526#npm:14.0.1", {\
+        "packageLocation": "./.yarn/__virtual__/stylelint-config-recommended-virtual-f9b949438f/7/home/akaufhold/.yarn/berry/cache/stylelint-config-recommended-npm-14.0.1-95db5683e0-10c0.zip/node_modules/stylelint-config-recommended/",\
+        "packageDependencies": [\
+          ["stylelint-config-recommended", "virtual:edf80b16518b2363e8eca07e20c32e846b140efcbf3dbe86d1d4b132c6d0726113469bf235183f79345f9878e2e0293e79cce9ba733b57ad686ba28ff2cae526#npm:14.0.1"],\
+          ["@types/stylelint", null],\
+          ["stylelint", "npm:14.16.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/stylelint",\
+          "stylelint"\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["stylelint-config-recommended-scss", [\
+      ["npm:14.1.0", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/stylelint-config-recommended-scss-npm-14.1.0-960a33f636-10c0.zip/node_modules/stylelint-config-recommended-scss/",\
+        "packageDependencies": [\
+          ["stylelint-config-recommended-scss", "npm:14.1.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
       ["npm:5.0.2", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/stylelint-config-recommended-scss-npm-5.0.2-93f8eda8de-10c0.zip/node_modules/stylelint-config-recommended-scss/",\
         "packageDependencies": [\
           ["stylelint-config-recommended-scss", "npm:5.0.2"]\
         ],\
         "linkType": "SOFT"\
+      }],\
+      ["virtual:486400888f2733968eafd153598967758ea97f3a9adafd65c4a89257e1e82dd0051347312b6049eea7480c87d35c8c350b9bf274dbdf24b43685dacdf2269edc#npm:14.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/stylelint-config-recommended-scss-virtual-0f117b4570/7/home/akaufhold/.yarn/berry/cache/stylelint-config-recommended-scss-npm-14.1.0-960a33f636-10c0.zip/node_modules/stylelint-config-recommended-scss/",\
+        "packageDependencies": [\
+          ["stylelint-config-recommended-scss", "virtual:486400888f2733968eafd153598967758ea97f3a9adafd65c4a89257e1e82dd0051347312b6049eea7480c87d35c8c350b9bf274dbdf24b43685dacdf2269edc#npm:14.1.0"],\
+          ["@types/postcss", null],\
+          ["@types/stylelint", null],\
+          ["postcss", null],\
+          ["postcss-scss", "virtual:41f0262281b047ce18dd7ff98eccf4633306eddfc3423b2efdf361a253ba9930c168ca3ae3052217c61206b0f9188b3ba8d32fecb1ea62a7df25b62c9f9b4bea#npm:4.0.9"],\
+          ["stylelint", "npm:14.16.1"],\
+          ["stylelint-config-recommended", "virtual:edf80b16518b2363e8eca07e20c32e846b140efcbf3dbe86d1d4b132c6d0726113469bf235183f79345f9878e2e0293e79cce9ba733b57ad686ba28ff2cae526#npm:14.0.1"],\
+          ["stylelint-scss", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:6.10.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/postcss",\
+          "@types/stylelint",\
+          "postcss",\
+          "stylelint"\
+        ],\
+        "linkType": "HARD"\
       }],\
       ["virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.0.2", {\
         "packageLocation": "./.yarn/__virtual__/stylelint-config-recommended-scss-virtual-41f0262281/7/home/akaufhold/.yarn/berry/cache/stylelint-config-recommended-scss-npm-5.0.2-93f8eda8de-10c0.zip/node_modules/stylelint-config-recommended-scss/",\
@@ -13870,6 +14129,27 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
+      ["npm:36.0.1", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/stylelint-config-standard-npm-36.0.1-3dfaa82493-10c0.zip/node_modules/stylelint-config-standard/",\
+        "packageDependencies": [\
+          ["stylelint-config-standard", "npm:36.0.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:36.0.1", {\
+        "packageLocation": "./.yarn/__virtual__/stylelint-config-standard-virtual-edf80b1651/7/home/akaufhold/.yarn/berry/cache/stylelint-config-standard-npm-36.0.1-3dfaa82493-10c0.zip/node_modules/stylelint-config-standard/",\
+        "packageDependencies": [\
+          ["stylelint-config-standard", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:36.0.1"],\
+          ["@types/stylelint", null],\
+          ["stylelint", "npm:14.16.1"],\
+          ["stylelint-config-recommended", "virtual:edf80b16518b2363e8eca07e20c32e846b140efcbf3dbe86d1d4b132c6d0726113469bf235183f79345f9878e2e0293e79cce9ba733b57ad686ba28ff2cae526#npm:14.0.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/stylelint",\
+          "stylelint"\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:24.0.0", {\
         "packageLocation": "./.yarn/__virtual__/stylelint-config-standard-virtual-cec19ac2aa/7/home/akaufhold/.yarn/berry/cache/stylelint-config-standard-npm-24.0.0-dfa9aff315-10c0.zip/node_modules/stylelint-config-standard/",\
         "packageDependencies": [\
@@ -13885,11 +14165,74 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["stylelint-config-standard-scss", [\
+      ["npm:13.1.0", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/stylelint-config-standard-scss-npm-13.1.0-99e0849fbf-10c0.zip/node_modules/stylelint-config-standard-scss/",\
+        "packageDependencies": [\
+          ["stylelint-config-standard-scss", "npm:13.1.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:13.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/stylelint-config-standard-scss-virtual-486400888f/7/home/akaufhold/.yarn/berry/cache/stylelint-config-standard-scss-npm-13.1.0-99e0849fbf-10c0.zip/node_modules/stylelint-config-standard-scss/",\
+        "packageDependencies": [\
+          ["stylelint-config-standard-scss", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:13.1.0"],\
+          ["@types/postcss", null],\
+          ["@types/stylelint", null],\
+          ["postcss", null],\
+          ["stylelint", "npm:14.16.1"],\
+          ["stylelint-config-recommended-scss", "virtual:486400888f2733968eafd153598967758ea97f3a9adafd65c4a89257e1e82dd0051347312b6049eea7480c87d35c8c350b9bf274dbdf24b43685dacdf2269edc#npm:14.1.0"],\
+          ["stylelint-config-standard", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:36.0.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/postcss",\
+          "@types/stylelint",\
+          "postcss",\
+          "stylelint"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["stylelint-config-twbs-bootstrap", [\
+      ["npm:15.1.0", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/stylelint-config-twbs-bootstrap-npm-15.1.0-0048194883-10c0.zip/node_modules/stylelint-config-twbs-bootstrap/",\
+        "packageDependencies": [\
+          ["stylelint-config-twbs-bootstrap", "npm:15.1.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:15.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/stylelint-config-twbs-bootstrap-virtual-2c23eb09d7/7/home/akaufhold/.yarn/berry/cache/stylelint-config-twbs-bootstrap-npm-15.1.0-0048194883-10c0.zip/node_modules/stylelint-config-twbs-bootstrap/",\
+        "packageDependencies": [\
+          ["stylelint-config-twbs-bootstrap", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:15.1.0"],\
+          ["@stylistic/stylelint-config", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:2.0.0"],\
+          ["@stylistic/stylelint-plugin", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:3.1.1"],\
+          ["@types/stylelint", null],\
+          ["stylelint", "npm:14.16.1"],\
+          ["stylelint-config-recess-order", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:5.1.1"],\
+          ["stylelint-config-standard", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:36.0.1"],\
+          ["stylelint-config-standard-scss", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:13.1.0"],\
+          ["stylelint-scss", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:6.10.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/stylelint",\
+          "stylelint"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["stylelint-order", [\
       ["npm:5.0.0", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/stylelint-order-npm-5.0.0-2d2c35dc2a-10c0.zip/node_modules/stylelint-order/",\
         "packageDependencies": [\
           ["stylelint-order", "npm:5.0.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["npm:6.0.4", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/stylelint-order-npm-6.0.4-fa909cac07-10c0.zip/node_modules/stylelint-order/",\
+        "packageDependencies": [\
+          ["stylelint-order", "npm:6.0.4"]\
         ],\
         "linkType": "SOFT"\
       }],\
@@ -13907,6 +14250,21 @@ const RAW_RUNTIME_STATE =
           "stylelint"\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["virtual:d4d4cd37655c0f8fa75cb164db669ff65584cc433a43bbeedabd74d8a4342a8da44b09564f2e22ea45ff660569171704e5b4c5ab4978d71fbf83689dcc67c05c#npm:6.0.4", {\
+        "packageLocation": "./.yarn/__virtual__/stylelint-order-virtual-b1f83fd17f/7/home/akaufhold/.yarn/berry/cache/stylelint-order-npm-6.0.4-fa909cac07-10c0.zip/node_modules/stylelint-order/",\
+        "packageDependencies": [\
+          ["stylelint-order", "virtual:d4d4cd37655c0f8fa75cb164db669ff65584cc433a43bbeedabd74d8a4342a8da44b09564f2e22ea45ff660569171704e5b4c5ab4978d71fbf83689dcc67c05c#npm:6.0.4"],\
+          ["@types/stylelint", null],\
+          ["postcss", "npm:8.4.49"],\
+          ["postcss-sorting", "virtual:b1f83fd17fd38764067bb2e3391c5d90ddee3fe6bc1d967ce99d665a614dff9e8435776b6f4b2b22f45f8c291c05cdbc0fbfa1b2ffdd855142b3b4f295036649#npm:8.0.2"],\
+          ["stylelint", "npm:14.16.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/stylelint",\
+          "stylelint"\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["stylelint-scss", [\
@@ -13916,6 +14274,34 @@ const RAW_RUNTIME_STATE =
           ["stylelint-scss", "npm:4.7.0"]\
         ],\
         "linkType": "SOFT"\
+      }],\
+      ["npm:6.10.0", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/stylelint-scss-npm-6.10.0-a6b8f50c49-10c0.zip/node_modules/stylelint-scss/",\
+        "packageDependencies": [\
+          ["stylelint-scss", "npm:6.10.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:6.10.0", {\
+        "packageLocation": "./.yarn/__virtual__/stylelint-scss-virtual-8b8669e293/7/home/akaufhold/.yarn/berry/cache/stylelint-scss-npm-6.10.0-a6b8f50c49-10c0.zip/node_modules/stylelint-scss/",\
+        "packageDependencies": [\
+          ["stylelint-scss", "virtual:2c23eb09d7edda73fb9c02edd274378901d537e1720370f0c2a304410a390f6abc81387b558a0193fa5a850325344a41337ee59b3a442b44a48b1d7aabaa40fb#npm:6.10.0"],\
+          ["@types/stylelint", null],\
+          ["css-tree", "npm:3.0.1"],\
+          ["is-plain-object", "npm:5.0.0"],\
+          ["known-css-properties", "npm:0.35.0"],\
+          ["mdn-data", "npm:2.12.2"],\
+          ["postcss-media-query-parser", "npm:0.2.3"],\
+          ["postcss-resolve-nested-selector", "npm:0.1.6"],\
+          ["postcss-selector-parser", "npm:7.0.0"],\
+          ["postcss-value-parser", "npm:4.2.0"],\
+          ["stylelint", "npm:14.16.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/stylelint",\
+          "stylelint"\
+        ],\
+        "linkType": "HARD"\
       }],\
       ["virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:4.7.0", {\
         "packageLocation": "./.yarn/__virtual__/stylelint-scss-virtual-58c5c36ca5/7/home/akaufhold/.yarn/berry/cache/stylelint-scss-npm-4.7.0-e9df7622f7-10c0.zip/node_modules/stylelint-scss/",\

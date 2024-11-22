@@ -4,6 +4,7 @@
 # symfony default
 /.web-server-pid
 /config/pimcore/parameters.yml
+/build/.yarn/
 /public/build/
 /phpunit.xml
 /public/bundles/
