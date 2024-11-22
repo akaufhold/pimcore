@@ -1,0 +1,163 @@
+// Overwrite Bootstrap's variables here
+// You can find them in node_modules/bootstrap/scss/_variables.scss
+// Copy the variables you need into this file, don't modify files under node_modules/
+
+// Color system
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+
+// Override needed colors
+$blue: #0069e0;
+$indigo: #580fd5;
+$purple: #543192;
+$pink: #b80042;
+$red: #647a53;
+$orange: #d76c13;
+$yellow: #dfa100;
+$green: #19662c;
+$teal: #8dc98e;
+$cyan: #4493b8;
+
+// Adding (!) an additional theme color (ex. classes btn-cool, bg-cool)
+//$theme-colors: (
+//  "cool": #4d3fa3
+//);
+
+// Options
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-caret: true;
+$enable-rounded: false;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-prefers-reduced-motion-media-query: true;
+$enable-grid-classes: true;
+$enable-pointer-cursor-for-buttons: true;
+$enable-print-styles: true;
+$enable-responsive-font-sizes: true;
+$enable-validation-icons: true;
+$enable-deprecation-messages: true;
+
+// Override theme colors
+$primary: $blue;
+$secondary: $gray-600;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-100;
+$dark: $gray-800;
+
+// Override options
+$enable-rounded: false;
+
+// Body
+// Settings for the `<body>` element.
+$body-bg: $white;
+$body-color: $black;
+
+// Links
+// Style anchor elements.
+$link-color: $blue;
+$link-decoration: none;
+$link-hover-color: $blue;
+$link-hover-decoration: underline;
+
+// Dropdowns
+$dropdown-color: $white;
+$dropdown-bg: $blue;
+
+// Grid breakpoints
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1280px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 2,
+  5: $spacer * 3,
+  6: $spacer * 4,
+);
+
+// Grid columns
+// Set the number of columns and specify the width of the gutters.
+$grid-columns: 12;
+$grid-gutter-width: 32px;
+$border-color: $gray-200;
+
+// Fonts
+// Font, line-height, and color for body text, headings, and more.
+// stylelint-disable value-keyword-case
+$font-family-sans-serif: "BundesSans", "Helvetica Neue", helvetica, arial, sans-serif;
+$font-family-monospace: "BundesSans", "Helvetica Neue", helvetica, arial, sans-serif;
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$font-size-lg: ($font-size-base * 1.25);
+$font-size-sm: ($font-size-base * .875);
+
+// headings > line-height, color for body text, headings, and more.
+$h1-font-size: $font-size-base * 2.125;
+$h2-font-size: $font-size-base * 1.75;
+$h3-font-size: $font-size-base * 1.1875;
+$h4-font-size: $font-size-base * 1.125;
+$h5-font-size: $font-size-base * 1;
+$h6-font-size: $font-size-base * 1;
+$headings-font-weight: 700;
+$headings-line-height: 1.1;
+$headings-color: $blue;
+$display1-weight: 400;
+$display2-weight: 400;
+$display3-weight: 400;
+$display4-weight: 400;
+$lead-font-weight: 400;
+
+// Buttons + Forms
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+$border-width: 2px;
+$input-btn-border-width: 2px;
+
+// Buttons
+// For each of Bootstrap's buttons, define text, background, and border color.
+$btn-box-shadow: none;
+$btn-active-box-shadow: none;
+
+// Allows for customizing button radius independently from global border radius
+$btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+$modal-md: 35.75rem;
+$modal-backdrop-bg: var(--bs-dark);
+$modal-backdrop-opacity: .9;
+$modal-fade-transform: scale(.8);
+$modal-header-border-width: 0;
+$modal-footer-border-width: 0;
+$modal-content-bg: var(--bs-dark);
+$transition-base: all .2s ease-in-out;
+$transition-fade: opacity .2s linear;
+$transition-collapse: height .2s ease;
+$form-check-input-width: 1.125em;
+$btn-close-color: $white;
