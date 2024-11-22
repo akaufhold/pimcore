@@ -140,7 +140,7 @@ export default {
       onDoneWatch:{
         scripts: [
           'echo "Clear Pimcore Cache"',
-          'bin/console pimcore:cache:clear',
+          //'bin/console pimcore:cache:clear',
         ],
         blocking: false,
         parallel: false
@@ -149,14 +149,28 @@ export default {
 
     // Add live browser
     new BrowserSyncPlugin({
-      //  host: 'bmas-sgb2.pixelpark.docker',
+      host: 'pimcore.ddev.site',
       //  port: 54011,
       // browse to http://localhost:3001/ during development,
       https: true,
-      proxy: 'https://bmas-sgb2.pixelpark.docker',
+      proxy: 'https://pimcore.ddev.site',
       online: true,
-      reloadOnRestart: false,
-      notify: false
+      reloadOnRestart: true,
+      notify: false,
+      files: [{
+        match: [
+          '**/*.css',
+          '**/*.js',
+          '**/*.html',
+          '**/*.php',
+        ],
+        fn: function(event, file) {
+          if (event === 'change') {
+            const bs = require('browser-sync').get('bs-webpack-plugin');
+            bs.reload();
+          }
+        },
+      }]
       // logLevel: "debug"
     })
   ]
