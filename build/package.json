@@ -11,7 +11,7 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js --mode production",
     "dev": "webpack --config webpack.dev.js --mode development",
-    "watch": "webpack --config webpack.dev.js --mode development --watch",
+    "watch": "SASS_QUIET_DEPS=true webpack --config webpack.dev.js --mode development --watch",
     "lint:eslint": "eslint Assets/**/*.js",
     "lint:eslint.fix": "eslint --fix Assets/**/*.js",
     "lint:eslint.report.junit": "eslint -f junit -o reports/eslintreport.junit.xml Assets/**/*.js",
@@ -27,12 +27,14 @@
     "@babel/core": "^7.26.0",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.26.0",
+    "@fortawesome/fontawesome-free": "^6.7.1",
     "bootstrap": "^5.3.3",
     "gl-texture2d": "^2.1.0",
     "gl-transition": "^1.13.0",
     "gl-transitions": "^1.43.0",
     "imagemin-webp-webpack-plugin": "^3.3.6",
     "postcss-inline-svg": "^6.0.0",
+    "resolve-url-loader": "^5.0.0",
     "tapable": "^2.2.1",
     "terser-webpack-plugin": "^5.3.10",
     "vanilla-lazyload": "^17.5.0",
@@ -45,6 +47,7 @@
     "@eslint/compat": "^1.2.2",
     "autoprefixer": "^10.4.0",
     "babel-eslint": "^10.1.0",
+    "browser-sync": "^3.0.3",
     "browser-sync-webpack-plugin": "^2.3.0",
     "browserslist": "^4.18.1",
     "caniuse-lite": "^1.0.30001285",
@@ -90,7 +93,8 @@
     "webpack-cli": "^5.1.4",
     "webpack-fix-style-only-entries": "^0.6.1",
     "webpack-shell-plugin-next": "^2.3.2",
+    "webpack-watch-files-plugin": "^1.2.1",
     "workbox-webpack-plugin": "^6.5.3"
   },
-  "packageManager": "yarn@4.5.2"
+  "packageManager": "yarn@4.5.3"
 }

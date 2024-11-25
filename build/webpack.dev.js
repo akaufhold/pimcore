@@ -7,7 +7,9 @@ import ESLintPlugin from 'eslint-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import FixStyleOnlyEntriesPlugin from 'webpack-fix-style-only-entries';
 import WebpackShellPluginNext from 'webpack-shell-plugin-next';
-import BrowserSyncPlugin from 'webpack-shell-plugin-next';
+import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
+import WatchExternalFilesPluginModule from 'webpack-watch-files-plugin';
+const WatchExternalFilesPlugin = WatchExternalFilesPluginModule.default;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,6 +24,9 @@ let _project = {
 import * as _config from './webpack/config.json' assert { type: 'json' };
 
 export default {
+  stats: {
+    warningsFilter: /DeprecationWarning/,
+  },
   // Define the entry points of our application
   entry: {
     home: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + '/home.js',
@@ -35,10 +40,10 @@ export default {
     assetModuleFilename: '[name][ext]',
     clean: true
   },
-
+  cache: false,
   // Define development options
   devtool: 'source-map',
-
+  stats: 'errors-only',
   // Define loaders
   module: {
     rules: [
@@ -67,13 +72,16 @@ export default {
             }
           },
           {
+            loader: 'resolve-url-loader'
+          },
+          {
             loader: 'sass-loader',
             options: {
-              api: "modern",
               sassOptions: {
-                quietDeps: true
-              }
-            }
+                quietDeps: true,
+                silenceDeprecations: ['import'],
+              },
+            },
           },
         ]
       },
@@ -140,7 +148,7 @@ export default {
       onDoneWatch:{
         scripts: [
           'echo "Clear Pimcore Cache"',
-          //'bin/console pimcore:cache:clear',
+          //'php ../bin/console cache:clear',
         ],
         blocking: false,
         parallel: false
@@ -150,28 +158,35 @@ export default {
     // Add live browser
     new BrowserSyncPlugin({
       host: 'pimcore.ddev.site',
-      //  port: 54011,
+      port: 3003,
       // browse to http://localhost:3001/ during development,
       https: true,
       proxy: 'https://pimcore.ddev.site',
+      //server: { baseDir: ['public'] },
       online: true,
-      reloadOnRestart: true,
+      reloadOnRestart: false,
       notify: false,
+      advanced: {
+        browserSync: {
+          logLevel: 'debug',
+        },
+      },
       files: [{
         match: [
+          '**/*.html',
+          '**/*.html.twig',
           '**/*.css',
           '**/*.js',
-          '**/*.html',
-          '**/*.php',
-        ],
-        fn: function(event, file) {
-          if (event === 'change') {
-            const bs = require('browser-sync').get('bs-webpack-plugin');
-            bs.reload();
-          }
-        },
-      }]
-      // logLevel: "debug"
+        ]
+      }],
+      logLevel: "debug"
+    }),
+    
+    new WatchExternalFilesPlugin({
+      files: [
+        '**/*.html',
+        '**/*.html.twig',
+      ]
     })
   ]
 }
