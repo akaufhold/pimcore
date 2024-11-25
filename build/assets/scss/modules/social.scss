@@ -1,0 +1,22 @@
+.social-navigation {
+  display: flex;
+
+  li {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+
+    a {
+      width: 24px;
+      height: 24px;
+      display: flex;
+
+      > svg {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

@@ -43,13 +43,5 @@
 @import "~bootstrap/scss/helpers";
 // Utilities
 @import "~bootstrap/scss/utilities/api";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-@import "~@fortawesome/fontawesome-free/scss/regular";
-
-// Modules
+// Templates
 @import "modules/header";
-@import "modules/social";
-
-.home {
-  display: flex;
-}
