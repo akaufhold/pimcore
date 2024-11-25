@@ -1,0 +1,40 @@
+# Many ddev commands can be extended to run tasks before or after the
+# ddev command is executed, for example "post-start", "post-import-db",
+# "pre-composer", "post-composer"
+# See https://ddev.readthedocs.io/en/stable/users/extend/custom-commands/ for more
+# information on the commands that can be extended and the tasks you can define
+# for them. Example:
+# See https://ddev.readthedocs.io/en/stable/users/configuration/hooks/ for more
+# information on the hooks that can be used
+#
+# Supported Command Hooks
+#  - pre-start: Hooks into "ddev start". Execute tasks before the project environment starts.
+#               Note: Only exec-host tasks can be generally run successfully during pre-start.
+#               See Supported Tasks below for more info.
+#  - post-start: Execute tasks after the project environment has started.
+#  - pre-import-db and post-import-db: Execute tasks before or after database import.
+#  - pre-import-files and post-import-files: Execute tasks before or after files are imported
+#  - pre-composer and post-composer: Execute tasks before or after the composer command.
+#  - pre-stop, pre-config, post-config, pre-exec, post-exec, pre-pause, post-pause, pre-pull, post-pull,
+#    pre-push, post-push, pre-snapshot, post-snapshot, pre-restore-snapshot, post-restore-snapshot:
+#              Execute as the name suggests.
+#  - post-stop: Hooks into "ddev stop". Execute tasks after the project environment stopped.
+#               Note: Only exec-host tasks can be generally run successfully during post-stop.
+#
+# Supported Tasks
+#  - ddev currently supports these tasks:
+#    - exec to execute a command in any service/container
+#    - exec-host to execute a command on the host
+#    - composer to execute a composer command in the web container
+hooks:
+  pre-start:
+    - exec-host: ddev auth ssh
+#    - exec-host: git submodule update --init --recursive
+  post-start:
+    - composer: install
+#    - exec-host: ddev db-restore
+    - exec: sudo echo alias ll=\"ls -lhA\" >> ~/.bashrc
+#    - exec: sudo chmod 0600 /etc/cron.d/typo3 && sudo service cron start
+    - composer: update --with-all-dependencies --dry-run
+  pre-stop:
+    - exec-host: ddev snapshot
