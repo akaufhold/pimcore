@@ -1,1 +1,11 @@
 {% extends 'layouts/layout.html.twig' %}
+
+{% block content %}
+
+{% do pimcore_head_title('Title') %}
+
+{% include 'includes/header.html.twig' with { socialRoot: socialRoot, socialChildren: socialChildren } %}
+{% include 'includes/carousel.html.twig' with { carouselItems: carouselItems } %}
+{% include 'includes/footer.html.twig' with { mainNavRoot: mainNavRoot, mainNavChildren: mainNavChildren } %}
+
+{% endblock %}
