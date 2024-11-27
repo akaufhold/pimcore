@@ -1,0 +1,16 @@
+pimcore:
+    assets:
+        metadata:
+            predefined:
+                definitions:
+                    eb49cdc8-1e3b-4db3-8b5e-50853ccf807a:
+                        name: title
+                        description: 'title tag for img'
+                        type: input
+                        targetSubtype: null
+                        data: null
+                        config: null
+                        language: null
+                        group: null
+                        creationDate: 1732714957
+                        modificationDate: 1732714962

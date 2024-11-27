@@ -1,0 +1,16 @@
+pimcore:
+    assets:
+        metadata:
+            predefined:
+                definitions:
+                    e02402bc-14e1-4e9a-9483-5ada6ec15d13:
+                        name: alt
+                        description: 'default alt tag for img'
+                        type: input
+                        targetSubtype: null
+                        data: ''
+                        config: null
+                        language: null
+                        group: null
+                        creationDate: 1732714872
+                        modificationDate: 1732714942

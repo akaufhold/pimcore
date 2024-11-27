@@ -1,0 +1,16 @@
+pimcore:
+    assets:
+        metadata:
+            predefined:
+                definitions:
+                    47395646-345e-40ff-a54e-28b9f3c7fd70:
+                        name: copyright
+                        description: 'default copyright for caption'
+                        type: input
+                        targetSubtype: null
+                        data: null
+                        config: null
+                        language: null
+                        group: null
+                        creationDate: 1732714898
+                        modificationDate: 1732714927
