@@ -34,6 +34,7 @@ const RAW_RUNTIME_STATE =
           ["@beyonk/google-fonts-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:1.7.0"],\
           ["@eslint/compat", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:1.2.3"],\
           ["@fortawesome/fontawesome-free", "npm:6.7.1"],\
+          ["@popperjs/core", "npm:2.11.8"],\
           ["autoprefixer", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:10.4.20"],\
           ["babel-eslint", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:10.1.0"],\
           ["bootstrap", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.3.3"],\
@@ -3064,6 +3065,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@popperjs/core", [\
+      ["npm:2.11.8", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/@popperjs-core-npm-2.11.8-f1692e11a0-10c0.zip/node_modules/@popperjs/core/",\
+        "packageDependencies": [\
+          ["@popperjs/core", "npm:2.11.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@rollup/plugin-babel", [\
       ["npm:5.3.1", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/@rollup-plugin-babel-npm-5.3.1-6039a4d033-10c0.zip/node_modules/@rollup/plugin-babel/",\
@@ -4595,7 +4605,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/bootstrap-virtual-f902492b90/7/home/akaufhold/.yarn/berry/cache/bootstrap-npm-5.3.3-da08e2f0fe-10c0.zip/node_modules/bootstrap/",\
         "packageDependencies": [\
           ["bootstrap", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.3.3"],\
-          ["@popperjs/core", null],\
+          ["@popperjs/core", "npm:2.11.8"],\
           ["@types/popperjs__core", null]\
         ],\
         "packagePeers": [\
@@ -14458,6 +14468,7 @@ const RAW_RUNTIME_STATE =
           ["@beyonk/google-fonts-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:1.7.0"],\
           ["@eslint/compat", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:1.2.3"],\
           ["@fortawesome/fontawesome-free", "npm:6.7.1"],\
+          ["@popperjs/core", "npm:2.11.8"],\
           ["autoprefixer", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:10.4.20"],\
           ["babel-eslint", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:10.1.0"],\
           ["bootstrap", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.3.3"],\
