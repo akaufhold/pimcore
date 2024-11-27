@@ -1,0 +1,33 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    carousel-thumb:
+                        items:
+                            -
+                                method: scaleByWidth
+                                arguments:
+                                    width: 1920
+                                    forceResize: true
+                        medias:
+                            '(min-width: 1440px)':
+                                -
+                                    method: contain
+                                    arguments:
+                                        width: 3840
+                                        height: 1920
+                                        forceResize: false
+                        name: carousel-thumb
+                        description: ''
+                        group: ''
+                        format: ORIGINAL
+                        quality: 85
+                        highResolution: null
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1732642679
+                        creationDate: 1732642333
+                        preserveAnimation: false
