@@ -10,6 +10,8 @@ use App\Utility\DebugUtility;
 use Pimcore\Model\Document;
 use Pimcore\Model\Document\Page;
 use Pimcore\Model\Document\Listing;
+use Pimcore\Model\Asset\Listing as AssetListing;
+use Pimcore\Model\Asset\Image;
 
 class ContentController extends FrontendController
 {
@@ -22,10 +24,18 @@ class ContentController extends FrontendController
     public function templateAction(Request $request): Response
     {
 		$socialRoot = $this->getDocumentById(3);
-        $socialChildren = $this->getChildrensById($socialRoot);
+        $socialChildren = $this->getChildrensByPid($socialRoot);
+		$mainNavRoot = $this->getDocumentById(2);
+        $mainNavChildren = $this->getChildrensByPid($mainNavRoot);
+
+        $carouselItems = $this->getAssetListingByPid(2);
+
         return $this->render('content/home.html.twig', [
             'socialRoot' => $socialRoot,
             'socialChildren' => $socialChildren,
+            'carouselItems' => $carouselItems,
+            'mainNavRoot' => $mainNavRoot,
+            'mainNavChildren' => $mainNavChildren,
         ]);
     }
 
@@ -33,7 +43,7 @@ class ContentController extends FrontendController
      * Get Navigation Node
      * int $pageId
      * 
-     * @return Page;
+     * @return Page
      */
     public function getDocumentById(int $pageId): Page 
     {
@@ -44,10 +54,24 @@ class ContentController extends FrontendController
      * Get Navigation Root Childrens
      * Page $page
      * 
-     * @return Listing;
+     * @return Listing
      */
-    public function getChildrensById(Page $page): Listing 
+    public function getChildrensByPid(Page $page): Listing 
     {
         return $socialPages = $page ? $page->getChildren() : [];
+    }
+
+    /**
+     * Get Asset Items from Pid
+     * 
+     * @param int $pageId
+     * @return array
+     */
+    private function getAssetListingByPid(int $pageId): array 
+    {
+        $list = new AssetListing();
+        $list->setCondition('parentId = ?', [$pageId]);
+        $assetList = $list->load();
+        return $assetList;
     }
 }
