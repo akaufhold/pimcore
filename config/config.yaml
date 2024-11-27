@@ -67,10 +67,9 @@ pimcore:
 
 #### SYSTEM SETTINGS
 
-#    general:
-#        timezone: Europe/Berlin
-#        path_variable: ''
-#        instance_identifier: ''
+   general:
+       timezone: Europe/Berlin
+       path_variable: ''
 #    full_page_cache:
 #        enabled: false
 #        lifetime: null
@@ -100,7 +99,8 @@ pimcore:
 
 #### SYMFONY OVERRIDES
 framework:
-
+    web_link:
+        enabled: true
 #### DEFINE LOCATION OF MANIFEST WHEN WORKING WITH SYMFONY ENCORE
 #    assets:
 #        json_manifest_path: '%kernel.project_dir%/public/build/manifest.json'
