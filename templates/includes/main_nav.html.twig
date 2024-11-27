@@ -1,0 +1,15 @@
+<ul class="main-navigation">
+	{% if mainNavChildren|length > 0 %}
+			{% for page in mainNavChildren %}
+					{% if page.published %}
+							<li>
+									<a href="{{ page.href ?: '#' }}" target="_blank">
+											<i class="fa-solid fa-caret-right"></i>
+											{{ page.title}}
+									</a>
+							</li>
+					{% endif %}
+			{% endfor %}
+	{% else %}
+			<li>No Footer Menü found</li>
+	{% endif %}
