@@ -1,0 +1,15 @@
+<ul class="social-navigation">
+	{% if socialChildren|length > 0 %}
+			{% for page in socialChildren %}
+					{% if page.published %}
+							<li>
+									<a href="{{ page.href ?: '#' }}" target="_blank">
+											<i class="fa-brands fa-{{ page.getProperty('font-awesome-class') }}"></i>
+									</a>
+							</li>
+					{% endif %}
+			{% endfor %}
+	{% else %}
+			<li>No social links found</li>
+	{% endif %}
+</ul>
