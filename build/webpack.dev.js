@@ -148,7 +148,7 @@ export default {
       onDoneWatch:{
         scripts: [
           'echo "Clear Pimcore Cache"',
-          //'php ../bin/console cache:clear',
+          '../bin/console cache:clear',
         ],
         blocking: false,
         parallel: false
@@ -165,6 +165,7 @@ export default {
       //server: { baseDir: ['public'] },
       online: true,
       reloadOnRestart: false,
+      scrollProportionally: false,
       notify: false,
       advanced: {
         browserSync: {
