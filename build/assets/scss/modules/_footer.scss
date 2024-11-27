@@ -1,0 +1,16 @@
+footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: var(--bs-gray);
+  min-height: 200px;
+
+  ul {
+    li {
+      list-style: none;
+
+      svg {
+        padding-right: 12px;
+      }
+    }
+  }
+}
