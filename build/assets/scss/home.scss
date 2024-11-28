@@ -48,9 +48,16 @@
 
 // Modules
 @import "modules/header";
-@import "modules/footer";
+@import "modules/header-top";
+@import "modules/header-bottom";
+@import "modules/main-navigation";
+@import "modules/logo";
 @import "modules/social";
 @import "modules/slider";
+@import "modules/footer";
+// Elements
+@import "elements/links";
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,700|Lato:400,700|Inter:400,700|Noto+Sans:400,700");
 
 .home {
   display: flex;
