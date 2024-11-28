@@ -1,0 +1,26 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    logo-thumbnail:
+                        items:
+                            -
+                                method: scaleByWidth
+                                arguments:
+                                    width: 200
+                                    forceResize: true
+                        medias: {  }
+                        name: logo-thumbnail
+                        description: ''
+                        group: ''
+                        format: PNG
+                        quality: 85
+                        highResolution: null
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1732728517
+                        creationDate: 1732727963
+                        preserveAnimation: false
