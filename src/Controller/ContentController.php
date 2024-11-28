@@ -10,6 +10,7 @@ use App\Utility\DebugUtility;
 use Pimcore\Model\Document;
 use Pimcore\Model\Document\Page;
 use Pimcore\Model\Document\Listing;
+use Pimcore\Model\Asset;
 use Pimcore\Model\Asset\Listing as AssetListing;
 use Pimcore\Model\Asset\Image;
 
@@ -23,6 +24,7 @@ class ContentController extends FrontendController
      */
     public function templateAction(Request $request): Response
     {
+        $logo = $this->getAssetImageById(13);
 		$socialRoot = $this->getDocumentById(3);
         $socialChildren = $this->getChildrensByPid($socialRoot);
 		$mainNavRoot = $this->getDocumentById(2);
@@ -31,6 +33,7 @@ class ContentController extends FrontendController
         $carouselItems = $this->getAssetListingByPid(2);
 
         return $this->render('content/home.html.twig', [
+            'logo' => $logo,
             'socialRoot' => $socialRoot,
             'socialChildren' => $socialChildren,
             'carouselItems' => $carouselItems,
@@ -59,6 +62,17 @@ class ContentController extends FrontendController
     public function getChildrensByPid(Page $page): Listing 
     {
         return $socialPages = $page ? $page->getChildren() : [];
+    }
+
+    /**
+     * Get Asset Image from Id
+     * 
+     * @param int $id
+     * @return Image
+     */
+    private function getAssetImageById(int $id): Image 
+    {
+        return Asset::getById($id);
     }
 
     /**
