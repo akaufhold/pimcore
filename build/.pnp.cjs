@@ -59,6 +59,8 @@ const RAW_RUNTIME_STATE =
           ["gl-texture2d", "npm:2.1.0"],\
           ["gl-transition", "npm:1.13.0"],\
           ["gl-transitions", "npm:1.43.0"],\
+          ["google-fonts-plugin", "npm:5.0.2"],\
+          ["google-fonts-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:0.4.4"],\
           ["image-webpack-loader", "npm:8.1.0"],\
           ["imagemin-webp-webpack-plugin", "npm:3.3.6"],\
           ["mini-css-extract-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:2.9.2"],\
@@ -93,6 +95,7 @@ const RAW_RUNTIME_STATE =
           ["webpack-cli", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.1.4"],\
           ["webpack-fix-style-only-entries", "npm:0.6.1"],\
           ["webpack-shell-plugin-next", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:2.3.2"],\
+          ["webpack-sources", "npm:3.2.3"],\
           ["webpack-watch-files-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:1.2.1"],\
           ["workbox-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:6.6.0"]\
         ],\
@@ -4323,6 +4326,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["axios", [\
+      ["npm:0.19.2", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/axios-npm-0.19.2-e4e8599895-10c0.zip/node_modules/axios/",\
+        "packageDependencies": [\
+          ["axios", "npm:0.19.2"],\
+          ["follow-redirects", "npm:1.5.10"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["babel-eslint", [\
       ["npm:10.1.0", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/babel-eslint-npm-10.1.0-6a6d2b1533-10c0.zip/node_modules/babel-eslint/",\
@@ -5765,6 +5778,13 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/debug-npm-3.1.0-9f0accb99b-10c0.zip/node_modules/debug/",\
+        "packageDependencies": [\
+          ["debug", "npm:3.1.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
       ["npm:3.2.7", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/debug-npm-3.2.7-754e818c7a-10c0.zip/node_modules/debug/",\
         "packageDependencies": [\
@@ -5813,6 +5833,20 @@ const RAW_RUNTIME_STATE =
           ["debug", "virtual:6230e12b1d7dee1735a865cef131ea49c043e7f202fd08b14ceb90686e406b76a07840fc9510f1069465ad9695242b42830fc7fea7b01648a261463b7848122f#npm:4.3.7"],\
           ["@types/supports-color", null],\
           ["ms", "npm:2.1.3"],\
+          ["supports-color", null]\
+        ],\
+        "packagePeers": [\
+          "@types/supports-color",\
+          "supports-color"\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["virtual:bde6f435769d1a96c3f371d2e8a88314847816fb841f758b3628da60329c36f988ca42f6984dc53bb31dd306522878e1e5d568caeca7af42e4f19b238d6261b3#npm:3.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/debug-virtual-f2284580f9/7/home/akaufhold/.yarn/berry/cache/debug-npm-3.1.0-9f0accb99b-10c0.zip/node_modules/debug/",\
+        "packageDependencies": [\
+          ["debug", "virtual:bde6f435769d1a96c3f371d2e8a88314847816fb841f758b3628da60329c36f988ca42f6984dc53bb31dd306522878e1e5d568caeca7af42e4f19b238d6261b3#npm:3.1.0"],\
+          ["@types/supports-color", null],\
+          ["ms", "npm:2.0.0"],\
           ["supports-color", null]\
         ],\
         "packagePeers": [\
@@ -7609,6 +7643,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["find-up", [\
+      ["npm:3.0.0", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/find-up-npm-3.0.0-a2d4b1b317-10c0.zip/node_modules/find-up/",\
+        "packageDependencies": [\
+          ["find-up", "npm:3.0.0"],\
+          ["locate-path", "npm:3.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:4.1.0", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/find-up-npm-4.1.0-c3ccf8d855-10c0.zip/node_modules/find-up/",\
         "packageDependencies": [\
@@ -7684,6 +7726,14 @@ const RAW_RUNTIME_STATE =
           ["follow-redirects", "npm:1.15.9"]\
         ],\
         "linkType": "SOFT"\
+      }],\
+      ["npm:1.5.10", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/follow-redirects-npm-1.5.10-bde6f43576-10c0.zip/node_modules/follow-redirects/",\
+        "packageDependencies": [\
+          ["follow-redirects", "npm:1.5.10"],\
+          ["debug", "virtual:bde6f435769d1a96c3f371d2e8a88314847816fb841f758b3628da60329c36f988ca42f6984dc53bb31dd306522878e1e5d568caeca7af42e4f19b238d6261b3#npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
       }],\
       ["virtual:a313c479c5c7e54d9ec8fbeeea69ff640f56b8989ea2dff42351a3fa5c4061fb80a52d8ede0f0826a181a216820c2d2c3f15da881e7fdf31cef1c446e42f0c45#npm:1.15.9", {\
         "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-eef30d12cf/7/home/akaufhold/.yarn/berry/cache/follow-redirects-npm-1.15.9-539785d34c-10c0.zip/node_modules/follow-redirects/",\
@@ -8282,6 +8332,44 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["glsl-tokenizer", "npm:2.1.5"],\
           ["through2", "npm:0.6.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["google-fonts-plugin", [\
+      ["npm:5.0.2", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/google-fonts-plugin-npm-5.0.2-345980966f-10c0.zip/node_modules/google-fonts-plugin/",\
+        "packageDependencies": [\
+          ["google-fonts-plugin", "npm:5.0.2"],\
+          ["axios", "npm:0.19.2"],\
+          ["find-cache-dir", "npm:3.3.2"],\
+          ["pkg-up", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["google-fonts-webpack-plugin", [\
+      ["npm:0.4.4", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/google-fonts-webpack-plugin-npm-0.4.4-adb2225f24-10c0.zip/node_modules/google-fonts-webpack-plugin/",\
+        "packageDependencies": [\
+          ["google-fonts-webpack-plugin", "npm:0.4.4"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:0.4.4", {\
+        "packageLocation": "./.yarn/__virtual__/google-fonts-webpack-plugin-virtual-b520a48491/7/home/akaufhold/.yarn/berry/cache/google-fonts-webpack-plugin-npm-0.4.4-adb2225f24-10c0.zip/node_modules/google-fonts-webpack-plugin/",\
+        "packageDependencies": [\
+          ["google-fonts-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:0.4.4"],\
+          ["@types/webpack", null],\
+          ["lodash", "npm:4.17.21"],\
+          ["node-fetch", "npm:1.7.3"],\
+          ["webpack", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.96.1"],\
+          ["webpack-sources", "npm:0.2.3"],\
+          ["yauzl", "npm:2.10.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/webpack",\
+          "webpack"\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9883,6 +9971,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["locate-path", [\
+      ["npm:3.0.0", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/locate-path-npm-3.0.0-991671ae9f-10c0.zip/node_modules/locate-path/",\
+        "packageDependencies": [\
+          ["locate-path", "npm:3.0.0"],\
+          ["p-locate", "npm:3.0.0"],\
+          ["path-exists", "npm:3.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:5.0.0", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/locate-path-npm-5.0.0-46580c43e4-10c0.zip/node_modules/locate-path/",\
         "packageDependencies": [\
@@ -10578,6 +10675,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["node-fetch", [\
+      ["npm:1.7.3", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/node-fetch-npm-1.7.3-eb8372f991-10c0.zip/node_modules/node-fetch/",\
+        "packageDependencies": [\
+          ["node-fetch", "npm:1.7.3"],\
+          ["encoding", "npm:0.1.13"],\
+          ["is-stream", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:2.7.0", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/node-fetch-npm-2.7.0-587d57004e-10c0.zip/node_modules/node-fetch/",\
         "packageDependencies": [\
@@ -11028,6 +11134,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["p-locate", [\
+      ["npm:3.0.0", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/p-locate-npm-3.0.0-74de74f952-10c0.zip/node_modules/p-locate/",\
+        "packageDependencies": [\
+          ["p-locate", "npm:3.0.0"],\
+          ["p-limit", "npm:2.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:4.1.0", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/p-locate-npm-4.1.0-eec6872537-10c0.zip/node_modules/p-locate/",\
         "packageDependencies": [\
@@ -11173,6 +11287,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["path-exists", [\
+      ["npm:3.0.0", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/path-exists-npm-3.0.0-e80371aa68-10c0.zip/node_modules/path-exists/",\
+        "packageDependencies": [\
+          ["path-exists", "npm:3.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:4.0.0", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/path-exists-npm-4.0.0-e9e4f63eb0-10c0.zip/node_modules/path-exists/",\
         "packageDependencies": [\
@@ -11317,6 +11438,16 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["pkg-dir", "npm:4.2.0"],\
           ["find-up", "npm:4.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["pkg-up", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/pkg-up-npm-3.1.0-1eebe033b7-10c0.zip/node_modules/pkg-up/",\
+        "packageDependencies": [\
+          ["pkg-up", "npm:3.1.0"],\
+          ["find-up", "npm:3.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -14334,6 +14465,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["source-list-map", [\
+      ["npm:1.1.2", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/source-list-map-npm-1.1.2-505aa0621f-10c0.zip/node_modules/source-list-map/",\
+        "packageDependencies": [\
+          ["source-list-map", "npm:1.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:2.0.1", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/source-list-map-npm-2.0.1-625c551052-10c0.zip/node_modules/source-list-map/",\
         "packageDependencies": [\
@@ -14343,6 +14481,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["source-map", [\
+      ["npm:0.5.7", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/source-map-npm-0.5.7-7c3f035429-10c0.zip/node_modules/source-map/",\
+        "packageDependencies": [\
+          ["source-map", "npm:0.5.7"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:0.6.1", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/source-map-npm-0.6.1-1a3621db16-10c0.zip/node_modules/source-map/",\
         "packageDependencies": [\
@@ -14493,6 +14638,8 @@ const RAW_RUNTIME_STATE =
           ["gl-texture2d", "npm:2.1.0"],\
           ["gl-transition", "npm:1.13.0"],\
           ["gl-transitions", "npm:1.43.0"],\
+          ["google-fonts-plugin", "npm:5.0.2"],\
+          ["google-fonts-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:0.4.4"],\
           ["image-webpack-loader", "npm:8.1.0"],\
           ["imagemin-webp-webpack-plugin", "npm:3.3.6"],\
           ["mini-css-extract-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:2.9.2"],\
@@ -14527,6 +14674,7 @@ const RAW_RUNTIME_STATE =
           ["webpack-cli", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:5.1.4"],\
           ["webpack-fix-style-only-entries", "npm:0.6.1"],\
           ["webpack-shell-plugin-next", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:2.3.2"],\
+          ["webpack-sources", "npm:3.2.3"],\
           ["webpack-watch-files-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:1.2.1"],\
           ["workbox-webpack-plugin", "virtual:8e1bb6f3e6f03734bf7c4c46e9bf7072ae5bdc93f73795b4d7ce9ea7259f67e80b61881dd6dd5b59179a97d78ac74e60cea79b2139d13e8645ff6d8ed89c3d78#npm:6.6.0"]\
         ],\
@@ -16184,6 +16332,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["webpack-sources", [\
+      ["npm:0.2.3", {\
+        "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/webpack-sources-npm-0.2.3-87de70345e-10c0.zip/node_modules/webpack-sources/",\
+        "packageDependencies": [\
+          ["webpack-sources", "npm:0.2.3"],\
+          ["source-list-map", "npm:1.1.2"],\
+          ["source-map", "npm:0.5.7"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:1.4.3", {\
         "packageLocation": "../../../../../../home/akaufhold/.yarn/berry/cache/webpack-sources-npm-1.4.3-2b3a9b1de0-10c0.zip/node_modules/webpack-sources/",\
         "packageDependencies": [\

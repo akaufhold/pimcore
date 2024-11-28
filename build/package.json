@@ -40,7 +40,8 @@
     "terser-webpack-plugin": "^5.3.10",
     "vanilla-lazyload": "^17.5.0",
     "webfontloader": "^1.6.28",
-    "webpack": "^5.96.1"
+    "webpack": "^5.96.1",
+    "webpack-sources": "^3.2.3"
   },
   "devDependencies": {
     "@andreyvolokitin/postcss-inline-svg": "^5.0.1",

@@ -2794,6 +2794,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^0.19.0":
+  version: 0.19.2
+  resolution: "axios@npm:0.19.2"
+  dependencies:
+    follow-redirects: "npm:1.5.10"
+  checksum: 10c0/b775abf2db44ea4f182f4c2bfa4bf84a723b86f5aa001f222f12193fa45ba243b7e3f27b66289c6afa51d696402b05c82715fd621a34add5b538e850adcdbce1
+  languageName: node
+  linkType: hard
+
 "babel-eslint@npm:^10.1.0":
   version: 10.1.0
   resolution: "babel-eslint@npm:10.1.0"
@@ -3985,6 +3994,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"debug@npm:=3.1.0":
+  version: 3.1.0
+  resolution: "debug@npm:3.1.0"
+  dependencies:
+    ms: "npm:2.0.0"
+  checksum: 10c0/5bff34a352d7b2eaa31886eeaf2ee534b5461ec0548315b2f9f80bd1d2533cab7df1fa52e130ce27bc31c3945fbffb0fc72baacdceb274b95ce853db89254ea4
+  languageName: node
+  linkType: hard
+
 "debug@npm:^3.2.7":
   version: 3.2.7
   resolution: "debug@npm:3.2.7"
@@ -4443,7 +4461,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"encoding@npm:^0.1.13":
+"encoding@npm:^0.1.11, encoding@npm:^0.1.13":
   version: 0.1.13
   resolution: "encoding@npm:0.1.13"
   dependencies:
@@ -5436,7 +5454,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-cache-dir@npm:^3.3.1":
+"find-cache-dir@npm:^3.0.0, find-cache-dir@npm:^3.3.1":
   version: 3.3.2
   resolution: "find-cache-dir@npm:3.3.2"
   dependencies:
@@ -5444,6 +5462,15 @@ __metadata:
     make-dir: "npm:^3.0.2"
     pkg-dir: "npm:^4.1.0"
   checksum: 10c0/92747cda42bff47a0266b06014610981cfbb71f55d60f2c8216bc3108c83d9745507fb0b14ecf6ab71112bed29cd6fb1a137ee7436179ea36e11287e3159e587
+  languageName: node
+  linkType: hard
+
+"find-up@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "find-up@npm:3.0.0"
+  dependencies:
+    locate-path: "npm:^3.0.0"
+  checksum: 10c0/2c2e7d0a26db858e2f624f39038c74739e38306dee42b45f404f770db357947be9d0d587f1cac72d20c114deb38aa57316e879eb0a78b17b46da7dab0a3bd6e3
   languageName: node
   linkType: hard
 
@@ -5520,6 +5547,15 @@ __metadata:
   version: 3.3.2
   resolution: "flatted@npm:3.3.2"
   checksum: 10c0/24cc735e74d593b6c767fe04f2ef369abe15b62f6906158079b9874bdb3ee5ae7110bb75042e70cd3f99d409d766f357caf78d5ecee9780206f5fdc5edbad334
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:1.5.10":
+  version: 1.5.10
+  resolution: "follow-redirects@npm:1.5.10"
+  dependencies:
+    debug: "npm:=3.1.0"
+  checksum: 10c0/f56ca26dcf3c9996a6cf8868b61e369a35d4000ade0292bdd27b5e0934902681b037060b9fabe58e7042bb8b85166d5db8bbcf027f1825c1577e4cffd904fd3f
   languageName: node
   linkType: hard
 
@@ -6087,6 +6123,31 @@ __metadata:
   dependencies:
     through2: "npm:^0.6.3"
   checksum: 10c0/5bcc4491afb0b09032702af83f0afa8acadfa0f5c94a7a0d7c3498396cc35722e1915c976c8efef80a1a9ef0976ecb8ce4e044a34b16d7d537ae4c80f346ad19
+  languageName: node
+  linkType: hard
+
+"google-fonts-plugin@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "google-fonts-plugin@npm:5.0.2"
+  dependencies:
+    axios: "npm:^0.19.0"
+    find-cache-dir: "npm:^3.0.0"
+    pkg-up: "npm:^3.1.0"
+  checksum: 10c0/14699d94d72a270764568ec0ef72c0fa317a458a08d74223080045d3bbdc46215e5189e351083a029102f2cf4e237ff7602e8f5fa59745ae74b23c5fe7d1d0c8
+  languageName: node
+  linkType: hard
+
+"google-fonts-webpack-plugin@npm:^0.4.4":
+  version: 0.4.4
+  resolution: "google-fonts-webpack-plugin@npm:0.4.4"
+  dependencies:
+    lodash: "npm:^4.17.4"
+    node-fetch: "npm:^1.6.3"
+    webpack-sources: "npm:^0.2.0"
+    yauzl: "npm:^2.8.0"
+  peerDependencies:
+    webpack: ">=2.2.0"
+  checksum: 10c0/e8c95fa3af3b482b1eae02b025d9e634ad2dba3d43ccab866c34f7f5fd10deb2b40437011201d29de3e90641cf4a637f46111cf0dce44bb7225ed71c342cd3d4
   languageName: node
   linkType: hard
 
@@ -7022,7 +7083,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-stream@npm:^1.0.0, is-stream@npm:^1.1.0":
+"is-stream@npm:^1.0.0, is-stream@npm:^1.0.1, is-stream@npm:^1.1.0":
   version: 1.1.0
   resolution: "is-stream@npm:1.1.0"
   checksum: 10c0/b8ae7971e78d2e8488d15f804229c6eed7ed36a28f8807a1815938771f4adff0e705218b7dab968270433f67103e4fef98062a0beea55d64835f705ee72c7002
@@ -7532,6 +7593,16 @@ __metadata:
     emojis-list: "npm:^3.0.0"
     json5: "npm:^2.1.2"
   checksum: 10c0/d5654a77f9d339ec2a03d88221a5a695f337bf71eb8dea031b3223420bb818964ba8ed0069145c19b095f6c8b8fd386e602a3fc7ca987042bd8bb1dcc90d7100
+  languageName: node
+  linkType: hard
+
+"locate-path@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "locate-path@npm:3.0.0"
+  dependencies:
+    p-locate: "npm:^3.0.0"
+    path-exists: "npm:^3.0.0"
+  checksum: 10c0/3db394b7829a7fe2f4fbdd25d3c4689b85f003c318c5da4052c7e56eed697da8f1bce5294f685c69ff76e32cba7a33629d94396976f6d05fb7f4c755c5e2ae8b
   languageName: node
   linkType: hard
 
@@ -8152,6 +8223,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-fetch@npm:^1.6.3":
+  version: 1.7.3
+  resolution: "node-fetch@npm:1.7.3"
+  dependencies:
+    encoding: "npm:^0.1.11"
+    is-stream: "npm:^1.0.1"
+  checksum: 10c0/5a6b56b3edf909ccd20414355867d24f15f1885da3b26be90840241c46e63754ebf4697050f897daab676e3952d969611ffe1d4bc4506cf50f70837e20ad5328
+  languageName: node
+  linkType: hard
+
 "node-fetch@npm:^2.1.2":
   version: 2.7.0
   resolution: "node-fetch@npm:2.7.0"
@@ -8532,7 +8613,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"p-limit@npm:^2.2.0":
+"p-limit@npm:^2.0.0, p-limit@npm:^2.2.0":
   version: 2.3.0
   resolution: "p-limit@npm:2.3.0"
   dependencies:
@@ -8547,6 +8628,15 @@ __metadata:
   dependencies:
     yocto-queue: "npm:^0.1.0"
   checksum: 10c0/9db675949dbdc9c3763c89e748d0ef8bdad0afbb24d49ceaf4c46c02c77d30db4e0652ed36d0a0a7a95154335fab810d95c86153105bb73b3a90448e2bb14e1a
+  languageName: node
+  linkType: hard
+
+"p-locate@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "p-locate@npm:3.0.0"
+  dependencies:
+    p-limit: "npm:^2.0.0"
+  checksum: 10c0/7b7f06f718f19e989ce6280ed4396fb3c34dabdee0df948376483032f9d5ec22fdf7077ec942143a75827bb85b11da72016497fc10dac1106c837ed593969ee8
   languageName: node
   linkType: hard
 
@@ -8666,6 +8756,13 @@ __metadata:
   version: 1.3.3
   resolution: "parseurl@npm:1.3.3"
   checksum: 10c0/90dd4760d6f6174adb9f20cf0965ae12e23879b5f5464f38e92fce8073354341e4b3b76fa3d878351efe7d01e617121955284cfd002ab087fba1a0726ec0b4f5
+  languageName: node
+  linkType: hard
+
+"path-exists@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "path-exists@npm:3.0.0"
+  checksum: 10c0/17d6a5664bc0a11d48e2b2127d28a0e58822c6740bde30403f08013da599182289c56518bec89407e3f31d3c2b6b296a4220bc3f867f0911fee6952208b04167
   languageName: node
   linkType: hard
 
@@ -8802,6 +8899,15 @@ __metadata:
   dependencies:
     find-up: "npm:^4.0.0"
   checksum: 10c0/c56bda7769e04907a88423feb320babaed0711af8c436ce3e56763ab1021ba107c7b0cafb11cde7529f669cfc22bffcaebffb573645cbd63842ea9fb17cd7728
+  languageName: node
+  linkType: hard
+
+"pkg-up@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "pkg-up@npm:3.1.0"
+  dependencies:
+    find-up: "npm:^3.0.0"
+  checksum: 10c0/ecb60e1f8e1f611c0bdf1a0b6a474d6dfb51185567dc6f29cdef37c8d480ecba5362e006606bb290519bbb6f49526c403fabea93c3090c20368d98bb90c999ab
   languageName: node
   linkType: hard
 
@@ -10845,6 +10951,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"source-list-map@npm:^1.1.1":
+  version: 1.1.2
+  resolution: "source-list-map@npm:1.1.2"
+  checksum: 10c0/4d7cfb02c225072628181e3c4ebdac874318e179de61e0a68c0ad69af079e14e9e2d70ad87b0bc3f9794e80f5bebf96f699bbf8d576ec932f8803180c5b9ce4f
+  languageName: node
+  linkType: hard
+
 "source-list-map@npm:^2.0.0":
   version: 2.0.1
   resolution: "source-list-map@npm:2.0.1"
@@ -10882,6 +10995,13 @@ __metadata:
   dependencies:
     whatwg-url: "npm:^7.0.0"
   checksum: 10c0/fb4d9bde9a9fdb2c29b10e5eae6c71d10e09ef467e1afb75fdec2eb7e11fa5b343a2af553f74f18b695dbc0b81f9da2e9fa3d7a317d5985e9939499ec6087835
+  languageName: node
+  linkType: hard
+
+"source-map@npm:~0.5.3":
+  version: 0.5.7
+  resolution: "source-map@npm:0.5.7"
+  checksum: 10c0/904e767bb9c494929be013017380cbba013637da1b28e5943b566031e29df04fba57edf3f093e0914be094648b577372bd8ad247fa98cfba9c600794cd16b599
   languageName: node
   linkType: hard
 
@@ -10985,6 +11105,8 @@ __metadata:
     gl-texture2d: "npm:^2.1.0"
     gl-transition: "npm:^1.13.0"
     gl-transitions: "npm:^1.43.0"
+    google-fonts-plugin: "npm:^5.0.2"
+    google-fonts-webpack-plugin: "npm:^0.4.4"
     image-webpack-loader: "npm:^8.0.1"
     imagemin-webp-webpack-plugin: "npm:^3.3.6"
     mini-css-extract-plugin: "npm:^2.7.6"
@@ -11019,6 +11141,7 @@ __metadata:
     webpack-cli: "npm:^5.1.4"
     webpack-fix-style-only-entries: "npm:^0.6.1"
     webpack-shell-plugin-next: "npm:^2.3.2"
+    webpack-sources: "npm:^3.2.3"
     webpack-watch-files-plugin: "npm:^1.2.1"
     workbox-webpack-plugin: "npm:^6.5.3"
   languageName: unknown
@@ -12341,6 +12464,16 @@ __metadata:
   peerDependencies:
     webpack: ^5.18.0
   checksum: 10c0/dc01f388c5cac8d8bd69e90ded67821d73b514aad4a21bc257a2f1c6737cfcca1fdef01eaf3d6eed2ac3b0133d4410dd5bdfad253339a13cce958ba9e8fdf807
+  languageName: node
+  linkType: hard
+
+"webpack-sources@npm:^0.2.0":
+  version: 0.2.3
+  resolution: "webpack-sources@npm:0.2.3"
+  dependencies:
+    source-list-map: "npm:^1.1.1"
+    source-map: "npm:~0.5.3"
+  checksum: 10c0/94c4bc6294fef2779d9914a819f45e1d2f734cb72b49b69ecf4f1439cc1c442b06436bbe72c71cfd2265cafba13376a5ec4a31a15e6f20c894c6208b7bab122f
   languageName: node
   linkType: hard
 
