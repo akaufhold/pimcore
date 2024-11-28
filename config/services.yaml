@@ -49,7 +49,10 @@ services:
         public: true
         tags: [ 'controller.service_arguments' ]
 
-
+    App\Controller\Calculator\:
+        resource: '../src/Controller/Calculator'
+        public: true
+        tags: [ 'controller.service_arguments' ]
     #
     # COMMANDS
     #
@@ -58,8 +61,6 @@ services:
     App\Command\:
         resource: '../src/Command/*'
         tags: [ 'console.command' ]
-
-
 
     # Example custom templating helper
     # App\Templating\Helper\Example:
