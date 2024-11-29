@@ -2,12 +2,10 @@ a {
   &:hover,
   &:focus {
     outline: var(--outline-width) var(--outline-hover-style) var(--outline-color-light);
-    outline-offset: calc(var(--outline-width) / 2);
   }
 
   &:focus-within,
   &:active {
     outline: var(--outline-width) var(--outline-style) var(--outline-color-light);
-    outline-offset: calc(var(--outline-width) / 2);
   }
 }
