@@ -4,8 +4,38 @@
 
 {% do pimcore_head_title('Title') %}
 
+{{ pimcore_input('calculatorText', {
+    'placeholder': 'Gib deinen Text hier ein'
+}) }}
+
 <div class="wasteCalculation">
-	{{ dump() }}
+	<form method="POST" action="{{ path('content') }}">
+        <label for="persons">Anzahl der Personen:</label>
+        <select name="persons" id="persons" required>
+                {% for household in allHouseholds %}
+                        <option value="{{ household.id }}">{{ household.personsHousehold }} Personen</option>
+                {% endfor %}
+        </select>
+        <button type="submit">Berechnen</button>
+	</form>
 </div>
 
+{% if currentHouseholdCalc is defined %}
+    <h2>Berechnungsergebnisse:</h2>
+        {% for result in currentHouseholdCalc %}
+        <ul>
+            <li>
+                Behältergröße: {{ result.containerSize }} Liter,
+                Mindestleerungen: {{ result.pickups }},
+                Mindestvolumen: {{ result.minimumVolume }} Liter
+            </li>
+        </ul>    
+        {% endfor %}
+{% endif %}
+
+{% if error is defined %}
+    <div class="error">
+        <p>{{ error }}</p>
+    </div>
+{% endif %}
 {% endblock %}
