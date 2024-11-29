@@ -16,17 +16,16 @@ module.exports = { // eslint-disable-line no-undef
     ],
     "ignoreFiles": ["**/*.html", "**/*.js", "**/*.php"],
     "rules": {
+        "at-rule-no-unknown": null,
         "at-rule-empty-line-before": [
             "always", {
                 "except": ["first-nested", "blockless-after-blockless"],
                 "ignore": "after-comment"
             }],
-        "max-empty-lines": 1,
-        "at-rule-no-unknown": null,
-        "scss/at-rule-no-unknown": true,
+        "block-closing-brace-newline-after": "always-single-line",
         "block-no-empty": true,
         "color-function-notation": "modern",
-        "block-closing-brace-newline-after": "always-single-line",
+        'declaration-block-no-redundant-longhand-properties': null,
         "declaration-block-no-shorthand-property-overrides": true,
         "declaration-colon-newline-after": "always-multi-line",
         "declaration-empty-line-before": null,
@@ -34,17 +33,24 @@ module.exports = { // eslint-disable-line no-undef
         "function-comma-newline-after": null,
         "function-parentheses-newline-inside": null,
         'function-url-quotes': null,
+        'keyframes-name-pattern': null,
+        "max-empty-lines": 1,
         "no-descending-specificity": null,
         "number-leading-zero": "never",
-        'scss/comment-no-empty': null,
-        'scss/at-if-no-null': null,
-        'keyframes-name-pattern': null,
-        'declaration-block-no-redundant-longhand-properties': null,
-        "selector-type-no-unknown": [true, {"severity": "warning"}],
         "property-no-vendor-prefix": [
             true, {
             ignoreProperties: ["backface-visibility", "appearance"]
         }],
+        'scss/comment-no-empty': null,
+        "scss/at-rule-no-unknown": true,
+        'scss/at-if-no-null': null,
+        "selector-type-no-unknown": [true, {"severity": "warning"}],
+        "selector-class-pattern": [
+            "^[a-z]+(-[a-z]+)*|^pimcore_.*$",
+            {
+                "message": "Class names should be kebab-case, or follow Pimcore's naming pattern (e.g., pimcore_field_input)."
+            }
+        ],
         "selector-id-pattern": null,
     }
 }
