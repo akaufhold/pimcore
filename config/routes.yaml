@@ -5,10 +5,6 @@ app:
     resource: "../src/Controller/"
     type: annotation
 
-calculator_controllers:
-    resource: '../src/Controller/Calculator'
-    type: annotation
-
 de:
   path: /de
   controller: App\Controller\ContentController::templateAction

@@ -1,2 +1,6 @@
 _pimcore_dev:
     resource: "@PimcoreCoreBundle/config/routing_dev.yaml"
+
+content:
+    path: /content
+    controller: App\Controller\ContentController::templateAction
