@@ -54,11 +54,8 @@ class ContentController extends FrontendController
             'mainNavRoot' => $mainNavRoot,
             'mainNavChildren' => $mainNavChildrenFiltered,
         ];
-        $additionalContent = $this->contentService->getAdditionalContent($document);
 
-        if ($additionalContent) {
-            $renderParams['additionalContent'] = $additionalContent;
-        }
+        [$renderParams['allHouseholds'], $renderParams['currentHouseholdCalc']] = $this->contentService->getAdditionalContent($document, $request);
 
         return $this->render($templateFile, $renderParams);
     }
