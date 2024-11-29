@@ -43,6 +43,10 @@ services:
     # CONTROLLERS
     #
 
+    App\EventListener\AdminAssetsListener:
+        tags:
+        - { name: kernel.event_listener, event: pimcore.asset.postAdd, method: getSubscribedEvents }
+
     # auto-register all controllers as services
     App\Controller\:
         resource: '../src/Controller'
@@ -54,10 +58,6 @@ services:
         resource: '../src/Service/*'
         public: true
         
-    App\Controller\Calculator\:
-        resource: '../src/Controller/Calculator'
-        public: true
-        tags: [ 'controller.service_arguments' ]
     #
     # COMMANDS
     #
