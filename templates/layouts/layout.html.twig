@@ -16,8 +16,10 @@
 
 <body>
 	{% include 'includes/header.html.twig' with { socialRoot: socialRoot, socialChildren: socialChildren } %}
-	<div class="wrapper">
-		{{ block('content') }}
+	<div class="wrapper container">
+		<div class="col-12">
+			{{ block('content') }}
+		</div>
 	</div>
 	{% include 'includes/footer.html.twig' with { mainNavRoot: mainNavRoot, mainNavChildren: mainNavChildren } %}
 </body>
