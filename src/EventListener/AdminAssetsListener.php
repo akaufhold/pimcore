@@ -9,16 +9,12 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class AdminAssetsListener implements EventSubscriberInterface
 {
-    public function getSubscribedEvents(PathsEvent $event)
+
+    public static function getSubscribedEvents(): array
     {
-        $event->setPaths(
-            array_merge(
-                $event->getPaths(),
-                [
-                    BundleManagerEvents::CSS_PATHS => 'onCssPaths'
-                ]
-            )
-        );
+        return [
+            BundleManagerEvents::CSS_PATHS => 'onCssPaths'
+        ];
     }
 
     public function onCssPaths(PathsEvent $event): void
