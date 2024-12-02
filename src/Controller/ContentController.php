@@ -37,10 +37,10 @@ class ContentController extends FrontendController
         $document = $this->document;
         $templateFile = $document->getTemplate() ?? 'content/home.html.twig';
 
-        $logo = $this->getAssetImageById(13);
-		$socialRoot = $this->getDocumentById(3);
+        $logo = Asset::getById(13);
+		$socialRoot = Document::getById(3);
         $socialChildren = $this->getChildrenListingByPid($socialRoot);
-		$mainNavRoot = $this->getDocumentById(2);
+		$mainNavRoot = Document::getById(2);
         $mainNavChildren = $this->getChildrenListingByPid($mainNavRoot);
         $mainNavChildrenFiltered = $this->filterListingWithBool($mainNavChildren, 'main_nav_hide', 0);
 
@@ -58,17 +58,6 @@ class ContentController extends FrontendController
         [$renderParams['allHouseholds'], $renderParams['currentHouseholdCalc']] = $this->contentService->getAdditionalContent($document, $request);
 
         return $this->render($templateFile, $renderParams);
-    }
-
-    /**
-     * Get Navigation Node
-     * int $pageId
-     * 
-     * @return Page
-     */
-    public function getDocumentById(int $pageId): Page 
-    {
-        return Document::getById($pageId);
     }
 
     /**
@@ -99,17 +88,6 @@ class ContentController extends FrontendController
             )
         ]);
         return $filteredListing;
-    }
-
-    /**
-     * Get Asset Image from Id
-     * 
-     * @param int $id
-     * @return Image
-     */
-    private function getAssetImageById(int $id): Image 
-    {
-        return Asset::getById($id);
     }
 
     /**
