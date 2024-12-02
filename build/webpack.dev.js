@@ -29,11 +29,14 @@ export default {
   },
   // Define the entry points of our application
   entry: {
+    ckeditor: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + '/ckeditor.js',
     home: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + '/home.js',
     sub: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + './sub.js',
     backend: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + './backend.js',
+    // Modules
+    wasteCalculator: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + 'features/waste_calculator.js',
   },
-
+  
   // Define the destination directory and filenames of compiled resources and files
   output: {
     filename: _config.default[_project.type].paths.public.javascripts+'[name].js',
