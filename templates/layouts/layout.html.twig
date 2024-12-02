@@ -9,14 +9,16 @@
 		{{ pimcore_head_link() }}
 		{{ pimcore_head_meta() }}
 
-		<link rel="stylesheet" href="{{ pimcore_website_config('asset_public') }}css/home.css" />
 		<script type="text/javascript" src="{{ pimcore_website_config('asset_public') }}js/home.js" ></script>
+		<link rel="stylesheet" href="{{ pimcore_website_config('asset_public') }}css/home.css" />
+
+		{{ block('head_feature_assets') }}
 
 </head>
 
 <body>
 	{% include 'includes/header.html.twig' with { socialRoot: socialRoot, socialChildren: socialChildren } %}
-	<div class="wrapper container">
+	<div class="wrapper py-3 container">
 		<div class="col-12">
 			{{ block('content') }}
 		</div>
