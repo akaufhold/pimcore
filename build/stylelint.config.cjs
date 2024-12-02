@@ -12,7 +12,7 @@ module.exports = { // eslint-disable-line no-undef
     ],
     "plugins": [
         "stylelint-scss", // see https://github.com/kristerkari/stylelint-scss
-        "stylelint-order" // see https://github.com/hudochenkov/stylelint-order
+        "stylelint-order", // see https://github.com/hudochenkov/stylelint-order
     ],
     "ignoreFiles": ["**/*.html", "**/*.js", "**/*.php"],
     "rules": {
@@ -46,9 +46,10 @@ module.exports = { // eslint-disable-line no-undef
         'scss/at-if-no-null': null,
         "selector-type-no-unknown": [true, {"severity": "warning"}],
         "selector-class-pattern": [
-            "^[a-z]+(-[a-z]+)*|^pimcore_.*$",
+            "^[a-z]+(-[a-z]+)*(__[a-z]+(-[a-z]+)*)?(--[a-z]+(-[a-z]+)*)?$|^pimcore_.*$",
             {
-                "message": "Class names should be kebab-case, or follow Pimcore's naming pattern (e.g., pimcore_field_input)."
+                "resolveNestedSelectors": true,
+                "message": "Class names should be BEM / Pimcore's naming pattern (e.g., pimcore_field_input)."
             }
         ],
         "selector-id-pattern": null,
