@@ -1,0 +1,27 @@
+.card {
+  --padding-x: 1.25rem;
+  --padding-y: 1.25rem;
+  --padding-footer-y: .75rem;
+
+  &--white {
+    --card-base-clr: var(--bs-white);
+    --card-footer-clr: var(--bs-gray-100);
+    --card-border-clr: rgb(0 0 0 / 12.5%);
+  }
+  position: relative;
+  border-radius: var(--border-radius);
+  background-color: var(--card-base-clr);
+
+  &__body {
+    flex: 1 1 auto;
+    padding: var(--padding-y) var(--padding-x);
+  }
+
+  &__footer {
+    padding: var(--padding-footer-y) var(--padding-x);
+    background-color: var(--card-footer-clr);
+    border-top: 1px solid var(--card-border-clr);
+    display: flex;
+    justify-content: space-between;
+  }
+}
