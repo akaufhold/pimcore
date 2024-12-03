@@ -2,7 +2,10 @@
 @import "~bootstrap/scss/variables";
 
 .waste-calculator {
-  --waste-calc-base: var(--bs-primary);
+  &--primary {
+    --calc-base-clr: var(--bs-primary);
+    --border-radius: .25rem;
+  }
 
   &__form {
     display: flex;
@@ -27,12 +30,24 @@
       border: var(--border-default);
     }
 
-    &--green {
-      background: var(--waste-calc-base);
+    &--primary {
+      background: var(--calc-base-clr);
+    }
+
+    &--active {
+      &:active {
+        background: var(--calc-base-clr);
+        border: var(--border-large);
+      }
     }
   }
 
   &__list {
+    > * {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
     list-style: none;
 
     &-entry {
@@ -42,5 +57,11 @@
 
   &__results--error {
     color: $danger;
+  }
+
+  &__card-group {
+    flex-flow: row wrap;
+    display: flex;
+    gap: 1rem;
   }
 }
