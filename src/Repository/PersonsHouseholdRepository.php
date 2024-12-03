@@ -13,6 +13,8 @@ class PersonsHouseholdRepository
     public function findAll(): array
     {
         $listing = new PersonsHousehold\Listing();
+        $listing->setOrderKey("key");
+        $listing->setOrder("ASC");
         $listing->setUnpublished(false);
         return $listing->load();
     }
