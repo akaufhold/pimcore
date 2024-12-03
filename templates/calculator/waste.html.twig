@@ -11,56 +11,96 @@
 
 <div class="waste-calculator mt-3">
 
-    <div class="waste-calculator__text">
-        {{ pimcore_wysiwyg("myWYSIWYG", {
-            "ckeditorConfigPath": "/js/ckeditor-config.js",
-            "height": 300,
-            "width": 1000,
-            "placeholder": "Bitte geben sie einen Text ein"
-        }) }}
+    <div class="row">
+        <div class="col-12">
+            <h2>
+                {{ pimcore_input("waste_calc_headline", {
+                    "ckeditorConfigPath": "/js/ckeditor-config.js",
+                }) }}
+            </h2>
+        </div>
     </div>
 
-	<form class="waste-calculator__form" method="POST" action="{{ path('content') }}">
-        <label class="waste-calculator__form-label py-2 mt-3" for="persons">Anzahl der Personen:</label>
-        <select class="form-select waste-calculator__form-select" name="persons" id="persons" required>
-            <option>Bitte Anzahl der Personen auswählen</option>
-            {% for household in allHouseholds %}
-                    <option value="{{ household.id }}">{{ household.personsHousehold }} Personen</option>
-            {% endfor %}
-        </select>
-        <div class="col-auto mt-3">
-            <button class="btn btn-secondary waste-calculator__button waste-calculator__button--disabled" type="reset">Reset</button>
-            <button class="btn btn-primary waste-calculator__button" type="submit">Berechnen</button>
+    <div class="row mt-3">
+
+        <div class="col-6">
+            <div class="waste-calculator__text">
+                {{ pimcore_wysiwyg("waste_calc_text", {
+                    "ckeditorConfigPath": "/js/ckeditor-config.js",
+                    "height": 300,
+                    "placeholder": "Bitte geben sie einen Text ein"
+                }) }}
+            </div>
         </div>
-	</form>
-
-    {% if currentHouseholdCalc is defined %}
-    <div class="waste-calculator__results">
-        <h2 class="waste-calculator__headline mt-4">Berechnungsergebnisse:</h2>
-
-        {% for result in currentHouseholdCalc %}
-        <ul class="waste-calculator__list">
-            <li class="waste-calculator__list-entry">
-                Behältergröße: {% for size in result.containerSize %} {{size}} {% endfor %} Liter,
-            </li>
-            <li class="waste-calculator__list-entry">
-                </i>Mindestentleerungsvolumen im Halbjahr: {{ result.minimumVolume }} Liter
-            </li>
-            <li class="waste-calculator__list-entry">
-                </i>Mindestvolumen: {{ result.pickups }} Liter
-            </li>
-        </ul>   
-        {% endfor %} 
-
+        {{ dump() }}
+        <div class="col-6">
+    
+            <form class="waste-calculator__form" method="POST" action="{{ path(app.request.attributes.get('_route')) }}">
+                <label class="waste-calculator__label py-2" for="persons">Anzahl der Personen:</label>
+                <select class="form-select waste-calculator__select" name="persons" id="persons" required>
+                    <option>Bitte Anzahl der Personen auswählen</option>
+                    {% for household in allData %}
+                        <option value="{{ household.id }}" {{ household.id == curPersonId ? 'selected' : '' }}>{{ household.personsHousehold }} Personen</option>
+                    {% endfor %}
+                </select>
+                <div class="col-auto mt-3">
+                    <button class="btn waste-calculator__button waste-calculator__button--green waste-calculator__button--disabled" type="reset">Reset</button>
+                    <button class="btn waste-calculator__button " type="submit">Berechnen</button>
+                </div>
+            </form>
+        
+        </div>
     </div>
 
-    {% endif %}
+    <div class="row">
 
-    {% if error is defined %}
-        <div class="waste-calculator__results--error">
-            <p>{{ error }}</p>
+        {% if curData is defined %}
+        <div class="waste-calculator__results mt-3">
+            <h2 class="waste-calculator__headline">Berechnungsergebnisse:</h2>
+    
+            {% for result in curData %}
+            <ul class="list">
+                <li class="list__entry">
+                    Behältergröße: {% for size in result.containerSize %} {{size}} {% endfor %} Liter,
+                </li>
+                <li class="list__entry">
+                    </i>Mindestentleerungsvolumen im Halbjahr: {{ result.minimumVolume }} Liter
+                </li>
+                <li class="list__entry">
+                    </i>Mindestvolumen: {{ result.pickups }} Liter
+                </li>
+            </ul>   
+            {% endfor %} 
+
+            <div class="waste-calculator__info">
+                {{ pimcore_wysiwyg("waste_calc_info", {
+                    "ckeditorConfigPath": "/js/ckeditor-config.js",
+                    "height": 100,
+                    "placeholder": "Bitte geben sie einen zusätzlichen Infotext ein."
+                }) }}
+            </div>
+
+            <div class="waste-calculator__small">
+                {{ pimcore_wysiwyg("waste_calc_small_info", {
+                    "ckeditorConfigPath": "/js/ckeditor-config.js",
+                    "height": 100,
+                    "placeholder": "Bitte geben sie einen zusätzlichen kleingedruckten Infotext ein."
+                }) }}
+            </div>
+
         </div>
-    {% endif %}
+    
+        {% endif %}
+
+        {% if error is defined %}
+            <div class="waste-calculator__results--error">
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
+
+    </div>
+ 
+
 </div>
 {% endblock %}
 
