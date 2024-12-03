@@ -12,8 +12,9 @@
 		<script type="text/javascript" src="{{ pimcore_website_config('asset_public') }}js/home.js" ></script>
 		<link rel="stylesheet" href="{{ pimcore_website_config('asset_public') }}css/home.css" />
 
-		{{ block('head_feature_assets') }}
-
+		{% if block('head_feature_assets') is defined %}
+			{{ block('head_feature_assets') }}
+		{% endif %}
 </head>
 
 <body>
