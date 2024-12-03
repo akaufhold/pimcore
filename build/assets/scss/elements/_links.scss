@@ -1,11 +1,26 @@
 a {
   &:hover,
   &:focus {
-    outline: var(--outline-width) var(--outline-hover-style) var(--outline-color-light);
+    outline: var(--outline-width) var(--outline-hover-style) var(--outline-color-dark);
   }
 
   &:focus-within,
   &:active {
-    outline: var(--outline-width) var(--outline-style) var(--outline-color-light);
+    outline: var(--outline-width) var(--outline-style) var(--outline-color-dark);
+  }
+}
+
+header,
+footer {
+  a {
+    &:hover,
+    &:focus {
+      outline: var(--outline-width) var(--outline-hover-style) var(--outline-color-light);
+    }
+
+    &:focus-within,
+    &:active {
+      outline: var(--outline-width) var(--outline-style) var(--outline-color-light);
+    }
   }
 }
