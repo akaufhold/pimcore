@@ -2,6 +2,7 @@
 
 namespace App\Service;
 use Pimcore\Model\DataObject\PersonsHousehold;
+use App\Repository\PersonsHouseholdRepository;
 
 class WasteCalculatorService
 {
@@ -14,9 +15,12 @@ class WasteCalculatorService
      */
     public function getAllData($request) :array
     {
+        if ($request->isMethod('POST') && $request->request->has('persons')) {
+            $personId = $request->get('persons');
+        }
         $allHouseholds = $this->getAllHousehold();
-        $householdSelected = $this->getCurHousehold($request, $allHouseholds);
-        return [$allHouseholds, $this->wasteCalculatorService->calculateWasteData($householdSelected), $personId ?? $householdSelected.id];
+        $householdSelected = $this->getCurHousehold($request, $allHouseholds, $personId);
+        return [$allHouseholds, $this->calculateWasteData($householdSelected), $personId ?? $householdSelected.id];
     }
 
     /**
@@ -24,19 +28,14 @@ class WasteCalculatorService
      * @param Request $request
      * @param array $allHouseholds
      * 
-     * @return array
+     * @return PersonsHousehold 
      */
-    public function getCurHousehold($request, $allHouseholds) :array{
+    public function getCurHousehold($request, $allHouseholds, $personId) :PersonsHousehold {
         $householdSelected = array_reduce($allHouseholds, function($carry, $item) {
             return $carry === null || $item->get('personsHousehold') < $carry->get('personsHousehold') ? $item : $carry;
         }, null);
         
-        if ($request->isMethod('POST') && $request->request->has('persons')) {
-            dump($request->get('persons'));
-            $personId = $request->get('persons');
-            $householdSelected = $this->personsHouseholdRepository->findById($personId);
-        }
-
+        $householdSelected = $this->personsHouseholdRepository->findById($personId);
         if (!$householdSelected) {
             throw new \InvalidArgumentException('Kein passender Haushalt gefunden.');
         }
