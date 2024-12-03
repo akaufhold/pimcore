@@ -1,0 +1,8 @@
+select,
+input {
+  &:focus,
+  &:focus-visible,
+  &:active {
+    outline: var(--outline-width) var(--outline-style) var(--outline-color-dark);
+  }
+}
