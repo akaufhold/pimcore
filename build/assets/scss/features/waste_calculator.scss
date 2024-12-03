@@ -1,32 +1,34 @@
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 
-$waste-calculator-color: var(--bs-black);
-
 .waste-calculator {
-  &__text {
-    color: $waste-calculator-color;
-
-    h1 {
-      color: $waste-calculator-color;
-    }
-  }
+  --waste-calc-base: var(--bs-primary);
 
   &__form {
     display: flex;
     flex-direction: column;
     font-weight: bold;
+  }
 
-    &-label {
-      display: flex;
-      color: $waste-calculator-color;
+  &__label {
+    display: flex;
+  }
+
+  &__select {
+    padding: 10px 0;
+    padding: $input-padding-y $input-padding-x;
+    box-shadow: $input-btn-focus-box-shadow;
+  }
+
+  &__button {
+    border: var(--border-default);
+
+    &:hover {
+      border: var(--border-default);
     }
 
-    &-select {
-      color: var();
-      padding: 10px 0;
-      padding: $input-padding-y $input-padding-x;
-      box-shadow: $input-btn-focus-box-shadow;
+    &--green {
+      background: var(--waste-calc-base);
     }
   }
 
