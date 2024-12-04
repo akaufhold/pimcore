@@ -32,7 +32,16 @@ class ContentService
         }
 
         if ($calculatorType === 'waste') {
-            return $this->wasteCalculatorService->getAllData($request);
+            // Werte von wasteCalculatorService holen
+            [$allData, $curData, $curPersonId, $curPersonAmount] = $this->wasteCalculatorService->getAllData($request);
+
+            // Rückgabe als assoziatives Array
+            return [
+                'allData' => $allData,
+                'curData' => $curData,
+                'curPersonId' => $curPersonId,
+                'curPersonAmount' => $curPersonAmount,
+            ];
         }
 
         return null;

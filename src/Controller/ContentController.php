@@ -60,8 +60,7 @@ class ContentController extends FrontendController
             'mainNavChildren' => $mainNavChildrenFiltered,
         ];
 
-        [$renderParams['allData'], $renderParams['curData'], $renderParams['curPersonId']] = $this->contentService->getAdditionalContent($document, $request);
-
+        $renderParams['additionalContent'] = $this->contentService->getAdditionalContent($document, $request);
         return $this->render($templateFile, $renderParams);
     }
 
