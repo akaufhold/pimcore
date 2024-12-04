@@ -2,11 +2,15 @@
 
 namespace App\Service;
 use Pimcore\Model\DataObject\PersonsHousehold;
+use Pimcore\Model\DataObject\Fees;
+
 use App\Repository\PersonsHouseholdRepository;
+
 
 class WasteCalculatorService
 {
-    
+    private $defaultFeeId = 5;
+    private $feePerLitre;
     /**
      * Get all contents/data for waste calculator 
      * @param Request $request
@@ -14,13 +18,37 @@ class WasteCalculatorService
      * @return array
      */
     public function getAllData($request) :array
-    {
+    {   
+        $this->setDefaultFee();
         if ($request->isMethod('POST') && $request->request->has('persons')) {
-            $personId = $request->get('persons');
+            $personId = (integer) $request->get('persons');
         }
+
         $allHouseholds = $this->getAllHousehold();
         $householdSelected = $this->getCurHousehold($request, $allHouseholds, $personId);
-        return [$allHouseholds, $this->calculateWasteData($householdSelected), $personId ?? $householdSelected.id];
+
+        $curHouseholdId = $personId ?? $householdSelected.id;
+        $curHouseholdAmount = $householdSelected->get('personsHousehold');
+
+        return [
+            $allHouseholds, 
+            $this->calculateWasteData($householdSelected), 
+            $curHouseholdId, 
+            $curHouseholdAmount
+        ];
+    }
+
+    /**
+     * Set default fee
+     * 
+     */
+    public function setDefaultFee() {
+        $fees = new Fees;
+        if ($fees instanceof Fees) {
+            $this->feePerLitre = $fees::getById($defaultFeeId)->getPrice();
+        } else {
+            throw new \Exception('Fees object not found at the given path');
+        }
     }
 
     /**
@@ -28,18 +56,18 @@ class WasteCalculatorService
      * @param Request $request
      * @param array $allHouseholds
      * 
-     * @return PersonsHousehold 
+     * @return PersonsHousehold
      */
-    public function getCurHousehold($request, $allHouseholds, $personId) :PersonsHousehold {
-        $householdSelected = array_reduce($allHouseholds, function($carry, $item) {
-            return $carry === null || $item->get('personsHousehold') < $carry->get('personsHousehold') ? $item : $carry;
-        }, null);
-        
-        $householdSelected = $this->personsHouseholdRepository->findById($personId);
-        if (!$householdSelected) {
-            throw new \InvalidArgumentException('Kein passender Haushalt gefunden.');
-        }
+    public function getCurHousehold($request, $allHouseholds, $personId) :PersonsHousehold 
+    {
 
+        if (gettype($personId) === 'integer') {
+            $householdSelected = $this->personsHouseholdRepository->findById($personId);
+        } else {
+            $householdSelected = array_reduce($allHouseholds, function($carry, $item) {
+                return $carry === null || $item->get('personsHousehold') < $carry->get('personsHousehold') ? $item : $carry;
+            }, null);
+        }
         return $householdSelected;
     }
 
@@ -48,7 +76,8 @@ class WasteCalculatorService
      * 
      * @return array
      */
-    public function getAllHousehold() :array{
+    public function getAllHousehold() :array
+    {
         $this->personsHouseholdRepository = new PersonsHouseholdRepository();
         $allHouseholds = $this->personsHouseholdRepository->findAll();
         usort($allHouseholds, function ($a, $b) {
@@ -75,7 +104,8 @@ class WasteCalculatorService
                 'containerSize' => $container->getVolume(),
                 'minimumVolume' => $minimumVolume,
                 'pickups' => $minPickupEntry->getMinimumContainerPickup(),
-                'fee' => $this->calculateFee($container->getVolume(), $minPickupEntry->getMinimumContainerPickup())
+                'fee' => $this->calculateFee($container->getVolume(), $minPickupEntry->getMinimumContainerPickup()),
+                'minimumFee' => [$this->feePerLitre * $container->getVolume()]
             ];
         }
 
@@ -91,6 +121,6 @@ class WasteCalculatorService
      */
     private function calculateFee(float $volume, int $pickups): float
     {
-        return $volume * $pickups * 0.13;
+        return $volume * $pickups * $this->feePerLitre;
     }
 }
