@@ -9,16 +9,14 @@
     <link rel="stylesheet" href="{{ pimcore_website_config('asset_public')}}css/wasteCalculator.css" />
 {% endblock %}
 
-<div class="waste-calculator mt-3">
+<div class="waste-calculator waste-calculator--primary mt-3">
 
-    <div class="row">
-        <div class="col-12">
-            <h2>
-                {{ pimcore_input("waste_calc_headline", {
-                    "ckeditorConfigPath": "/js/ckeditor-config.js",
-                }) }}
-            </h2>
-        </div>
+    <div class="col-12">
+        <h2>
+            {{ pimcore_input("waste_calc_headline", {
+                "ckeditorConfigPath": "/js/ckeditor-config.js",
+            }) }}
+        </h2>
     </div>
 
     <div class="row mt-3">
@@ -32,74 +30,77 @@
                 }) }}
             </div>
         </div>
-        {{ dump() }}
+
         <div class="col-6">
     
             <form class="waste-calculator__form" method="POST" action="{{ path(app.request.attributes.get('_route')) }}">
                 <label class="waste-calculator__label py-2" for="persons">Anzahl der Personen:</label>
                 <select class="form-select waste-calculator__select" name="persons" id="persons" required>
                     <option>Bitte Anzahl der Personen auswählen</option>
-                    {% for household in allData %}
-                        <option value="{{ household.id }}" {{ household.id == curPersonId ? 'selected' : '' }}>{{ household.personsHousehold }} Personen</option>
+                    {% for household in additionalContent.allData %}
+                        <option value="{{ household.id }}" {{ household.id == additionalContent.curPersonId ? 'selected' : '' }}>{{ household.personsHousehold }} Personen</option>
                     {% endfor %}
                 </select>
                 <div class="col-auto mt-3">
-                    <button class="btn waste-calculator__button waste-calculator__button--green waste-calculator__button--disabled" type="reset">Reset</button>
-                    <button class="btn waste-calculator__button " type="submit">Berechnen</button>
+                    <button class="btn waste-calculator__button waste-calculator__button--disabled" type="reset">Reset</button>
+                    <button class="btn waste-calculator__button waste-calculator__button--primary waste-calculator__button--active" type="submit">Berechnen</button>
                 </div>
             </form>
         
         </div>
     </div>
 
-    <div class="row">
-
-        {% if curData is defined %}
-        <div class="waste-calculator__results mt-3">
-            <h2 class="waste-calculator__headline">Berechnungsergebnisse:</h2>
+    {% if additionalContent.curData is defined %}
+    <div class="waste-calculator__results mt-3">
+        <h2 class="waste-calculator__headline pb-3">
+            Für einen {{ additionalContent.curPersonAmount }}-Personenhaushalt ergibt sich:
+        </h2>
+        <div class="waste-calculator__card-group">
+            {% for result in additionalContent.curData %}
+                <div class="card card--white w-33 mb-3">
+                    <div class="card__body">
+                        <h3>{{ loop.index }}. Möglichkeit: </h3>
+                        <ul class="list">
+                            <li class="list__entry">Behältergröße: {{ result.containerSize }} Liter</li>
+                            <li class="list__entry">Mindestentleerungsvolumen im Halbjahr: {{ result.minimumVolume }} Liter</li>
+                            <li class="list__entry">Mindestentleerungen im Halbjahr: {{ result.pickups }}x{{ result.containerSize }} Liter</li>
+                        </ul>   
+                    </div>
     
-            {% for result in curData %}
-            <ul class="list">
-                <li class="list__entry">
-                    Behältergröße: {% for size in result.containerSize %} {{size}} {% endfor %} Liter,
-                </li>
-                <li class="list__entry">
-                    </i>Mindestentleerungsvolumen im Halbjahr: {{ result.minimumVolume }} Liter
-                </li>
-                <li class="list__entry">
-                    </i>Mindestvolumen: {{ result.pickups }} Liter
-                </li>
-            </ul>   
+                    <div class="card__footer">
+                        <span>Mindestgebühr:</span><b>{{ result.fee }} €</b><br />
+                        <span>zusätzliche Entleerung:</span><b>{% for minimumFee in result.minimumFee %} {{ minimumFee }} {% endfor %} €</b>
+                    </div>
+                </div>
             {% endfor %} 
+        </div>
 
-            <div class="waste-calculator__info">
-                {{ pimcore_wysiwyg("waste_calc_info", {
-                    "ckeditorConfigPath": "/js/ckeditor-config.js",
-                    "height": 100,
-                    "placeholder": "Bitte geben sie einen zusätzlichen Infotext ein."
-                }) }}
-            </div>
+        <div class="waste-calculator__info mt-5">
+            {{ pimcore_wysiwyg("waste_calc_info", {
+                "ckeditorConfigPath": "/js/ckeditor-config.js",
+                "height": 50,
+                "placeholder": "Bitte geben sie einen zusätzlichen Infotext ein."
+            }) }}
+        </div>
 
-            <div class="waste-calculator__small">
+        <div class="waste-calculator__small mt-3">
+            <small>
                 {{ pimcore_wysiwyg("waste_calc_small_info", {
                     "ckeditorConfigPath": "/js/ckeditor-config.js",
-                    "height": 100,
+                    "height": 50,
                     "placeholder": "Bitte geben sie einen zusätzlichen kleingedruckten Infotext ein."
                 }) }}
-            </div>
-
+            </small>
         </div>
-    
-        {% endif %}
-
-        {% if error is defined %}
-            <div class="waste-calculator__results--error">
-                <p>{{ error }}</p>
-            </div>
-        {% endif %}
-
     </div>
- 
+
+    {% endif %}
+
+    {% if error is defined %}
+        <div class="waste-calculator__results--error">
+            <p>{{ error }}</p>
+        </div>
+    {% endif %}
 
 </div>
 {% endblock %}
