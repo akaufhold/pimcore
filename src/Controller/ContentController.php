@@ -13,9 +13,11 @@ use Pimcore\Model\Document\Listing;
 use Pimcore\Model\Asset;
 use Pimcore\Model\Asset\Image;
 
-use App\Service\ContentService;
 use App\Service\AssetService;
+use App\Service\ContentService;
+use App\Service\DocumentService;
 use App\Service\ListingService;
+
 
 class ContentController extends FrontendController
 {
@@ -23,12 +25,20 @@ class ContentController extends FrontendController
     private ContentService $contentService;
     private AssetService $assetService;
     private ListingService $listingService;
+    private DocumentService $documentService;
 
-    public function __construct(ContentService $contentService, AssetService $assetService, ListingService $listingService)
+    private $pageRootId = ROOT_ID;
+
+    public function __construct(
+        ContentService $contentService, 
+        AssetService $assetService, 
+        ListingService $listingService,
+        DocumentService $documentService)
     {
         $this->contentService = $contentService;
         $this->assetService = $assetService;
         $this->listingService = $listingService;
+        $this->documentService = $documentService;
     }
 
     /**
@@ -42,10 +52,10 @@ class ContentController extends FrontendController
         $document = $this->document;
         $templateFile = $document->getTemplate() ?? 'content/home.html.twig';
 
-        $logo = Asset::getById(13);
-		$socialRoot = Document::getById(3);
+        $logo = Asset::getById((int)($this->documentService->getPropFromDoc($this->pageRootId, 'logoId')));
+		$socialRoot = Document::getById((int)($this->documentService->getPropFromDoc($this->pageRootId, 'socialNavId')));
         $socialChildren = $this->getChildrenListingByPid($socialRoot);
-		$mainNavRoot = Document::getById(2);
+		$mainNavRoot = Document::getById((int)($this->documentService->getPropFromDoc($this->pageRootId, 'mainNavId')));
         $mainNavChildren = $this->getChildrenListingByPid($mainNavRoot);
         $mainNavChildrenFiltered = $this->listingService->filterListingWithBool($mainNavChildren, 'main_nav_hide', 0);
 
