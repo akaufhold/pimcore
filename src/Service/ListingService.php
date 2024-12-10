@@ -10,7 +10,7 @@ use Pimcore\Model\Document\Listing;
 class ListingService
 {
 
-/**
+    /**
      * Filter Navigation Elements with property
      * @param Listing $listing
      * @param String $propertyToFilter
