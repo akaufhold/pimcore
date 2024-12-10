@@ -1,0 +1,37 @@
+.slider {
+  --text-color: var(--black);
+  --back-color: var(--white-75);
+  --border-color: var(--black-75);
+  --border2-color: var(--white);
+  --link-color: var(--black);
+  --shadow-color: var(--white-75);
+  --stroke-color: var(--black-75);
+  --ui-back-color: var(--white);
+  --ui-hover-back-color: var(--black);
+  --ui-back-color-75: var(--white-75);
+  --ui-arrow-color: var(--black);
+  --ui-border-color: var(--gray);
+  --overlay-color: var(--bs-gray-900);
+
+  .overlay-style-circle {
+    --header-color: var(--black);
+    --text-color: var(--black);
+    --border2-color: var(--black);
+  }
+
+  &.light {
+    --link-color: var(--black);
+    --back-color: var(--black-75);
+    --header-color: var(--white);
+    --text-color: var(--white);
+    --border2-color: var(--white);
+    --shadow-color: var(--black-75);
+  }
+
+  .overlay-style-twoheads {
+    .slider-link {
+      color: var(--white);
+      background: rgb(0 0 0 / 0%) linear-gradient(90deg, var(--purple3) 0%, var(--purple2) 100%) repeat scroll 0% 0%;
+    }
+  }
+}

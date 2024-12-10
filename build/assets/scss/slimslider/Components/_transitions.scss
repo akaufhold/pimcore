@@ -1,0 +1,60 @@
+@import "Transitions/animations";
+@import "Transitions/blur";
+@import "Transitions/clip";
+@import "Transitions/fade";
+@import "Transitions/forms";
+@import "Transitions/rotate";
+@import "Transitions/slices";
+@import "Transitions/slide";
+@import "Transitions/shutter";
+@import "Transitions/tiles";
+@import "Transitions/zoom";
+@import "Transitions/Overlays/circle";
+@import "Transitions/Overlays/rect";
+@import "Transitions/Overlays/twoheads";
+
+/* SLIDER TRANSITION STYLES */
+
+.slider,
+.slider-wrapper {
+  > * {
+    transition-duration: .7s;
+    transition-delay: .2s;
+  }
+
+  .slider-image-overlay {
+    transition: transform .75s ease-in-out .1s;
+  }
+
+  .slider-transition-overlay {
+    grid-area: a;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    position: relative;
+    z-index: 40;
+    pointer-events: none;
+
+    svg {
+      @for $i from 1 through 50 {
+        > *:nth-child(#{$i}) {
+          animation-delay: calc(.05s * #{$i});
+        }
+      }
+    }
+  }
+
+  &.slider-progress {
+    .slider-ui {
+      .slider-ui-progress-wrapper {
+        .slider-ui-progress-bar {
+          animation: progressBar linear;
+        }
+      }
+    }
+  }
+}
+
+@keyframes progressBar {
+  0% { transform: rotateY(90deg); }
+  100% { transform: rotateY(0); }
+}

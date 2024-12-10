@@ -1,0 +1,12 @@
+.slider-color-blue {
+  --back-color: var(--white);
+  --border-color: var(--blue3);
+  --link-color: var(--blue3);
+  --stroke-color: var(--blue3);
+
+  &.light {
+    --link-color: var(--blue3);
+    --back-color: var(--blue3);
+    --ui-hover-back-color: var(--blue3);
+  }
+}

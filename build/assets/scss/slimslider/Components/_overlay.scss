@@ -1,0 +1,90 @@
+.slider {
+  .slider-image-overlay {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    grid-area: a;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    justify-self: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    z-index: 55;
+
+    .slider-header-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      .slider-header {
+        color: var(--text-color);
+        font-size: 4.5em;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        white-space: nowrap;
+      }
+    }
+
+    .slider-description {
+      color: var(--text-color);
+      font-size: 1.6em;
+      text-align: center;
+    }
+
+    .slider-link {
+      //background-color: var(--green1);
+      color: var(--link-color);
+      cursor: pointer;
+      display: inline-block;
+      font-size: 1.6em;
+      margin-top: 10px;
+      padding: .4em 1.5em .45em;
+      background-color: var(--ui-back-color);
+      border: .14rem solid var(--border-color);
+      font-weight: 600;
+      outline: none;
+      overflow: hidden;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-align: center;
+      transition-duration: .35s;
+      width: auto;
+
+      &:hover {
+        color: var(--white);
+        background-color: var(--ui-hover-back-color);
+      }
+
+      &.slider-link-scale {
+        .slider-link-back {
+          background: var(--back-color);
+          border-radius: 50%;
+          height: 100%;
+          position: absolute;
+          transform: translateY(120%);
+          width: 50%;
+          z-index: -1;
+          transition-duration: .5s;
+
+          @for $i from 1 through 4 {
+            &:nth-child(#{$i}) {
+              left: calc(calc(#{$i} - 1) * 25%);
+              transition-delay: calc(calc(#{$i} - 1) * .1s);
+            }
+          }
+        }
+
+        &:hover {
+          background-color: transparent;
+
+          .slider-link-back {
+            transform: translateY(0) scale(2);
+          }
+        }
+      }
+    }
+  }
+}

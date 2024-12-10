@@ -1,0 +1,12 @@
+.slider-color-red {
+  --back-color: var(--white);
+  --border-color: var(--red3);
+  --link-color: var(--red3);
+  --stroke-color: var(--red3);
+  --ui-hover-back-color: var(--red3);
+
+  &.light {
+    --link-color: var(--red3);
+    --back-color: var(--red3);
+  }
+}

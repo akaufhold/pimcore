@@ -1,0 +1,15 @@
+.slider,
+.slider-wrapper {
+  .cur-element {
+    &.zoom {
+      .slider-image {
+        animation: zoom var(--animation-duration) forwards ease-in-out;
+      }
+    }
+  }
+}
+
+@keyframes zoom {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(0, 0, 0) scale(1.1); }
+}

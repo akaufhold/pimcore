@@ -1,0 +1,12 @@
+.slider-color-purple {
+  --back-color: var(--white);
+  --ui-hover-back-color: var(--purple1);
+  --border-color: var(--purple1);
+  --link-color: var(--purple1);
+  --stroke-color: var(--purple1);
+
+  &.light {
+    --link-color: var(--purple1);
+    --back-color: var(--purple1);
+  }
+}

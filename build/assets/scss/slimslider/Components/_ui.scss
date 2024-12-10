@@ -1,0 +1,228 @@
+/* SLIDER UI => DOTS AND ARROW NAVIGATION */
+.slider {
+  .slider-ui {
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+
+    &.horizontal {
+      justify-content: flex-end;
+
+      .slider-ui-arrows {
+        padding: 2%;
+        margin: 0%;
+        position: absolute;
+        width: 100%;
+      }
+    }
+
+    .slider-ui-arrows {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      justify-content: space-between;
+      margin: 4%;
+      z-index: 15;
+
+      .slider-ui-arrow {
+        background-color: var(--ui-back-color);
+        border-radius: 100%;
+        cursor: pointer;
+        height: 4rem;
+        list-style: none;
+        max-width: 10vw;
+        max-height: 10vw;
+        opacity: .35;
+        position: relative;
+        transition-duration: .3s;
+        width: 4rem;
+        align-self: center;
+        pointer-events: all;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          left: 43%;
+          background: var(--black);
+          width: .3rem;
+          min-width: 3px;
+          border-radius: 3px;
+          height: 34%;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          opacity: 1;
+          outline-offset: .1em;
+          outline: 1px dashed rgb(0 0 0 / 70%);
+        }
+
+        &.slider-ui-arrow-left {
+          //transform: translate(-50%, -50%);
+
+          &::before {
+            transform: rotate(45deg);
+            top: 24%;
+          }
+
+          &::after {
+            transform: rotate(-45deg);
+            bottom: 22%;
+          }
+        }
+
+        &.slider-ui-arrow-right {
+          //transform: translate(50%, -50%);
+
+          &::before,
+          &::after {
+            left: auto;
+            right: 43%;
+          }
+
+          &::before {
+            transform: rotate(-45deg);
+            top: 24%;
+          }
+
+          &::after {
+            transform: rotate(45deg);
+            bottom: 22%;
+          }
+        }
+      }
+    }
+
+    .slider-ui-dots {
+      background: rgb(75 75 75 / 0%);
+      border-radius: 12px;
+      display: flex;
+      height: fit-content;
+      margin: 1%;
+      padding: 8px 10px;
+      transition-duration: .35s;
+      width: fit-content;
+      align-self: center;
+      justify-self: center;
+      pointer-events: all;
+
+      &:hover {
+        background: rgb(0 0 0 / 35%);
+      }
+
+      .slider-ui-dot {
+        border-radius: 50%;
+        border: 1px solid var(--ui-back-color);
+        background-color: transparent;
+        cursor: pointer;
+        height: 1rem;
+        margin-right: 1.5rem;
+        opacity: .7;
+        transition: all .5s;
+        width: 1rem;
+
+        &:last-child {
+          margin: 0;
+        }
+
+        &:hover {
+          background-color: var(--ui-back-color-75);
+        }
+
+        &.dot-active {
+          border: 1px solid var(--ui-border-color);
+          background-color: var(--ui-back-color);
+          opacity: 1;
+        }
+
+        /* Only necessary when overlying images */
+
+        /* box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7); */
+      }
+    }
+
+    &.vertical {
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+
+      .slider-ui-dots {
+        gap: 1.75em;
+        flex-direction: column;
+        justify-content: center;
+        transform: translateX(0);
+        order: 1;
+        margin: 1%;
+
+        .slider-ui-dot {
+          margin-right: 0;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .slider-ui-arrows {
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        margin: 2%;
+        width: unset;
+        transform: translateY(0);
+        order: 2;
+
+        .slider-ui-arrow {
+          &::before,
+          &::after {
+            width: .15rem;
+          }
+
+          &.slider-ui-arrow-left {
+            height: 2rem;
+            width: 2rem;
+            transform: rotateZ(90deg) translateY(0);
+          }
+
+          &.slider-ui-arrow-right {
+            height: 2rem;
+            width: 2rem;
+            transform: rotateZ(90deg) translateY(0);
+          }
+        }
+      }
+    }
+
+    .slider-ui-progress-wrapper {
+      inset: auto auto 2px;
+      width: 100%;
+      margin-top: 0;
+      height: 2px;
+      position: absolute;
+      transform: translate(0);
+      z-index: 10;
+
+      .slider-ui-progress-bar {
+        background-color: var(--ui-back-color-75);
+        border-radius: 50%;
+        display: block;
+        z-index: 20;
+        box-sizing: border-box;
+        background-clip: content-box;
+        position: absolute;
+        line-height: 0;
+        width: 100%;
+        height: 100%;
+        transform-origin: 0% 50% 0;
+      }
+    }
+  }
+}

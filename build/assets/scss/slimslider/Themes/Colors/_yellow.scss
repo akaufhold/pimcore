@@ -1,0 +1,10 @@
+.slider-color-yellow {
+  --back-color: var(--white);
+  --border-color: var(--yellow1);
+  --link-color: var(--yellow1);
+  --stroke-color: var(--yellow1);
+
+  &.light {
+    --back-color: var(--yellow1);
+  }
+}

@@ -1,0 +1,12 @@
+.slider-color-green {
+  --back-color: var(--white);
+  --ui-hover-back-color: var(--green1);
+  --border-color: var(--green1);
+  --link-color: var(--green1);
+  --stroke-color: var(--green1);
+
+  &.light {
+    --link-color: var(--green1);
+    --back-color: var(--green1);
+  }
+}

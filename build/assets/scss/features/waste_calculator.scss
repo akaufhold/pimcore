@@ -42,7 +42,7 @@
     }
   }
 
-  &__list {
+  list {
     > * {
       &:last-child {
         margin-bottom: 0;
@@ -63,5 +63,19 @@
     flex-flow: row wrap;
     display: flex;
     gap: 1rem;
+  }
+
+  .card__footer {
+    .list {
+      width: 100%;
+      padding-left: 0;
+      margin: 0;
+
+      &__entry {
+        display: flex;
+        list-style: none;
+        justify-content: space-between;
+      }
+    }
   }
 }
