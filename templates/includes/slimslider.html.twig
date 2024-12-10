@@ -1,0 +1,22 @@
+{% block head_feature_assets %}
+    <script type="text/javascript" src="{{ pimcore_website_config('asset_public')}}js/slimslider.js"></script>
+    <link rel="stylesheet" href="{{ pimcore_website_config('asset_public')}}css/slimslider.css" />
+{% endblock %}
+
+<div id="slider" class="slider">
+
+	{% if carouselItems|length > 0 %}
+		{% for item in carouselItems %}
+
+			<img 
+				src="{{ item.getThumbnail('carousel-thumb').getPath() }}" 
+				alt="{{ item.getMetadata('alt') }}" 
+				class="d-block w-100"
+				data-head="{{ item.getMetadata('title') }}" 
+				data-text="{{ item.getMetadata('alt') }}" 
+				data-link="https://google.de" />
+
+		{% endfor %}
+	{% endif %}
+
+</div>

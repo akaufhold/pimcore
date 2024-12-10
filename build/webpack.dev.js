@@ -35,6 +35,7 @@ export default {
     backend: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + './backend.js',
     // Modules
     wasteCalculator: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + 'features/waste_calculator.js',
+    slimslider: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + 'slimslider/slimSlider.js',
   },
   
   // Define the destination directory and filenames of compiled resources and files
@@ -151,8 +152,8 @@ export default {
       },
       onDoneWatch:{
         scripts: [
-          'echo "Clear Pimcore Cache"',
-          '../bin/console cache:clear',
+          //'echo "Clear Pimcore Cache"',
+          //'../bin/console cache:clear',
         ],
         blocking: false,
         parallel: false

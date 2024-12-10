@@ -1,0 +1,37 @@
+@import "Base/colors";
+@import "Base/variables";
+@import "Components/overlay";
+@import "Components/slider";
+@import "Components/parallax";
+@import "Components/transitions";
+@import "Components/ui";
+@import "Components/vignette";
+@import "Themes/colorsets";
+@import "Themes/overlay";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+.slider {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+
+  &:not(.slider-init) {
+    display: none;
+  }
+}
