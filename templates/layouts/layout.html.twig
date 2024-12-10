@@ -19,6 +19,7 @@
 
 <body>
 	{% include 'includes/header.html.twig' with { socialRoot: socialRoot, socialChildren: socialChildren } %}
+	{{ block('slimslider') }}
 	<div class="wrapper py-3 container">
 		<div class="col-12">
 			{{ block('content') }}
