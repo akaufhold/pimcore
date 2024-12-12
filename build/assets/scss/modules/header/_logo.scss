@@ -1,0 +1,15 @@
+.logo {
+  display: flex;
+  align-items: center;
+
+  a {
+    display: inline-flex;
+    max-width: 250px;
+
+    img {
+      filter: contrast(90);
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

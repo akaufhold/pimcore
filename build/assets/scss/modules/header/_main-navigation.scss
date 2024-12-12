@@ -1,0 +1,75 @@
+.main-navigation {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  justify-content: end;
+
+  &-opened {
+    display: flex;
+  }
+
+  --padding-list-x: 16px;
+  --padding-list-y: 16px;
+  --padding-link-x: 32px;
+  --padding-link-y: 24px;
+
+  @include media-breakpoint-down(xl) {
+    display: none;
+    width: 100%;
+    position: fixed;
+    height: 100%;
+  }
+
+  li {
+    list-style: none;
+    display: inline-flex;
+    position: relative;
+
+    @include media-breakpoint-down(xl) {
+      width: 100%;
+    }
+
+    a {
+      font-family: Poppins, sans-serif;
+      text-decoration: none;
+      padding: var(--padding-link-y) var(--padding-link-x);
+      font-weight: 500;
+      text-transform: uppercase;
+
+      @include media-breakpoint-down(xl) {
+        padding: var(--padding-list-y) var(--padding-list-x);
+      }
+
+      &:hover {
+        color: var(--bs-white);
+        text-decoration: none;
+      }
+
+      svg {
+        display: none;
+      }
+
+      span {
+        &::before {
+          left: 0;
+          bottom: 0;
+          content: "";
+          display: block;
+          height: .1em;
+          opacity: .85;
+          position: absolute;
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform .3s cubic-bezier(.65, .05, .36, 1);
+          width: 100%;
+          background: var(--bs-white);
+        }
+      }
+    }
+
+    &:hover a span::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+}

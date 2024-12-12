@@ -1,21 +1,7 @@
-.header {
-  color: var(--bs-white);
-  position: relative;
-  box-shadow: 0 0 16px rgb(0 0 0 / 90%);
-  z-index: 10;
-  top: 0;
-  width: 100%;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    width: 100%;
-    height: .0625rem;
-    background: #000;
-    background: var(--bs-black);
-    display: flex;
-    z-index: 100;
-    opacity: .3;
-  }
-}
+@import "header/header";
+@import "header/header-top";
+@import "header/header-bottom";
+@import "header/main-navigation";
+@import "header/burger-menu";
+@import "header/logo";
+@import "header/social";

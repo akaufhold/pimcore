@@ -1,6 +1,15 @@
 .header {
   &-top {
     background: var(--bs-black);
+    transition-duration: .55s;
+    transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+    height: auto;
+    max-height: 140px;
+
+    .is-scrolled & {
+      max-height: 0;
+      overflow: hidden;
+    }
 
     .info {
       display: flex;
@@ -8,10 +17,16 @@
       margin: 0;
       padding-left: 7px;
 
+      @include media-breakpoint-down(md) {
+        flex-direction: column;
+        align-items: normal;
+      }
+
       li {
         display: inline-block;
         list-style: none;
         padding-right: 10px;
+        white-space: nowrap;
 
         svg {
           padding-right: 8px;

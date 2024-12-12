@@ -20,5 +20,11 @@
         height: auto;
       }
     }
+
+    &:last-child {
+      a {
+        margin: 0;
+      }
+    }
   }
 }

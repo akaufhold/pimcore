@@ -1,0 +1,21 @@
+.header {
+  &-bottom {
+    background: var(--bs-gray);
+    min-height: 50px;
+
+    .is-scrolled & {
+      min-height: 40px;
+    }
+
+    .logo {
+      transition: .35s;
+
+      .is-scrolled & {
+        img {
+          width: 150px;
+          height: auto;
+        }
+      }
+    }
+  }
+}
