@@ -19,15 +19,17 @@ class WasteCalculatorService
      */
     public function getAllData($request) :array
     {   
+        $householdId = 0;
         $this->setDefaultFee();
-        if ($request->isMethod('POST') && $request->request->has('persons')) {
-            $personId = (integer) $request->get('persons');
+        if ($request->isMethod('POST') && $request->request->has('household')) {
+            $householdId = (integer) $request->get('household');
         }
 
         $allHouseholds = $this->getAllHousehold();
-        $householdSelected = $this->getCurHousehold($request, $allHouseholds, $personId);
-
-        $curHouseholdId = $personId ?? $householdSelected.id;
+        // dump($allHouseholds);
+        // die();
+        $householdSelected = $this->getCurHousehold($request, $allHouseholds, $householdId);
+        $curHouseholdId = $householdId ?? $householdSelected.id;
         $curHouseholdAmount = $householdSelected->get('personsHousehold');
 
         return [
@@ -45,7 +47,7 @@ class WasteCalculatorService
     public function setDefaultFee() {
         $fees = new Fees;
         if ($fees instanceof Fees) {
-            $this->feePerLitre = $fees::getById($defaultFeeId)->getPrice();
+            $this->feePerLitre = $fees::getById($this->defaultFeeId)->getPrice();
         } else {
             throw new \Exception('Fees object not found at the given path');
         }
@@ -60,8 +62,7 @@ class WasteCalculatorService
      */
     public function getCurHousehold($request, $allHouseholds, $personId) :PersonsHousehold 
     {
-
-        if (gettype($personId) === 'integer') {
+        if ($personId) {
             $householdSelected = $this->personsHouseholdRepository->findById($personId);
         } else {
             $householdSelected = array_reduce($allHouseholds, function($carry, $item) {
