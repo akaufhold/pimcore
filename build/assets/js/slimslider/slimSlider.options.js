@@ -16,7 +16,7 @@ const options = {
       threshold: 100
     }
   },
-  delay: 6,
+  delay: 12,
   elementWrapperClass: 'slider-image-wrapper',
   elementType: 'picture',
   elementClass: 'slider-image',
@@ -39,8 +39,7 @@ const options = {
     {
       breakpoint: 1366,
       options: {
-        slidesShow: 2,
-        slidesToScroll: 3,
+        slidesShow: 1,
         controls: {
           dots: false
         }
@@ -49,7 +48,7 @@ const options = {
     {
       breakpoint: 1024,
       options: {
-        slidesShow: 2
+        slidesShow: 1
       }
     },
     {
@@ -66,10 +65,10 @@ const options = {
   sliderParallaxWrapperClass: 'slider-parallax',
   sliderLinkClass: 'slider-link',
   sliderInitClass: 'slider-init',
-  transition: 'clip', /* fade, slide or rotate */
+  transition: 'rect',
   transitionTiming: 'ease-out',
   transitionSegments: 10,
-  transitionDuration: 1800,
+  transitionDuration: 2000,
   type: 'slider', /* slider or gallery */
   vignette: false,
   zoom: false
