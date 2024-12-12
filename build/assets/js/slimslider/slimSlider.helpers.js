@@ -33,8 +33,8 @@ export default class SliderHelpers {
   }
 
   static wrapAround (el, wrapper) {
-    console.log(el)
-    console.log(wrapper);
+    // console.log(el)
+    // console.log(wrapper);
     (el.length > 1 && el.nodeType !== 3) ? el.forEach(el => wrapper.appendChild(el)) : wrapper.appendChild(el)
     return wrapper
   }

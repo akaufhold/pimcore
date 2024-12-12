@@ -102,7 +102,7 @@ export default class Slider {
   }
 
   async init () {
-    console.log(this.opts)
+    // console.log(this.opts)
     try {
       SliderHelpers.setElClass(this.#sliderContainer, this.opts.sliderInitClass)
       this.#setIndexIncrement()
@@ -123,7 +123,7 @@ export default class Slider {
   /* LOADING AND DELETING IMAGES FROM DOM */
 
   #loadImagesFromDom () {
-    console.log(this.opts.sliderClass)
+    // console.log(this.opts.sliderClass)
     return document.querySelectorAll(`.${this.opts.sliderClass}`)[0].children
   }
 

@@ -71,7 +71,7 @@ export default class SliderElement {
         element.style.transform = `translate3d(${translateX}%, ${translateY}%, 0)`
         element.style.width = `${width}%`
         element.style.height = `${height}%`
-        console.log(`${width}%`, `${height}%`)
+        // console.log(`${width}%`, `${height}%`)
       })
     })
   }
@@ -114,7 +114,7 @@ export default class SliderElement {
 
   #createElementContentWrapper (transition) {
     const {text, link, linktype} = this.elementnode.dataset
-    console.log(text, link, linktype)
+    // console.log(text, link, linktype)
     let textWrap; let linkWrap; let elementWrapper = SliderHelpers.createWrapperElement('slider-image-overlay', 'div')
     elementWrapper.classList.add(`overlay-style-${this.opts.overlay.style}`)
     elementWrapper.style.fontSize = `${11 - this.opts.slidesShow}px`
