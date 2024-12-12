@@ -10,3 +10,6 @@ import '@fortawesome/fontawesome-free/js/fontawesome.js'
 import '@fortawesome/fontawesome-free/js/solid.js'
 import '@fortawesome/fontawesome-free/js/brands.js'
 import '@fortawesome/fontawesome-free/js/regular.js'
+
+import './scroll.js'
+import './navigation.js'
