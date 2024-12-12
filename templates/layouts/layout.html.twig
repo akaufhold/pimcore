@@ -6,11 +6,14 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ pimcore_head_title() }}</title>
+
 		{{ pimcore_head_link() }}
 		{{ pimcore_head_meta() }}
 
-		<script type="text/javascript" src="{{ pimcore_website_config('asset_public') }}js/home.js" ></script>
-		<link rel="stylesheet" href="{{ pimcore_website_config('asset_public') }}css/home.css" />
+		<meta name="viewport" content="{{ pimcore_website_config('meta') | default('width=device-width, initial-scale=1.0') }}">
+		<meta name="robots" content="{{ document.getProperty('robots') | default('index, follow') }}">
+		<script type="text/javascript" src="{{ pimcore_website_config('build_public') }}js/home.js" ></script>
+		<link rel="stylesheet" href="{{ pimcore_website_config('build_public') }}css/home.css" />
 
 		{% if block('head_feature_assets') is defined %}
 			{{ block('head_feature_assets') }}
