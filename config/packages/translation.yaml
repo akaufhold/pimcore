@@ -1,0 +1,5 @@
+framework:
+    translator:
+        paths:
+            - '%kernel.project_dir%/var/config/translations'
+        default_path: '%kernel.project_dir%/var/config/translations'
