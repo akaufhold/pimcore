@@ -9,6 +9,7 @@ export default class SliderResponsive {
   #breakpoints
   #defaultOptions
   #opts
+  resizeTimeout
 
   constructor (
     options,
@@ -18,7 +19,7 @@ export default class SliderResponsive {
     this.#defaultOptions = Object.assign({}, options)
     this.#sliderCssClass = sliderCssClass
     this.#sliderSelector = document.querySelectorAll(sliderCssClass)
-    console.log(sliderCssClass, document.querySelectorAll(sliderCssClass))
+    // console.log(sliderCssClass, document.querySelectorAll(sliderCssClass))
     this.init()
   }
 
@@ -72,11 +73,16 @@ export default class SliderResponsive {
   }
 
   reinitAllSliders () {
-    this.#setViewport()
-    this.#setViewportOptions()
-    this.#sliders.forEach(slider => {
-      slider.setOptions(this.#opts)
-      slider.init()
-    })
+    if (!this.resizeTimeout) {
+      this.resizeTimeout = setTimeout(() => {
+        this.#setViewport()
+        this.#setViewportOptions()
+        this.#sliders.forEach(slider => {
+          slider.setOptions(this.#opts)
+          slider.init()
+          this.resizeTimeout = null
+        })
+      }, 100)
+    }
   }
 }
