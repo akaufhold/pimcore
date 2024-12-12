@@ -46,7 +46,7 @@ module.exports = { // eslint-disable-line no-undef
         'scss/at-if-no-null': null,
         "selector-type-no-unknown": [true, {"severity": "warning"}],
         "selector-class-pattern": [
-            "^[a-z]+(-[a-z]+)*(__[a-z]+(-[a-z]+)*)?(--[a-z]+(-[a-z]+)*)?$|^pimcore_.*$",
+            "^\.?[a-z0-9_]+(-[a-z0-9_]+)*(__[a-z0-9_]+(-[a-z0-9_]+)*)?(--[a-z0-9_]+(-[a-z0-9_]+)*)?$|^pimcore_.*$",
             {
                 "resolveNestedSelectors": true,
                 "message": "Class names should be BEM / Pimcore's naming pattern (e.g., pimcore_field_input)."

@@ -1,14 +1,13 @@
 
-{% if document.getProperty('siteLogo') %}
-    {% set logoAsset = document.getProperty('siteLogo') %}
-    <a href="{{ document.getParent().getRealFullPath() }}">
-        {{ logoAsset.getThumbnail('logo-thumbnail').getHtml({
+
+<a href="{{ document.getParent().getRealFullPath() }}">
+    {% if logo %}
+        {{ logo.getThumbnail('logo-thumbnail').getHtml({
             'alt': 'Unternehmenslogo',
             'class': 'site-logo'
         }) | raw }}
-    </a>
-{% else %}
-		<a href="{{ document.getParent().getRealFullPath() }}">
+    {% else %}
         <img src="/path/to/default/logo.png" alt="Unternehmenslogo" class="site-logo" />
-    </a>
-{% endif %}
+    {% endif %}
+</a>
+

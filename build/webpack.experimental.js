@@ -7,6 +7,9 @@ import ESLintPlugin from 'eslint-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import FixStyleOnlyEntriesPlugin from 'webpack-fix-style-only-entries';
 import WebpackShellPluginNext from 'webpack-shell-plugin-next';
+import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
+import WatchExternalFilesPluginModule from 'webpack-watch-files-plugin';
+const WatchExternalFilesPlugin = WatchExternalFilesPluginModule.default;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,7 +25,7 @@ import * as _config from './webpack/config.json' assert { type: 'json' };
 
 export default {
   stats: {
-    warnings: false
+    warningsFilter: /DeprecationWarning/,
   },
   // Define the entry points of our application
   entry: {
@@ -42,31 +45,13 @@ export default {
     assetModuleFilename: '[name][ext]',
     clean: true
   },
-  cache: {
-    type: 'filesystem',
-  },
-  watchOptions: {
-    ignored: /node_modules/,
-    aggregateTimeout: 300,
-    poll: 1000, // falls notwendig
-  },
+  cache: false,
   // Define development options
-  devtool: 'eval-cheap-module-source-map',
+  devtool: 'source-map',
+  stats: 'errors-only',
   // Define loaders
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        use: [
-          {
-            loader: 'thread-loader',
-            options: {
-              workers: 2, // Anzahl der Worker-Threads
-            },
-          },
-          'babel-loader', // JS-Transpilation
-        ],
-      },
       // CSS, PostCSS, and Sass
       {
         test: /\.(scss|css)$/,
@@ -76,7 +61,7 @@ export default {
             loader: 'css-loader',
             options: {
               importLoaders: 2,
-              sourceMap: false,
+              sourceMap: true,
               url: true,
               esModule: true
             }
@@ -173,6 +158,41 @@ export default {
         blocking: false,
         parallel: false
       },
+    }),
+
+    // Add live browser
+    new BrowserSyncPlugin({
+      host: 'pimcore.ddev.site',
+      port: 3003,
+      // browse to http://localhost:3001/ during development,
+      https: true,
+      proxy: 'https://pimcore.ddev.site',
+      //server: { baseDir: ['public'] },
+      online: true,
+      reloadOnRestart: false,
+      scrollProportionally: false,
+      notify: false,
+      advanced: {
+        browserSync: {
+          logLevel: 'debug',
+        },
+      },
+      files: [{
+        match: [
+          '**/*.html',
+          '**/*.html.twig',
+          '**/*.css',
+          '**/*.js',
+        ]
+      }],
+      logLevel: "debug"
+    }),
+    
+    new WatchExternalFilesPlugin({
+      files: [
+        '**/*.html',
+        '**/*.html.twig',
+      ]
     })
   ]
 }
