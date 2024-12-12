@@ -14,8 +14,7 @@ export default class SliderWebfont {
   }
 
   #init () {
-    const fontFamily = (Array.isArray(this.#fontFamily) ? this.#fontFamily : [this.#fontFamily])
-    console.log(fontFamily)
+    this.#fontFamily = (Array.isArray(this.#fontFamily) ? this.#fontFamily : [this.#fontFamily])
     WebFont.load({
       google: {
         families: this.#fontFamily
