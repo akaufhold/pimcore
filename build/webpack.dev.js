@@ -61,7 +61,7 @@ export default {
           {
             loader: 'thread-loader',
             options: {
-              workers: 2, // Anzahl der Worker-Threads
+              workers: 3, // Amount of worker threads
             },
           },
           'babel-loader', // JS-Transpilation
