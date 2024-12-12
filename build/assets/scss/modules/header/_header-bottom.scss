@@ -1,11 +1,12 @@
 .header {
   &-bottom {
-    background: var(--bs-gray);
-    min-height: 50px;
+    transition: .35s;
 
     .is-scrolled & {
+      background: var(--bs-gray);
       min-height: 40px;
     }
+    min-height: 50px;
 
     .logo {
       transition: .35s;

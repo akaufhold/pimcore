@@ -28,7 +28,7 @@ body {
 .slider {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   position: relative;
-  top: 0;
+  top: -4.5rem;
   z-index: 0;
 
   &:not(.slider-init) {
