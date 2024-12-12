@@ -5,8 +5,12 @@
 {% do pimcore_head_title('Title') %}
 
 {% block head_feature_assets %}
-    <script type="text/javascript" src="{{ pimcore_website_config('asset_public')}}js/wasteCalculator.js"></script>
-    <link rel="stylesheet" href="{{ pimcore_website_config('asset_public')}}css/wasteCalculator.css" />
+    <script type="text/javascript" src="{{ pimcore_website_config('build_public')}}js/wasteCalculator.js"></script>
+    <link rel="stylesheet" href="{{ pimcore_website_config('build_public')}}css/wasteCalculator.css" />
+{% endblock %}
+
+{% block slimslider %}
+	{% include 'includes/slimslider.html.twig' with { carouselItems: carouselItems } %}
 {% endblock %}
 
 <div class="waste-calculator waste-calculator--primary mt-3">
@@ -34,8 +38,8 @@
         <div class="col-6">
     
             <form class="waste-calculator__form" method="POST" action="{{ path(app.request.attributes.get('_route')) }}">
-                <label class="waste-calculator__label py-2" for="persons">Anzahl der Personen:</label>
-                <select class="form-select waste-calculator__select" name="persons" id="persons" required>
+                <label class="waste-calculator__label py-2" for="household">Anzahl der Personen:</label>
+                <select class="form-select waste-calculator__select" name="household" id="persons" required>
                     <option>Bitte Anzahl der Personen auswählen</option>
                     {% for household in additionalContent.allData %}
                         <option value="{{ household.id }}" {{ household.id == additionalContent.curPersonId ? 'selected' : '' }}>{{ household.personsHousehold }} Personen</option>
@@ -68,8 +72,14 @@
                     </div>
     
                     <div class="card__footer">
-                        <span>Mindestgebühr:</span><b>{{ result.fee }} €</b><br />
-                        <span>zusätzliche Entleerung:</span><b>{% for minimumFee in result.minimumFee %} {{ minimumFee }} {% endfor %} €</b>
+                        <ul class="list">
+                            <li class="list__entry">
+                                <span>Mindestgebühr:</span><b>{{ result.fee|number_format(2) }} €</b>
+                            </li>
+                            <li class="list__entry">
+                                <span>zusätzliche Entleerung:</span><b>{% for minimumFee in result.minimumFee %} {{ minimumFee|number_format(2) }} {% endfor %} €</b>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             {% endfor %} 
@@ -83,7 +93,7 @@
             }) }}
         </div>
 
-        <div class="waste-calculator__small mt-3">
+        <div class="waste-calculator__small mt-3 m-b-3">
             <small>
                 {{ pimcore_wysiwyg("waste_calc_small_info", {
                     "ckeditorConfigPath": "/js/ckeditor-config.js",
