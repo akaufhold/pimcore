@@ -94,7 +94,7 @@ export default class SliderUI {
     this.dotContainer.classList.add(this.#controlCssClasses.container.dotContainer.name);
     (this.#opts.controls.dotsCount === 'fitRows') && (elementsArray = this.#addUIDotsArray(this.#sliderElements.slice()))
     elementsArray.forEach((_, index) => {
-      this.dotContainer.insertAdjacentHTML('beforeEnd', `<div class="${this.#controlCssClasses.container.dotContainer.dot.name}" data-slide="${index}" tabindex="${index++}" role="button"></div>`)
+      this.dotContainer.insertAdjacentHTML('beforeEnd', `<div class="${this.#controlCssClasses.container.dotContainer.dot.name}" data-slide="${index}" role="button"></div>`)
     })
     this.controlContainer.appendChild(this.dotContainer)
   }
