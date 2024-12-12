@@ -2,15 +2,15 @@
 
 	<div class="container-fluid header-top">
 		<div class="container">
-			<div class="row p-3">
-				<div class="col-lg-8 col-md-8">
+			<div class="row py-3">
+				<div class="col-8">
 					<ul class="info">
 						<li><i class="fa fa-envelope"></i> info@email.com</li>
 						<li><i class="fa fa-map"></i>Alexanderplatz 1, 12345 Berlin</li>
 					</ul>
 				</div>
-				<div class="col-lg-4 col-md-4 social">
-					{% include 'includes/social_nav.html.twig' with { socialRoot: socialRoot, socialChildren: socialChildren } %}
+				<div class="col-4 social">
+					{% include 'includes/nav/social_nav.html.twig' with { socialRoot: socialRoot, socialChildren: socialChildren } %}
 				</div>
 			</div>
 		</div>
@@ -19,11 +19,12 @@
 	<div class="container-fluid header-bottom">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-2 logo">
+				<div class="col-9 col-lg-3 logo">
 					{% include 'includes/logo.html.twig' with { logo: logo} %}
 				</div>
-				<div class="col-lg-10 main-nav d-flex align-items-end justify-content-end">
-					{% include 'includes/main_nav.html.twig' with { mainNavRoot: mainNavRoot, mainNavChildren: mainNavChildren } %}
+				<div class="col-3 col-lg-9 main-nav d-flex align-items-center align-items-xl-end justify-content-end">
+					{% include 'includes/nav/main_nav.html.twig' with { mainNavRoot: mainNavRoot, mainNavChildren: mainNavChildren } %}
+					{% include 'includes/nav/burger_menu.html.twig' %}
 				</div>
 			</div>
 		</div>

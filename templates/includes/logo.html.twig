@@ -1,13 +1,7 @@
-
-
 <a href="{{ document.getParent().getRealFullPath() }}">
     {% if logo %}
-        {{ logo.getThumbnail('logo-thumbnail').getHtml({
-            'alt': 'Unternehmenslogo',
-            'class': 'site-logo'
-        }) | raw }}
+        <img src="{{ pimcore_website_config('asset_public') ~ logo.getFullPath() }}" alt="Unternehmenslogo" class="site-logo" />
     {% else %}
         <img src="/path/to/default/logo.png" alt="Unternehmenslogo" class="site-logo" />
     {% endif %}
 </a>
-
