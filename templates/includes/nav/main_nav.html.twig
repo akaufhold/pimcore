@@ -2,9 +2,8 @@
 	{% if mainNavChildren|length > 0 %}
 			{% for page in mainNavChildren %}
 					{% if page.published %}
-
 							<li>
-									<a href="{{ page.href ?: '#' }}" target="_blank">
+									<a href="{{ page.href ?: '#' }}" target="_top">
 											<i class="fa-solid fa-caret-right"></i>
 											<span>{{ page.title}}</span>
 									</a>
@@ -14,3 +13,4 @@
 	{% else %}
 			<li>No Footer Menü found</li>
 	{% endif %}
+</ul>
