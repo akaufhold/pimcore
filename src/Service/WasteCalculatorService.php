@@ -3,6 +3,7 @@
 namespace App\Service;
 use Pimcore\Model\DataObject\PersonsHousehold;
 use Pimcore\Model\DataObject\Fees;
+use Pimcore\Model\Document;
 
 use App\Repository\PersonsHouseholdRepository;
 
@@ -26,8 +27,6 @@ class WasteCalculatorService
         }
 
         $allHouseholds = $this->getAllHousehold();
-        // dump($allHouseholds);
-        // die();
         $householdSelected = $this->getCurHousehold($request, $allHouseholds, $householdId);
         $curHouseholdId = $householdId ?? $householdSelected.id;
         $curHouseholdAmount = $householdSelected->get('personsHousehold');
@@ -86,6 +85,35 @@ class WasteCalculatorService
         });
         return $allHouseholds;
     }
+
+    /**
+     * Get content parameters for waste calculator template
+     * @param Document $document
+     * @param Request $request
+     * 
+     * @return array
+     */
+
+     public function getWasteCalculatorRenderParams(Document $document, $request): ?array
+     {
+         $calculatorType = $document->getProperty('calculatorType');
+         if (!$calculatorType) {
+             return null;
+         }
+ 
+         if ($calculatorType === 'waste') {
+             [$allData, $curData, $curPersonId, $curPersonAmount] = $this->getAllData($request);
+ 
+             return [
+                 'allData' => $allData,
+                 'curData' => $curData,
+                 'curPersonId' => $curPersonId,
+                 'curPersonAmount' => $curPersonAmount,
+             ];
+         }
+ 
+         return null;
+     }
 
     /**
      * Collect and calculate results for certain household
