@@ -2,6 +2,9 @@
 
 namespace App\Utility;
 
+/** 
+ * Class for debugging 
+ */
 class DebugUtility
 {
     public static function debug($data): string

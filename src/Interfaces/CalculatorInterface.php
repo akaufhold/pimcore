@@ -2,6 +2,9 @@
 
 namespace App\Interfaces;
 
+/**
+ * Interface for calculators
+ */
 interface CalculatorInterface
 {
     public function calculate(): array;
