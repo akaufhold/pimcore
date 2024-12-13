@@ -15,9 +15,8 @@ use Pimcore\Model\Asset\Image;
 
 use App\Service\AssetService;
 use App\Service\ContentService;
-use App\Service\DocumentService;
 use App\Service\ListingService;
-
+use App\Service\WasteCalculatorService;
 
 class ContentController extends FrontendController
 {
@@ -25,7 +24,7 @@ class ContentController extends FrontendController
     private ContentService $contentService;
     private AssetService $assetService;
     private ListingService $listingService;
-    private DocumentService $documentService;
+    private WasteCalculatorService $wasteCalculatorService;
 
     private $pageRootId = ROOT_ID;
 
@@ -33,12 +32,13 @@ class ContentController extends FrontendController
         ContentService $contentService, 
         AssetService $assetService, 
         ListingService $listingService,
-        DocumentService $documentService)
+        WasteCalculatorService $wasteCalculatorService
+    )
     {
         $this->contentService = $contentService;
         $this->assetService = $assetService;
         $this->listingService = $listingService;
-        $this->documentService = $documentService;
+        $this->wasteCalculatorService = $wasteCalculatorService;
     }
 
     /**
@@ -51,37 +51,25 @@ class ContentController extends FrontendController
     {
         $document = $this->document;
         $templateFile = $document->getTemplate() ?? 'content/home.html.twig';
+        $renderParams = $this->getRenderParams();
 
-        $logo = Asset::getById((int)($this->documentService->getPropFromDoc($this->pageRootId, 'logoId')));
-		$socialRoot = Document::getById((int)($this->documentService->getPropFromDoc($this->pageRootId, 'socialNavId')));
-        $socialChildren = $this->getChildrenListingByPid($socialRoot);
-		$mainNavRoot = Document::getById((int)($this->documentService->getPropFromDoc($this->pageRootId, 'mainNavId')));
-        $mainNavChildren = $this->getChildrenListingByPid($mainNavRoot);
-        $mainNavChildrenFiltered = $this->listingService->filterListingWithBool($mainNavChildren, 'main_nav_hide', 0);
-
-        $carouselItems = $this->assetService->getAssetListingByPid(2);
-
-        $renderParams = [
-            'logo' => $logo,
-            'socialRoot' => $socialRoot,
-            'socialChildren' => $socialChildren,
-            'carouselItems' => $carouselItems,
-            'mainNavRoot' => $mainNavRoot,
-            'mainNavChildren' => $mainNavChildrenFiltered,
-        ];
-
-        $renderParams['additionalContent'] = $this->contentService->getAdditionalContent($document, $request);
         return $this->render($templateFile, $renderParams);
     }
 
     /**
-     * Get Navigation Root Childrens
-     * Page $page
+     * Action for waste template
+     * @param Request $request
      * 
-     * @return Listing
+     * @return Response
      */
-    public function getChildrenListingByPid(Page $page): Listing 
+    public function wasteAction(Request $request): Response
     {
-        return $socialPages = $page ? $page->getChildren() : [];
+        $document = $this->document;
+        $templateFile = $document->getTemplate() ?? 'content/waste.html.twig';
+        $renderParams = $this->getRenderParams();
+        $renderParams['wasteCalculatorContent'] = $this->wasteCalculatorService->getWasteCalculatorRenderParams($document, $request);
+        dump($renderParams);
+        die();
+        return $this->render($templateFile, $renderParams);
     }
 }
