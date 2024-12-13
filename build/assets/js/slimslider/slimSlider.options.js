@@ -65,7 +65,7 @@ const options = {
   sliderParallaxWrapperClass: 'slider-parallax',
   sliderLinkClass: 'slider-link',
   sliderInitClass: 'slider-init',
-  transition: 'rect',
+  transition: 'circle',
   transitionTiming: 'ease-out',
   transitionSegments: 10,
   transitionDuration: 2000,
