@@ -1,6 +1,6 @@
 <ul class="social-navigation">
-	{% if socialChildren|length > 0 %}
-			{% for page in socialChildren %}
+	{% if socialNavItems|length > 0 %}
+			{% for page in socialNavItems %}
 					{% if page.published %}
 							<li>
 									<a href="{{ page.href ?: '#' }}" target="_blank">

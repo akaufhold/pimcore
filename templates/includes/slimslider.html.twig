@@ -5,8 +5,8 @@
 
 <div id="slider" class="slider">
 
-	{% if carouselItems|length > 0 %}
-		{% for item in carouselItems %}
+	{% if sliderItems|length > 0 %}
+		{% for item in sliderItems %}
 
 			<img 
 				src="{{ item.getThumbnail('carousel-thumb').getPath() }}" 

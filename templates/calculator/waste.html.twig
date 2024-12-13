@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block slimslider %}
-	{% include 'includes/slimslider.html.twig' with { carouselItems: carouselItems } %}
+	{% include 'includes/slimslider.html.twig' with { sliderItems: sliderItems } %}
 {% endblock %}
 
 <div class="waste-calculator waste-calculator--primary mt-3">
@@ -41,8 +41,8 @@
                 <label class="waste-calculator__label py-2" for="household">Anzahl der Personen:</label>
                 <select class="form-select waste-calculator__select" name="household" id="persons" required>
                     <option>Bitte Anzahl der Personen auswählen</option>
-                    {% for household in additionalContent.allData %}
-                        <option value="{{ household.id }}" {{ household.id == additionalContent.curPersonId ? 'selected' : '' }}>{{ household.personsHousehold }} Personen</option>
+                    {% for household in wasteCalculatorContent.allData %}
+                        <option value="{{ household.id }}" {{ household.id == wasteCalculatorContent.curPersonId ? 'selected' : '' }}>{{ household.personsHousehold }} Personen</option>
                     {% endfor %}
                 </select>
                 <div class="col-auto mt-3">
@@ -54,13 +54,13 @@
         </div>
     </div>
 
-    {% if additionalContent.curData is defined %}
+    {% if wasteCalculatorContent.curData is defined %}
     <div class="waste-calculator__results mt-3">
         <h2 class="waste-calculator__headline pb-3">
-            Für einen {{ additionalContent.curPersonAmount }}-Personenhaushalt ergibt sich:
+            Für einen {{ wasteCalculatorContent.curPersonAmount }}-Personenhaushalt ergibt sich:
         </h2>
         <div class="waste-calculator__card-group">
-            {% for result in additionalContent.curData %}
+            {% for result in wasteCalculatorContent.curData %}
                 <div class="card card--white w-33 mb-3">
                     <div class="card__body">
                         <h3>{{ loop.index }}. Möglichkeit: </h3>

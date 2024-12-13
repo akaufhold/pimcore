@@ -1,6 +1,6 @@
 <ul class="main-navigation">
-	{% if mainNavChildren|length > 0 %}
-			{% for page in mainNavChildren %}
+	{% if mainNavItems|length > 0 %}
+			{% for page in mainNavItems %}
 					{% if page.published %}
 							<li>
 									<a href="{{ page.href ?: '#' }}" target="_top">
