@@ -21,13 +21,13 @@
 </head>
 
 <body>
-	{% include 'includes/header.html.twig' with { socialRoot: socialRoot, socialChildren: socialChildren } %}
+	{% include 'includes/_header.html.twig' with { socialNavItems: socialNavItems } %}
 	{{ block('slimslider') }}
 	<div class="wrapper py-3 container">
 		<div class="col-12">
 			{{ block('content') }}
 		</div>
 	</div>
-	{% include 'includes/footer.html.twig' with { mainNavRoot: mainNavRoot, mainNavItems: mainNavItems } %}
+	{% include 'includes/_footer.html.twig' with { mainNavItems: mainNavItems } %}
 </body>
 </html>
