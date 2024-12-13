@@ -1,7 +1,15 @@
-<a href="{{ document.getParent().getRealFullPath() }}">
+<a href="{{ document.getParent().getRealFullPath() }}" class="logo">
     {% if logo %}
-        <img src="{{ pimcore_website_config('asset_public') ~ logo.getFullPath() }}" alt="Unternehmenslogo" class="site-logo" />
+        <img src="{{ pimcore_website_config('asset_public') ~ logo.getFullPath() }}" alt="Unternehmenslogo" class="logo-img" />
     {% else %}
-        <img src="/path/to/default/logo.png" alt="Unternehmenslogo" class="site-logo" />
+        <img src="/path/to/default/logo.png" alt="Unternehmenslogo" class="logo-img" />
+    {% endif %}
+</a>
+
+<a href="{{ document.getParent().getRealFullPath() }}" class="logo-dark">
+    {% if logoDark %}
+        <img src="{{ pimcore_website_config('asset_public') ~ logoDark.getFullPath() }}" alt="Unternehmenslogo" class="logo-img" />
+    {% else %}
+        <img src="/path/to/default/logo.png" alt="Unternehmenslogo" class="logo-img" />
     {% endif %}
 </a>

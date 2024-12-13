@@ -38,6 +38,7 @@ class LayoutService
 			$socialRoot = Document::getById((int)($this->documentService->getPropFromDoc($this->pageRootId, 'socialNavId')));
 
 			$renderParams['logo'] = Asset::getById((int)($this->documentService->getPropFromDoc($this->pageRootId, 'logoId')));
+			$renderParams['logoDark'] = Asset::getById((int)($this->documentService->getPropFromDoc($this->pageRootId, 'logoDarkId')));
 			$renderParams['socialNavItems'] = $this->documentService->getChildrenListingByPid($socialRoot);
 			$renderParams['mainNavItems'] = $this->documentService->getChildrenListingByPid($mainNavRoot);
 			$renderParams['mainNavItemsFiltered'] = $this->listingService->filterListingWithProp($renderParams['mainNavItems'], 'main_nav_hide', 0);

@@ -1,10 +1,29 @@
-.logo {
+.logo-col {
   display: flex;
   align-items: center;
 
-  a {
+  .logo {
+    display: none;
+    max-width: 250px;
+
+    .is-scrolled & {
+      display: inline-flex;
+    }
+
+    img {
+      filter: contrast(90);
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .logo-dark {
     display: inline-flex;
     max-width: 250px;
+
+    .is-scrolled & {
+      display: none;
+    }
 
     img {
       filter: contrast(90);
