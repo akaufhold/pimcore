@@ -8,14 +8,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Utility\DebugUtility;
 use Pimcore\Model\Document;
-use Pimcore\Model\Document\Page;
-use Pimcore\Model\Document\Listing;
-use Pimcore\Model\Asset;
-use Pimcore\Model\Asset\Image;
 
 use App\Service\AssetService;
 use App\Service\ContentService;
 use App\Service\ListingService;
+use App\Service\LayoutService;
 use App\Service\WasteCalculatorService;
 
 class ContentController extends FrontendController
@@ -25,6 +22,7 @@ class ContentController extends FrontendController
     private AssetService $assetService;
     private ListingService $listingService;
     private WasteCalculatorService $wasteCalculatorService;
+    private LayoutService $layoutService;
 
     private $pageRootId = ROOT_ID;
 
@@ -32,13 +30,15 @@ class ContentController extends FrontendController
         ContentService $contentService, 
         AssetService $assetService, 
         ListingService $listingService,
-        WasteCalculatorService $wasteCalculatorService
+        WasteCalculatorService $wasteCalculatorService,
+        LayoutService $layoutService
     )
     {
         $this->contentService = $contentService;
         $this->assetService = $assetService;
         $this->listingService = $listingService;
         $this->wasteCalculatorService = $wasteCalculatorService;
+        $this->layoutService = $layoutService;
     }
 
     /**
@@ -51,7 +51,7 @@ class ContentController extends FrontendController
     {
         $document = $this->document;
         $templateFile = $document->getTemplate() ?? 'content/home.html.twig';
-        $renderParams = $this->getRenderParams();
+        $renderParams = $this->layoutService->getRenderParams();
 
         return $this->render($templateFile, $renderParams);
     }
@@ -66,10 +66,10 @@ class ContentController extends FrontendController
     {
         $document = $this->document;
         $templateFile = $document->getTemplate() ?? 'content/waste.html.twig';
-        $renderParams = $this->getRenderParams();
+        $renderParams = $this->layoutService->getRenderParams();
+
         $renderParams['wasteCalculatorContent'] = $this->wasteCalculatorService->getWasteCalculatorRenderParams($document, $request);
-        dump($renderParams);
-        die();
+
         return $this->render($templateFile, $renderParams);
     }
 }
