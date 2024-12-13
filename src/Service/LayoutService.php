@@ -7,20 +7,24 @@ use Pimcore\Model\Asset;
 
 use App\Service\DocumentService;
 use App\Service\ListingService;
+use App\Service\AssetService;
 
 class LayoutService
 {
 		private DocumentService $documentService;
     private ListingService $listingService;
+    private AssetService $assetService;
 
     private $pageRootId = ROOT_ID;
 
     public function __construct(
 				DocumentService $documentService,
 				ListingService $listingService,
+				AssetService $assetService,
     ) {
 				$this->documentService = $documentService;
 				$this->listingService = $listingService;
+				$this->assetService = $assetService;
     }
 
 		/**
@@ -36,7 +40,7 @@ class LayoutService
 			$renderParams['logo'] = Asset::getById((int)($this->documentService->getPropFromDoc($this->pageRootId, 'logoId')));
 			$renderParams['socialNavItems'] = $this->documentService->getChildrenListingByPid($socialRoot);
 			$renderParams['mainNavItems'] = $this->documentService->getChildrenListingByPid($mainNavRoot);
-			$renderParams['mainNavItemsFiltered'] = $this->listingService->filterListingWithBool($mainNavChildren, 'main_nav_hide', 0);
+			$renderParams['mainNavItemsFiltered'] = $this->listingService->filterListingWithBool($renderParams['mainNavItems'], 'main_nav_hide', 0);
 			$renderParams['sliderItems'] = $this->assetService->getAssetListingByPid($this->documentService->getPropFromDoc($this->pageRootId, 'sliderAssetsRoot'));
 
 			return $renderParams;
