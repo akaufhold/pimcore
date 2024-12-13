@@ -7,9 +7,15 @@ use App\Service\WasteCalculatorService;
 use Pimcore\Model\Document;
 use Pimcore\Model\Asset\Listing as AssetListing;
 
+/**
+ * AssetService
+ *
+ * Handles the asset specific functions
+ * Provides actions to manage and prepare data for frontend views.
+ */
 class AssetService
 {
-		/**
+    /**
      * Get Asset Items from Pid
      * 
      * @param int $pageId
