@@ -40,7 +40,7 @@ class LayoutService
 			$renderParams['logo'] = Asset::getById((int)($this->documentService->getPropFromDoc($this->pageRootId, 'logoId')));
 			$renderParams['socialNavItems'] = $this->documentService->getChildrenListingByPid($socialRoot);
 			$renderParams['mainNavItems'] = $this->documentService->getChildrenListingByPid($mainNavRoot);
-			$renderParams['mainNavItemsFiltered'] = $this->listingService->filterListingWithBool($renderParams['mainNavItems'], 'main_nav_hide', 0);
+			$renderParams['mainNavItemsFiltered'] = $this->listingService->filterListingWithProp($renderParams['mainNavItems'], 'main_nav_hide', 0);
 			$renderParams['sliderItems'] = $this->assetService->getAssetListingByPid($this->documentService->getPropFromDoc($this->pageRootId, 'sliderAssetsRoot'));
 
 			return $renderParams;

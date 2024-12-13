@@ -18,7 +18,7 @@ class ListingService
      * 
      * @return Listing
      */
-    public function filterListingWithBool(Listing $listing, string $propertyToFilter, bool $filterValue): Listing 
+    public function filterListingWithProp(Listing $listing, string $propertyToFilter, bool $filterValue): Listing 
     {
         $filteredListing = new Listing();
         $filteredListing->setCondition('id IN (?)', [
