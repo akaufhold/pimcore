@@ -35,7 +35,9 @@ pimcore:
 
 
 #### CUSTOM DOCUMENT EDITABLES
-#    documents:
+    documents:
+        default_controller: App\Controller\TemplateController
+        default_action: defaultAction
 #        allow_trailing_slash: 'yes'
 #        generate_preview: false
 #        tags:
@@ -67,9 +69,9 @@ pimcore:
 
 #### SYSTEM SETTINGS
 
-   general:
-       timezone: Europe/Berlin
-       path_variable: ''
+    general:
+        timezone: Europe/Berlin
+        path_variable: ''
 #    full_page_cache:
 #        enabled: false
 #        lifetime: null
