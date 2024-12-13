@@ -15,16 +15,21 @@ use App\Service\ListingService;
 use App\Service\LayoutService;
 use App\Service\WasteCalculatorService;
 
-class ContentController extends FrontendController
+/**
+ * TemplateController
+ *
+ * Handles the rendering of content templates
+ * Provides actions to manage and prepare data for frontend views.
+ */
+class TemplateController extends FrontendController
 {
+    private $pageRootId = ROOT_ID;
 
     private ContentService $contentService;
     private AssetService $assetService;
     private ListingService $listingService;
     private WasteCalculatorService $wasteCalculatorService;
     private LayoutService $layoutService;
-
-    private $pageRootId = ROOT_ID;
 
     public function __construct(
         ContentService $contentService, 
@@ -42,12 +47,12 @@ class ContentController extends FrontendController
     }
 
     /**
-     * Action for content template
+     * Action for default template
      * @param Request $request
      * 
      * @return Response
      */
-    public function templateAction(Request $request): Response
+    public function defaultAction(Request $request): Response
     {
         $document = $this->document;
         $templateFile = $document->getTemplate() ?? 'content/home.html.twig';
