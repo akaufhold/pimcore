@@ -14,6 +14,7 @@ use App\Service\ContentService;
 use App\Service\ListingService;
 use App\Service\LayoutService;
 use App\Service\WasteCalculatorService;
+use App\Service\WebsiteService;
 
 /**
  * TemplateController
@@ -30,20 +31,23 @@ class TemplateController extends FrontendController
     private ListingService $listingService;
     private WasteCalculatorService $wasteCalculatorService;
     private LayoutService $layoutService;
+    private WebsiteService $websiteService;
 
     public function __construct(
-        ContentService $contentService, 
         AssetService $assetService, 
+        ContentService $contentService, 
+        LayoutService $layoutService,
         ListingService $listingService,
         WasteCalculatorService $wasteCalculatorService,
-        LayoutService $layoutService
+        WebsiteService $websiteService,
     )
     {
-        $this->contentService = $contentService;
         $this->assetService = $assetService;
+        $this->contentService = $contentService;
+        $this->layoutService = $layoutService;
         $this->listingService = $listingService;
         $this->wasteCalculatorService = $wasteCalculatorService;
-        $this->layoutService = $layoutService;
+        $this->websiteService = $websiteService;
     }
 
     /**
@@ -56,7 +60,9 @@ class TemplateController extends FrontendController
     {
         $document = $this->document;
         $templateFile = $document->getTemplate() ?? 'content/home.html.twig';
+
         $renderParams = $this->layoutService->getRenderParams();
+        $renderParams['systemSettings'] = $this->websiteService->getSystemSettings();
 
         return $this->render($templateFile, $renderParams);
     }
@@ -71,8 +77,10 @@ class TemplateController extends FrontendController
     {
         $document = $this->document;
         $templateFile = $document->getTemplate() ?? 'content/waste.html.twig';
-        $renderParams = $this->layoutService->getRenderParams();
 
+        $renderParams = $this->layoutService->getRenderParams();
+        $renderParams['systemSettings'] = $this->websiteService->getSystemSettings();
+        
         $renderParams['wasteCalculatorContent'] = $this->wasteCalculatorService->getWasteCalculatorRenderParams($document, $request);
 
         return $this->render($templateFile, $renderParams);
