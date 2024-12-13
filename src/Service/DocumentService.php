@@ -6,6 +6,7 @@ use App\Repository\PersonsHouseholdRepository;
 use App\Service\WasteCalculatorService;
 use Pimcore\Model\Document;
 use Pimcore\Model\Document\Listing;
+use Pimcore\Model\Document\Page;
 
 use Pimcore\Model\Exception\NotFoundException;
 
