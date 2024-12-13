@@ -10,7 +10,7 @@
 					</ul>
 				</div>
 				<div class="col-4 social">
-					{% include 'includes/nav/social_nav.html.twig' with { socialRoot: socialRoot, socialChildren: socialChildren } %}
+					{% include 'includes/nav/_social_nav.html.twig' with { socialNavItems: socialNavItems } %}
 				</div>
 			</div>
 		</div>
@@ -20,11 +20,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-9 col-lg-3 logo">
-					{% include 'includes/logo.html.twig' with { logo: logo} %}
+					{% include 'includes/_logo.html.twig' with { logo: logo} %}
 				</div>
 				<div class="col-3 col-lg-9 main-nav d-flex align-items-center align-items-xl-end justify-content-end">
-					{% include 'includes/nav/main_nav.html.twig' with { mainNavRoot: mainNavRoot, mainNavItems: mainNavItems } %}
-					{% include 'includes/nav/burger_menu.html.twig' %}
+					{% include 'includes/nav/_main_nav.html.twig' with { mainNavItems: mainNavItemsFiltered } %}
+					{% include 'includes/nav/_burger_menu.html.twig' %}
 				</div>
 			</div>
 		</div>
