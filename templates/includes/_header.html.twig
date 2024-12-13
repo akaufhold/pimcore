@@ -5,8 +5,8 @@
 			<div class="row py-3">
 				<div class="col-8">
 					<ul class="info">
-						<li><i class="fa fa-envelope"></i> {{ pimcore_config('email') }}  </li>
-						<li><i class="fa fa-map"></i>{{ pimcore_config('address') }}</li>
+						<li><i class="fa fa-envelope"></i>{{ systemSettings.email.data }}</li>
+						<li><i class="fa fa-map"></i>{{ systemSettings.address.data }}</li>
 					</ul>
 				</div>
 				<div class="col-4 social">
@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-9 col-lg-3 logo">
-					{% include 'includes/_logo.html.twig' with { logo: logo} %}
+					{% include 'includes/_logo.html.twig' with { logo: logo, logoDark: logoDark} %}
 				</div>
 				<div class="col-3 col-lg-9 main-nav d-flex align-items-center align-items-xl-end justify-content-end">
 					{% include 'includes/nav/_main_nav.html.twig' with { mainNavItems: mainNavItemsFiltered } %}
