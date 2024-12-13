@@ -17,8 +17,11 @@ class layoutService
 
 		/**
 		 * Get common rendering parameters for layout
+		 * 
+		 * @return array
 		 */
-    public function getRenderParams() {
+    public function getRenderParams() :array
+		{
 			$renderParams['logo'] = Asset::getById((int)($this->documentService->getPropFromDoc($this->pageRootId, 'logoId')));
 			$renderParams['socialRoot'] = Document::getById((int)($this->documentService->getPropFromDoc($this->pageRootId, 'socialNavId')));
 			$renderParams['socialChildren'] = $this->getChildrenListingByPid($socialRoot);
