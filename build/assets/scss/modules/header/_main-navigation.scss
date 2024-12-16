@@ -8,6 +8,11 @@
     display: flex;
   }
 
+  .is-scrolled & {
+    --padding-link-x: 32px;
+    --padding-link-y: 16px;
+  }
+
   --padding-list-x: 16px;
   --padding-list-y: 16px;
   --padding-link-x: 32px;

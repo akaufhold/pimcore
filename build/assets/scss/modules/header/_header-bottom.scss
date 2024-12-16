@@ -3,8 +3,8 @@
     transition: .35s;
 
     .is-scrolled & {
-      background: var(--bs-gray);
-      min-height: 40px;
+      background: var(--bs-gray-700);
+      min-height: 30px;
     }
     min-height: 50px;
 
