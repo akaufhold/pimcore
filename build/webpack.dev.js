@@ -26,13 +26,13 @@ export default {
   },
   // Define the entry points of our application
   entry: {
-    ckeditor: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + '/ckeditor.js',
-    home: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + '/home.js',
-    sub: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + './sub.js',
-    backend: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + './backend.js',
+    ckeditor: _config.default[_project.type].webpack.paths.assetsRoot  +  _config.default[_project.type].webpack.paths.assets.javascripts + '/ckeditor.js',
+    home: _config.default[_project.type].webpack.paths.assetsRoot  +  _config.default[_project.type].webpack.paths.assets.javascripts + '/home.js',
+    sub: _config.default[_project.type].webpack.paths.assetsRoot  +  _config.default[_project.type].webpack.paths.assets.javascripts + './sub.js',
+    backend: _config.default[_project.type].webpack.paths.assetsRoot  +  _config.default[_project.type].webpack.paths.assets.javascripts + './backend.js',
     // Modules
-    wasteCalculator: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + 'features/waste_calculator.js',
-    slimslider: _config.default[_project.type].webpack.paths.assetsRoot + '/' +  _config.default[_project.type].webpack.paths.assets.javascripts + 'slimslider/slimSlider.js',
+    wasteCalculator: _config.default[_project.type].webpack.paths.assetsRoot  +  _config.default[_project.type].webpack.paths.assets.javascripts + 'features/waste_calculator.js',
+    slimslider: _config.default[_project.type].webpack.paths.assetsRoot  +  _config.default[_project.type].webpack.paths.assets.javascripts + 'slimslider/slimSlider.js',
   },
   
   // Define the destination directory and filenames of compiled resources and files
@@ -45,13 +45,8 @@ export default {
   cache: {
     type: 'filesystem',
   },
-  watchOptions: {
-    ignored: /node_modules/,
-    aggregateTimeout: 300,
-    poll: 1000, // falls notwendig
-  },
-  // Define development options
-  devtool: 'eval-cheap-module-source-map',
+  // Define development options - eval for max performance on dev 
+  devtool: 'source-map',
   // Define loaders
   module: {
     rules: [
@@ -76,7 +71,7 @@ export default {
             loader: 'css-loader',
             options: {
               importLoaders: 2,
-              sourceMap: false,
+              sourceMap: true,
               url: true,
               esModule: true
             }
@@ -84,6 +79,7 @@ export default {
           {
             loader: 'postcss-loader',
             options: {
+              sourceMap: true,
               postcssOptions: {
                 plugins: [
                   'autoprefixer'
@@ -97,6 +93,7 @@ export default {
           {
             loader: 'sass-loader',
             options: {
+              sourceMap: true,
               sassOptions: {
                 quietDeps: true,
                 silenceDeprecations: ['import'],
@@ -142,9 +139,9 @@ export default {
     new CopyPlugin({
       patterns: [
         {
-          from: './assets/static', 
-          to: './',
-          noErrorOnMissing: true
+          from: _config.default[_project.type].webpack.paths.assetsRoot + _config.default[_project.type].webpack.paths.assets.static, 
+          to: _config.default[_project.type].webpack.paths.assets.static,
+          noErrorOnMissing: false
         }
       ]
     }),
