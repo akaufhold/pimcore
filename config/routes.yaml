@@ -7,4 +7,4 @@ app:
 
 de:
   path: /de
-  controller: App\Controller\ContentController::templateAction
+  controller: App\Controller\TemplateController::defaultAction

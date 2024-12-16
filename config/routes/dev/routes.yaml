@@ -3,4 +3,4 @@ _pimcore_dev:
 
 content:
     path: /content
-    controller: App\Controller\ContentController::templateAction
+    controller: App\Controller\TemplateController::defaultAction
