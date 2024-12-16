@@ -4,6 +4,16 @@
 	{% include 'includes/_slimslider.html.twig' with { sliderItems: sliderItems } %}
 {% endblock %}
 
-{% block content %}
+{% block page_content %}
 	{% do pimcore_head_title('Title') %}
+
+	<div class="container">
+
+		{{ pimcore_areablock("own_content_block", {
+				"allowed": ["textimage"],
+				"limit": 5
+			}) 
+		}}
+	
+	</div>
 {% endblock %}

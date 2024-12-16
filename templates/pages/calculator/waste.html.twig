@@ -1,7 +1,5 @@
 {% extends 'layouts/layout.html.twig' %}
 
-{% block content %}
-
 {% do pimcore_head_title('Title') %}
 
 {% block head_feature_assets %}
@@ -13,6 +11,7 @@
 	{% include 'includes/_slimslider.html.twig' with { sliderItems: sliderItems } %}
 {% endblock %}
 
+{% block page_content %}
 <div class="waste-calculator waste-calculator--primary mt-3">
 
     <div class="col-12">

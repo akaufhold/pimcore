@@ -53,10 +53,9 @@ class TemplateController extends FrontendController
     public function defaultAction(Request $request): Response
     {
         $document = $this->document;
-        $templateFile = $document->getTemplate() ?? 'content/home.html.twig';
+        $templateFile = $document->getTemplate() ?? 'pages/home.html.twig';
 
         $renderParams = $this->layoutService->getRenderParams();
-        $renderParams['systemSettings'] = WebsiteSettingUtility::convArrToAsso($this->websiteSettingsListing->getSettings());
 
         return $this->render($templateFile, $renderParams);
     }
@@ -70,10 +69,9 @@ class TemplateController extends FrontendController
     public function wasteAction(Request $request): Response
     {
         $document = $this->document;
-        $templateFile = $document->getTemplate() ?? 'content/waste.html.twig';
+        $templateFile = $document->getTemplate() ?? 'pages/calculator/waste.html.twig';
 
         $renderParams = $this->layoutService->getRenderParams();
-        $renderParams['systemSettings'] = $this->websiteSettingsListing->getWebsiteSettings();
 
         $renderParams['wasteCalculatorContent'] = $this->wasteCalculatorService->getWasteCalculatorRenderParams($document, $request);
 
