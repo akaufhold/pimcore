@@ -8,12 +8,16 @@ use Pimcore\Model\Asset;
 use App\Service\DocumentService;
 use App\Service\ListingService;
 use App\Service\AssetService;
+use Pimcore\Model\WebsiteSetting\Listing as WebsiteSettingsListing;
+
+use App\Utility\WebsiteSettingUtility;
 
 class LayoutService
 {
 		private DocumentService $documentService;
     private ListingService $listingService;
     private AssetService $assetService;
+    private WebsiteSettingsListing $websiteSettingsListing;
 
     private $pageRootId = ROOT_ID;
 
@@ -25,6 +29,7 @@ class LayoutService
 				$this->documentService = $documentService;
 				$this->listingService = $listingService;
 				$this->assetService = $assetService;
+				$this->websiteSettingsListing = new WebsiteSettingsListing();
     }
 
 		/**
@@ -43,6 +48,8 @@ class LayoutService
 			$renderParams['mainNavItems'] = $this->documentService->getChildrenListingByPid($mainNavRoot);
 			$renderParams['mainNavItemsFiltered'] = $this->listingService->filterListingWithProp($renderParams['mainNavItems'], 'main_nav_hide', 0);
 			$renderParams['sliderItems'] = $this->assetService->getAssetListingByPid($this->documentService->getPropFromDoc($this->pageRootId, 'sliderAssetsRoot'));
+
+			$renderParams['systemSettings'] = WebsiteSettingUtility::convArrToAsso($this->websiteSettingsListing->getSettings());
 
 			return $renderParams;
 		}	
