@@ -1,0 +1,22 @@
+{% set imageField = pimcore_image('image', {'height': 400}) %}
+
+{% if editmode %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                Text: {{ textField | raw}} 
+            </div>
+        </div>
+    </div>
+		
+{% else %}
+
+    {% if not imageField.isEmpty() %}
+        <div class="col-6">
+            <img src="{{ imageField.getThumbnail('textmedia') }}" alt="imageField.alt">
+        </div>
+    {% endif %}
+
+{% endif %}
+
