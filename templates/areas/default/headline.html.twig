@@ -1,0 +1,26 @@
+{% set headline = pimcore_input("headline")  %}
+
+{% extends 'content_layouts/default.html.twig' %}
+
+{% block block_content %}
+
+<div class="container-fluid">
+
+    {% if editmode %}
+
+        <h1>
+            {{ headline | raw}}
+        </h1>
+
+    {% else %}
+
+        {% if not headline.isEmpty() %}
+            <h1>
+                {{ headline | raw}} 
+            </h1>
+        {% endif %}
+
+    {% endif %}
+
+</div>
+{% endblock %}
