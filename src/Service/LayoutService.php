@@ -12,6 +12,12 @@ use Pimcore\Model\WebsiteSetting\Listing as WebsiteSettingsListing;
 
 use App\Utility\WebsiteSettingUtility;
 
+/**
+ * LayoutService
+ *
+ * Handles the layout specific functions
+ * Provides actions to manage and prepare data and params for frontend views
+ */
 class LayoutService
 {
 		private DocumentService $documentService;
@@ -21,6 +27,13 @@ class LayoutService
 
     private $pageRootId = ROOT_ID;
 
+		/**
+		 * Class constructor for LayoutService class
+		 * 
+		 * @param DocumentService $documentService,
+		 * @param ListingService $listingService,
+		 * @param AssetService $assetService,
+		 */
     public function __construct(
 				DocumentService $documentService,
 				ListingService $listingService,
