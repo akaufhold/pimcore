@@ -18,6 +18,10 @@
 		{% if block('head_feature_assets') is defined %}
 			{{ block('head_feature_assets') }}
 		{% endif %}
+
+		{% if editmode %}
+			<link rel="stylesheet" href="{{ pimcore_website_config('build_public') }}css/backend.css" />
+		{% endif %}
 </head>
 
 <body>
