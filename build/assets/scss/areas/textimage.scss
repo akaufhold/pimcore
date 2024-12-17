@@ -1,5 +1,12 @@
 .pimcore_area {
-	&_textimage {
-		display: flex;
-	}
+  &_textimage {
+    display: flex;
+
+    .area_content {
+      img {
+        max-width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
 }
