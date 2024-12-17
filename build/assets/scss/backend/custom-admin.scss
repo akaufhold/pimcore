@@ -1,3 +1,10 @@
+@import "ckeditor";
+
 .pimcore_field_input {
   color: var(--bs-black);
+}
+
+.pimcore_wysiwyg,
+.pimcore_editable_input {
+  padding: 10px;
 }
