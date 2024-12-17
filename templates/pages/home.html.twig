@@ -7,13 +7,10 @@
 {% block page_content %}
 	{% do pimcore_head_title('Title') %}
 
-	<div class="container">
-
 		{{ pimcore_areablock("main_content", {
-				"allowed": ["textimage"],
+				"allowed": ["headline", "image", "textimage"],
 				"limit": 5
 			}) 
 		}}
 	
-	</div>
 {% endblock %}
