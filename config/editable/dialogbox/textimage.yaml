@@ -1,0 +1,17 @@
+type: tabpanel
+items:
+  - type: panel
+    title: 'Tab 1'
+    items:
+      - type: select
+        label: 'Image & Text Positioning'
+        name: 'position'
+        config:
+          store:
+            - [left, 'Left']
+            - [right, 'Right']
+  - type: panel
+    title: 'Tab 2'
+    items:
+      - type: input
+        name: 'myDialogInput'

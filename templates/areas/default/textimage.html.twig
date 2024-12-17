@@ -1,38 +1,38 @@
-{% set position = brick.position %}
-
 {% set imageField = pimcore_image('image', {'height': 400}) %}
 {% set textField = pimcore_wysiwyg('text') %}
+{% set position = 'right' %}
 
 {% extends 'content_layouts/default.html.twig' %}
 
 {% block block_content %}
+
 <div class="container-fluid">
 
     {% if editmode %}
 
-        <div class="row d-flex {% if position == 'right' %} flex-column-reverse {% endif %}">
-            <div class="col-6">
+        <div class="row d-flex {% if position == 'right' %} flex-row-reverse {% endif %}">
+            <div class="col-6 pimcore_area_content_image">
                 Bild: {{ imageField | raw}}
             </div>
-            <div class="col-6">
+            <div class="col-6 pimcore_area_content_text">
                 Text: {{ textField | raw}} 
             </div>
         </div>
 
     {% else %}
-        <div class="row d-flex {% if position == 'right' %} flex-column-reverse {% endif %}">
+        <div class="row d-flex {% if position == 'right' %} flex-row-reverse {% endif %}">
 
         {% if not imageField.isEmpty() %}
-            <div class="col-6">
+            <div class="col-6 pimcore_area_content_image">
                 <img src="{{ imageField.getThumbnail('textmedia') }}" alt="imageField.alt">
             </div>
         {% endif %}
         {% if not textField.isEmpty() %}
-            <div class="col-6">
+            <div class="col-6 pimcore_area_content_text">
                 {{ textField | raw}} 
             </div>
         {% endif %}
-        
+
         </div>
     {% endif %}
 

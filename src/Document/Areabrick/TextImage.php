@@ -2,6 +2,8 @@
 
 namespace App\Document\Areabrick;
 
+use Symfony\Component\Yaml\Yaml;
+
 use Pimcore\Extension\Document\Areabrick;
 use Pimcore\Extension\Document\Areabrick\AbstractAreabrick;
 use Pimcore\Extension\Document\Areabrick\AbstractTemplateAreabrick;
@@ -9,6 +11,11 @@ use Pimcore\Extension\Document\Areabrick\AreabrickInterface;
 use Pimcore\Extension\Document\Areabrick\Attribute\AsAreabrick;
 use Psr\Log\LoggerInterface;
 
+use Pimcore\Model\Document\Editable;
+use Pimcore\Extension\Document\Areabrick\EditableDialogBoxConfiguration;
+use Pimcore\Extension\Document\Areabrick\EditableDialogBoxInterface;
+
+use Pimcore\Model\Document;
 use Pimcore\Model\Document\Editable\Area\Info;
 use Pimcore\Model\Property\Predefined;
 
@@ -37,7 +44,7 @@ use Pimcore\Model\Property\Predefined;
  * @method getHtmlTagOpen(Info $info) Returns the opening HTML tag for the Areabrick
  * @method getHtmlTagClose(Info $info) Returns the closing HTML tag for the Areabrick
  */
-class TextImage extends AbstractTemplateAreabrick
+class TextImage extends AbstractTemplateAreabrick implements EditableDialogBoxInterface
 {
     public $identifier = 'textimage';
 
@@ -62,7 +69,7 @@ class TextImage extends AbstractTemplateAreabrick
     }
 
     /**
-     * Returns template for areabrick
+     * Returns template for area brick
      * 
      * @return string
      */
@@ -111,8 +118,31 @@ class TextImage extends AbstractTemplateAreabrick
      */
     public function configureProperties(Info $info, array $params = []): array
     {
+        $predefinedPosition = Predefined::getByKey('position');
+        $positionProperty = new Dropdown();
+
+        if ($predefinedPosition) {
+            $positionProperty->setOptions($predefinedPosition->getOptions());
+        }
+
         return [
-            \Pimcore\Model\Property\Predefined::getByKey("position"),
+            'position' => $positionProperty 
         ];
+    }
+    
+    public function getEditableDialogBoxConfiguration(
+        Editable $area, 
+        ?Info $info
+    ): EditableDialogBoxConfiguration
+    {
+        
+        $configArray = Yaml::parseFile(PIMCORE_PROJECT_ROOT . EDITBOX_YAML_PATH . $this->identifier. '.yaml');
+
+        $config = new EditableDialogBoxConfiguration();
+        $config->setWidth(600);
+        $config->setReloadOnClose(true);
+        $config->setItems($configArray);
+
+        return $config;
     }
 }
