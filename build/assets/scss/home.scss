@@ -43,8 +43,13 @@
 @import "~bootstrap/scss/helpers";
 // Utilities
 @import "~bootstrap/scss/utilities/api";
+
+// Font awesome
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/regular";
+
+// Goole fonts
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,700|Lato:400,700|Inter:400,700|Noto+Sans:400,700");
 
 // Elements
 @import "elements/forms";
@@ -54,7 +59,9 @@
 @import "modules/header";
 @import "modules/footer";
 @import "modules/card";
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,700|Lato:400,700|Inter:400,700|Noto+Sans:400,700");
+
+// Areas
+@import "areas/textimage";
 
 body {
   --bs-body-color: var(--bs-black);
