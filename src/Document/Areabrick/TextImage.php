@@ -10,6 +10,7 @@ use Pimcore\Extension\Document\Areabrick\Attribute\AsAreabrick;
 use Psr\Log\LoggerInterface;
 
 use Pimcore\Model\Document\Editable\Area\Info;
+use Pimcore\Model\Property\Predefined;
 
 #[AsAreabrick(id: 'textimage')]
 
@@ -38,7 +39,8 @@ use Pimcore\Model\Document\Editable\Area\Info;
  */
 class TextImage extends AbstractTemplateAreabrick
 {
-    public $areaBrickIdentifier = 'textimage'; 
+    public $identifier = 'textimage';
+
     /**
      * Returns name for area brick
      * 
@@ -46,7 +48,7 @@ class TextImage extends AbstractTemplateAreabrick
      */
     public function getName(): string
     {
-        return $this->areaBrickIdentifier;
+        return $this->identifier;
     }
 
     /**
@@ -56,7 +58,7 @@ class TextImage extends AbstractTemplateAreabrick
      */
     public function getDescription(): string
     {
-        return 'Create content element for '. $this->areaBrickIdentifier;
+        return 'Create content element for '. $this->identifier;
     }
 
     /**
@@ -66,7 +68,7 @@ class TextImage extends AbstractTemplateAreabrick
      */
     public function getTemplate(): string
     {
-        return 'areas/default/'.$this->areaBrickIdentifier.'.html.twig';
+        return 'areas/default/'.$this->identifier.'.html.twig';
     }
 
     /**
@@ -97,5 +99,20 @@ class TextImage extends AbstractTemplateAreabrick
     public function getHtmlTagClose(Info $info): string
     {
         return '';
+    }
+
+    /**
+     * Adding properties for area brick customization
+     * 
+     * @param Info $info
+     * @param array $params
+     * 
+     * @return array
+     */
+    public function configureProperties(Info $info, array $params = []): array
+    {
+        return [
+            \Pimcore\Model\Property\Predefined::getByKey("position"),
+        ];
     }
 }
