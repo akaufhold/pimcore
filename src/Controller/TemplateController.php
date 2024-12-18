@@ -72,7 +72,6 @@ class TemplateController extends FrontendController
         $templateFile = $document->getTemplate() ?? 'pages/calculator/waste.html.twig';
 
         $renderParams = $this->layoutService->getRenderParams();
-
         $renderParams['wasteCalculatorContent'] = $this->wasteCalculatorService->getWasteCalculatorRenderParams($document, $request);
 
         return $this->render($templateFile, $renderParams);
