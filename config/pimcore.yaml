@@ -1,0 +1,6 @@
+pimcore:
+    documents:
+        areabricks:
+            directories:
+                - '%kernel.project_dir%/src/Document/Areabrick'
+                - '%kernel.project_dir%/src/Document/Areabrick/Grid'
