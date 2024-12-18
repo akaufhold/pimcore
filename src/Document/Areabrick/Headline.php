@@ -2,6 +2,15 @@
 
 namespace App\Document\Areabrick;
 
+use Symfony\Component\HttpFoundation\Response;
+
+use Pimcore\Model\Document;
+use Pimcore\Model\Document\Editable;
+use Pimcore\Model\Document\Editable\Area\Info;
+use Pimcore\Model\Property\Predefined;
+use Pimcore\Extension\Document\Areabrick\EditableDialogBoxConfiguration;
+use Pimcore\Extension\Document\Areabrick\EditableDialogBoxInterface;
+
 use Pimcore\Extension\Document\Areabrick;
 use Pimcore\Extension\Document\Areabrick\AbstractAreabrick;
 use Pimcore\Extension\Document\Areabrick\AbstractTemplateAreabrick;
@@ -9,8 +18,7 @@ use Pimcore\Extension\Document\Areabrick\AreabrickInterface;
 use Pimcore\Extension\Document\Areabrick\Attribute\AsAreabrick;
 use Psr\Log\LoggerInterface;
 
-use Pimcore\Model\Document\Editable\Area\Info;
-use Pimcore\Model\Property\Predefined;
+use App\Service\EditableService;
 
 #[AsAreabrick(id: 'headline')]
 
@@ -41,7 +49,44 @@ class Headline extends AbstractTemplateAreabrick
 {
     public $identifier = 'headline';
     public $category = 'default';
-    
+
+    private EditableService $editableService;
+    private LoggerInterface $logger;
+
+    public function __construct(
+        EditableService $editableService,
+        LoggerInterface $logger
+    )
+    {
+        $this->editableService = $editableService;
+        $this->logger = $logger;
+    }
+
+    /**
+     * area brick action 
+     * 
+     * @param Info $info
+     * 
+     * @return Response
+     */
+    public function action(Info $info): ?Response
+    {
+        $document = $info->getDocument();
+        $positionEditable = $this->getDocumentEditable($document,'select','position');
+        $position = $positionEditable->getData() ?? 'default';
+        $info->setParam('position', $position);
+
+        $spaceBeforeEditable = $this->getDocumentEditable($document,'select','space-before');
+        $spaceBefore = $spaceBeforeEditable->getData() ?? 'default';
+        $info->setParam('spaceBefore', $spaceBefore);
+
+        $spaceAfterEditable = $this->getDocumentEditable($document,'select','space-after');
+        $spaceAfter = $spaceAfterEditable->getData() ?? 'default';
+        $info->setParam('spaceAfter', $spaceAfter);
+
+        return null;
+    }
+
     /**
      * Returns name for area brick
      * 
@@ -113,5 +158,22 @@ class Headline extends AbstractTemplateAreabrick
     public function configureProperties(Info $info, array $params = []): array
     {
 
+    }
+
+    /**
+     * Get dialogbox config
+     * 
+     * @param Editable $area
+     * @param Info $info
+     * 
+     * @return EditableDialogBoxConfiguration
+     */
+    public function getEditableDialogBoxConfiguration(
+        Editable $area, 
+        ?Info $info
+    ): EditableDialogBoxConfiguration
+    {   
+        $config = $this->editableService->getEditableDialogBoxConfiguration($area, 'EditableDialogBox', $this->category, $this->identifier, $info);
+        return $config;
     }
 }
