@@ -62,16 +62,27 @@ class TextImage extends AbstractTemplateAreabrick implements EditableDialogBoxIn
         $this->logger = $logger;
     }
 
+    /**
+     * area brick action 
+     * 
+     * @param Info $info
+     * 
+     * @return Response
+     */
     public function action(Info $info): ?Response
     {
         $document = $info->getDocument();
-        $positionEditable = $this->getDocumentEditable(
-            $document,
-            'select',
-            'position'
-        );
+        $positionEditable = $this->getDocumentEditable($document,'select','position');
         $position = $positionEditable->getData() ?? 'default';
         $info->setParam('position', $position);
+
+        $spaceBeforeEditable = $this->getDocumentEditable($document,'select','space-before');
+        $spaceBefore = $spaceBeforeEditable->getData() ?? 'default';
+        $info->setParam('spaceBefore', $spaceBefore);
+
+        $spaceAfterEditable = $this->getDocumentEditable($document,'select','space-after');
+        $spaceAfter = $spaceAfterEditable->getData() ?? 'default';
+        $info->setParam('spaceAfter', $spaceAfter);
 
         return null;
     }
@@ -136,6 +147,14 @@ class TextImage extends AbstractTemplateAreabrick implements EditableDialogBoxIn
         return '';
     }
 
+    /**
+     * Get dialogbox config
+     * 
+     * @param Editable $area
+     * @param Info $info
+     * 
+     * @return EditableDialogBoxConfiguration
+     */
     public function getEditableDialogBoxConfiguration(
         Editable $area, 
         ?Info $info
