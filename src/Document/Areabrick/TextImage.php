@@ -141,13 +141,7 @@ class TextImage extends AbstractTemplateAreabrick implements EditableDialogBoxIn
         ?Info $info
     ): EditableDialogBoxConfiguration
     {   
-        $this->logger->info('DialogBox Configuration called', [
-            'area' => $area,
-            'category' => $this->category,
-            'identifier' => $this->identifier
-        ]);
         $config = $this->editableService->getEditableDialogBoxConfiguration($area, 'EditableDialogBox', $this->category, $this->identifier, $info);
-
         return $config;
     }
 }

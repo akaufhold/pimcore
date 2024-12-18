@@ -47,9 +47,11 @@ class YamlService
 	{
 		$path = PIMCORE_PROJECT_ROOT . $this->getPathPrefixForType($type) . $category .'/'. $identifier. '.yaml';
 
-		$this->logger->info('EditableService - Path to YAML config', [
-			'path' => $path,
-		]);
+		if (!file_exists($yamlPath)) {
+			$this->logger->error('YAML config file not found', ['path' => $yamlPath]);
+			throw new \RuntimeException('YAML config file not found: ' . $yamlPath);
+		}
+
 		return $path; 
 	}
 }

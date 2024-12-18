@@ -55,10 +55,6 @@ class EditableService {
 					throw new \RuntimeException('YAML config file not found: ' . $yamlPath);
 				}
 
-				$this->logger->info('EditableService - ', [
-					'path' => $yamlPath,
-				]);
-
 				$configArray = Yaml::parseFile($yamlPath);
 
 				$config = new EditableDialogBoxConfiguration();
