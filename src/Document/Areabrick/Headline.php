@@ -40,7 +40,8 @@ use Pimcore\Model\Property\Predefined;
 class Headline extends AbstractTemplateAreabrick
 {
     public $identifier = 'headline';
-
+    public $category = 'default';
+    
     /**
      * Returns name for area brick
      * 
@@ -62,13 +63,13 @@ class Headline extends AbstractTemplateAreabrick
     }
 
     /**
-     * Returns template for areabrick
+     * Returns template for area brick
      * 
      * @return string
      */
     public function getTemplate(): string
     {
-        return 'areas/default/'.$this->identifier.'.html.twig';
+        return AREA_BRICKS_TEMPLATE_PATH . $this->category .'/'. $this->identifier.'.html.twig';
     }
 
     /**
