@@ -47,7 +47,7 @@ services:
         resource: '../src/*'
         exclude: '../src/{DependencyInjection,Entity,Tests,Kernel.php}'
         bind:
-            Psr\Log\LoggerInterface: '@monolog.handler.dev_logs'
+            Psr\Log\LoggerInterface: '@monolog.logger.dev_logs'
 
     App\EventListener\AdminAssetsListener:
         tags:

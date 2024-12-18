@@ -1,7 +1,8 @@
 monolog:
+    channels: ['dev_logs']
     handlers:
         dev_logs:
             type: stream
             path: '%kernel.logs_dir%/custom_logs/dev_logs.log'
-            level: debug 
-            formatter: monolog.formatter.line
+            level: debug
+            channels: ['dev_logs']
