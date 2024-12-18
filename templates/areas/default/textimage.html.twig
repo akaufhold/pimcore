@@ -1,6 +1,6 @@
 {% set imageField = pimcore_image('image', {'height': 400}) %}
 {% set textField = pimcore_wysiwyg('text') %}
-{% set position = 'right' %}
+{% set position = info.params.position %}
 
 {% extends 'content_layouts/default.html.twig' %}
 
@@ -27,6 +27,7 @@
                 <img src="{{ imageField.getThumbnail('textmedia') }}" alt="imageField.alt">
             </div>
         {% endif %}
+        
         {% if not textField.isEmpty() %}
             <div class="col-6 pimcore_area_content_text">
                 {{ textField | raw}} 

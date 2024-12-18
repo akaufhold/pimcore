@@ -3,6 +3,7 @@
 namespace App\Document\Areabrick;
 
 use Symfony\Component\Yaml\Yaml;
+use Symfony\Component\HttpFoundation\Response;
 
 use Pimcore\Extension\Document\Areabrick;
 use Pimcore\Extension\Document\Areabrick\AbstractAreabrick;
@@ -47,6 +48,21 @@ use Pimcore\Model\Property\Predefined;
 class TextImage extends AbstractTemplateAreabrick implements EditableDialogBoxInterface
 {
     public $identifier = 'textimage';
+    public $category = 'default';
+
+    public function action(Info $info): ?Response
+    {
+        $document = $info->getDocument();
+        $positionEditable = $this->getDocumentEditable(
+            $document,
+            'select',
+            'position'
+        );
+        $position = $positionEditable->getData() ?? 'default';
+        $info->setParam('position', $position);
+
+        return null;
+    }
 
     /**
      * Returns name for area brick
@@ -75,7 +91,7 @@ class TextImage extends AbstractTemplateAreabrick implements EditableDialogBoxIn
      */
     public function getTemplate(): string
     {
-        return 'areas/default/'.$this->identifier.'.html.twig';
+        return AREA_BRICKS_TEMPLATE_PATH . $this->category .'/'. $this->identifier.'.html.twig';
     }
 
     /**
@@ -107,35 +123,28 @@ class TextImage extends AbstractTemplateAreabrick implements EditableDialogBoxIn
     {
         return '';
     }
-
-    /**
-     * Adding properties for area brick customization
-     * 
-     * @param Info $info
-     * @param array $params
-     * 
-     * @return array
-     */
-    public function configureProperties(Info $info, array $params = []): array
+    
+    public function getDataForTemplate(Info $info): array
     {
-        $predefinedPosition = Predefined::getByKey('position');
-        $positionProperty = new Dropdown();
-
-        if ($predefinedPosition) {
-            $positionProperty->setOptions($predefinedPosition->getOptions());
-        }
-
+        $document = $info->getDocument();
+        $positionEditable = $this->getDocumentEditable(
+            $document,
+            'select',
+            'position'
+        );
+    
+        $position = $positionEditable->getData() ?? 'default';
+    
         return [
-            'position' => $positionProperty 
+            'position' => $position
         ];
     }
-    
+
     public function getEditableDialogBoxConfiguration(
         Editable $area, 
         ?Info $info
     ): EditableDialogBoxConfiguration
     {
-        
         $configArray = Yaml::parseFile(PIMCORE_PROJECT_ROOT . EDITBOX_YAML_PATH . $this->identifier. '.yaml');
 
         $config = new EditableDialogBoxConfiguration();
