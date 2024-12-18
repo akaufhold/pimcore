@@ -1,15 +1,16 @@
 type: tabpanel
 items:
   - type: panel
-    title: 'Tab 1'
+    title: 'Aligning'
     items:
       - type: select
-        label: 'Image Positioning'
+        label: 'Text Aligning'
         name: 'position'
         config:
           store:
-            - [left, 'Left']
-            - [right, 'Right']
+            - [text-start, 'Left']
+            - [text-center, 'Middle']
+            - [text-end, 'Right']
       - type: select
         label: 'Space before'
         name: 'space-before'
@@ -32,8 +33,3 @@ items:
             - [mb-3, 'Medium']
             - [mb-4, 'Large']
             - [mb-5, 'Very Large']
-  - type: panel
-    title: 'Tab 2'
-    items:
-      - type: input
-        name: 'myDialogInput'
