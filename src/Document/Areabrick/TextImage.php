@@ -2,8 +2,14 @@
 
 namespace App\Document\Areabrick;
 
-use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\HttpFoundation\Response;
+
+use Pimcore\Model\Document;
+use Pimcore\Model\Document\Editable;
+use Pimcore\Model\Document\Editable\Area\Info;
+use Pimcore\Model\Property\Predefined;
+use Pimcore\Extension\Document\Areabrick\EditableDialogBoxConfiguration;
+use Pimcore\Extension\Document\Areabrick\EditableDialogBoxInterface;
 
 use Pimcore\Extension\Document\Areabrick;
 use Pimcore\Extension\Document\Areabrick\AbstractAreabrick;
@@ -12,13 +18,7 @@ use Pimcore\Extension\Document\Areabrick\AreabrickInterface;
 use Pimcore\Extension\Document\Areabrick\Attribute\AsAreabrick;
 use Psr\Log\LoggerInterface;
 
-use Pimcore\Model\Document\Editable;
-use Pimcore\Extension\Document\Areabrick\EditableDialogBoxConfiguration;
-use Pimcore\Extension\Document\Areabrick\EditableDialogBoxInterface;
-
-use Pimcore\Model\Document;
-use Pimcore\Model\Document\Editable\Area\Info;
-use Pimcore\Model\Property\Predefined;
+use App\Service\EditableService;
 
 #[AsAreabrick(id: 'textimage')]
 
@@ -49,6 +49,18 @@ class TextImage extends AbstractTemplateAreabrick implements EditableDialogBoxIn
 {
     public $identifier = 'textimage';
     public $category = 'default';
+
+    private EditableService $editableService;
+    private LoggerInterface $logger;
+
+    public function __construct(
+        EditableService $editableService,
+        LoggerInterface $logger
+    )
+    {
+        $this->editableService = $editableService;
+        $this->logger = $logger;
+    }
 
     public function action(Info $info): ?Response
     {
@@ -123,34 +135,18 @@ class TextImage extends AbstractTemplateAreabrick implements EditableDialogBoxIn
     {
         return '';
     }
-    
-    public function getDataForTemplate(Info $info): array
-    {
-        $document = $info->getDocument();
-        $positionEditable = $this->getDocumentEditable(
-            $document,
-            'select',
-            'position'
-        );
-    
-        $position = $positionEditable->getData() ?? 'default';
-    
-        return [
-            'position' => $position
-        ];
-    }
 
     public function getEditableDialogBoxConfiguration(
         Editable $area, 
         ?Info $info
     ): EditableDialogBoxConfiguration
-    {
-        $configArray = Yaml::parseFile(PIMCORE_PROJECT_ROOT . EDITBOX_YAML_PATH . $this->identifier. '.yaml');
-
-        $config = new EditableDialogBoxConfiguration();
-        $config->setWidth(600);
-        $config->setReloadOnClose(true);
-        $config->setItems($configArray);
+    {   
+        $this->logger->info('DialogBox Configuration called', [
+            'area' => $area,
+            'category' => $this->category,
+            'identifier' => $this->identifier
+        ]);
+        $config = $this->editableService->getEditableDialogBoxConfiguration($area, 'EditableDialogBox', $this->category, $this->identifier, $info);
 
         return $config;
     }
